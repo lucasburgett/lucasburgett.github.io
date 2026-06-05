@@ -2705,3 +2705,4 @@
 [2026-06-05T21:39:49.493Z] GET http://localhost:4321/node_modules/.vite/deps/astro___aria-query.js?v=68cdb26f → 200 (?ms, 205280B)
 [2026-06-05T21:39:49.493Z] GET http://localhost:4321/node_modules/.vite/deps/astro___axobject-query.js?v=68cdb26f → 200 (?ms, 112534B)
 [2026-06-05T21:39:49.493Z] GET http://localhost:4321/node_modules/.vite/deps/chunk-BUSYA2B4.js?v=a72853a5 → 200 (?ms, 1399B)
+[2026-06-05T21:41:57.712Z] GET http://localhost:4321/ → pending (?ms, ?B)
