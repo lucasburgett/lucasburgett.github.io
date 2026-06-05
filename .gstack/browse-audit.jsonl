@@ -133,3 +133,17 @@
 {"ts":"2026-06-05T21:39:48.065Z","cmd":"screenshot","args":"--viewport /tmp/m2-featured.png","origin":"http://localhost:4321/","durationMs":21,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-06-05T21:39:48.097Z","cmd":"js","args":"window.scrollBy({top:560,behavior:'instant'})","origin":"http://localhost:4321/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-06-05T21:39:49.352Z","cmd":"screenshot","args":"--viewport /tmp/m2-featured-video.png","origin":"http://localhost:4321/","durationMs":20,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:50.988Z","cmd":"goto","args":"https://lucasburgett.github.io/","origin":"https://lucasburgett.github.io/","durationMs":264,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:51.665Z","cmd":"wait","args":"--networkidle","origin":"https://lucasburgett.github.io/","durationMs":633,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:51.698Z","cmd":"js","args":"document.title","origin":"https://lucasburgett.github.io/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:51.731Z","cmd":"console","args":"--errors","origin":"https://lucasburgett.github.io/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:51.768Z","cmd":"network","args":"","origin":"https://lucasburgett.github.io/","durationMs":3,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:52.615Z","cmd":"viewport","args":"1440x900","origin":"https://lucasburgett.github.io/","durationMs":9,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:46:52.693Z","cmd":"screenshot","args":"--viewport /tmp/prod-hero.png","origin":"https://lucasburgett.github.io/","durationMs":39,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:24.141Z","cmd":"goto","args":"http://localhost:4321/","origin":"http://localhost:4321/","durationMs":100,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:24.208Z","cmd":"viewport","args":"1440x900","origin":"http://localhost:4321/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:24.240Z","cmd":"js","args":"window.scrollTo({top:0,behavior:'instant'})","origin":"http://localhost:4321/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:24.816Z","cmd":"screenshot","args":"--viewport /tmp/e-hero.png","origin":"http://localhost:4321/","durationMs":39,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:24.849Z","cmd":"js","args":"Math.round(document.querySelector('#contact').getBoundingClientRect().top + window.scrollY - 40)","origin":"http://localhost:4321/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:24.882Z","cmd":"js","args":"window.scrollTo({top:6678,behavior:'instant'})","origin":"http://localhost:4321/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-05T21:57:25.555Z","cmd":"screenshot","args":"--viewport /tmp/e-contact.png","origin":"http://localhost:4321/","durationMs":31,"status":"ok","hasCookies":false,"mode":"launched"}
