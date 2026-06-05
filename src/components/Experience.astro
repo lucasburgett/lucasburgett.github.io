@@ -1,0 +1,49 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import { experience } from "../data/content";
+---
+
+<section id="experience" class="scroll-mt-20 py-20 md:py-28">
+  <div class="shell">
+    <SectionHeader
+      index="03"
+      eyebrow="Experience"
+      title="Where I've worked"
+      lead="From production computer vision to early-stage research — and, this summer, reinforcement learning for robots at Parametric."
+    />
+
+    <ol class="relative ml-1.5 border-l border-line">
+      {
+        experience.map((job, i) => (
+          <li class="relative pb-10 pl-8 last:pb-0" data-reveal style={`--reveal-delay: ${i * 50}ms`}>
+            <span
+              class:list={[
+                "absolute -left-[7px] top-1.5 h-3 w-3 rounded-full ring-4 ring-bg",
+                job.upcoming ? "bg-accent" : "bg-line-strong",
+              ]}
+              aria-hidden="true"
+            />
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <h3 class="text-lg font-semibold tracking-tight text-ink">
+                {job.role}
+                <span class="text-muted"> · {job.org}</span>
+              </h3>
+              <p class="font-mono text-xs text-faint">{job.period}</p>
+            </div>
+            <p class="mt-0.5 font-mono text-[0.7rem] uppercase tracking-wider text-faint">
+              {job.location}
+            </p>
+            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{job.body}</p>
+            {job.tags && (
+              <ul class="mt-3 flex flex-wrap gap-1.5">
+                {job.tags.map((tag) => (
+                  <li class="tag">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

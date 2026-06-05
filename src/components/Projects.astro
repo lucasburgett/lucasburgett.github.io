@@ -1,0 +1,67 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import { projects } from "../data/content";
+---
+
+<section id="projects" class="scroll-mt-20 py-20 md:py-28">
+  <div class="shell">
+    <SectionHeader
+      index="02"
+      eyebrow="Projects"
+      title="Things I've shipped"
+      lead="Applied work outside the lab — AI products, developer tooling, and models that have to run, not just train. A few are private; source is linked where it's open."
+    />
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        projects.map((project, i) => (
+          <article
+            class="group flex flex-col rounded-2xl border border-line bg-surface p-6 shadow-[var(--shadow)] transition-all hover:-translate-y-0.5 hover:border-line-strong md:p-7"
+            data-reveal
+            style={`--reveal-delay: ${(i % 2) * 70}ms`}
+          >
+            <div class="flex items-center justify-between gap-3">
+              <p class="font-mono text-[0.7rem] uppercase tracking-wider text-accent-ink">
+                {project.kind}
+              </p>
+              <p class="font-mono text-[0.7rem] text-faint">{project.year}</p>
+            </div>
+
+            <h3 class="mt-3 text-xl font-semibold tracking-tight text-ink">{project.title}</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-muted">{project.body}</p>
+
+            <ul class="mt-5 flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <li class="tag">{tag}</li>
+              ))}
+            </ul>
+
+            <div class="mt-5 border-t border-line pt-4">
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 font-mono text-xs text-accent-ink transition-all hover:gap-2.5"
+                >
+                  {project.hrefLabel ?? "View source"}
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                  </svg>
+                </a>
+              ) : (
+                <span class="inline-flex items-center gap-1.5 font-mono text-xs text-faint">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                  </svg>
+                  {project.repoPrivate ? "Private repository" : "Source unavailable"}
+                </span>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

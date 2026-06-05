@@ -1,0 +1,129 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import { research } from "../data/content";
+
+const featured = research.find((r) => r.featured);
+const rest = research.filter((r) => !r.featured);
+
+const ArrowLink = "inline-flex items-center gap-1.5 font-mono text-xs text-accent-ink transition-colors";
+---
+
+<section id="research" class="scroll-mt-20 py-20 md:py-28">
+  <div class="shell">
+    <SectionHeader
+      index="01"
+      eyebrow="Research"
+      title="Reinforcement learning, where it's hardest"
+      lead="I work on getting agents to act well over long horizons — the regime where imitation runs out and reward has to do the teaching. The throughline: robots that learn what to remember, and the infrastructure to measure whether they actually improved."
+    />
+
+    {
+      featured && (
+        <article
+          class="group relative overflow-hidden rounded-3xl border border-line bg-surface shadow-[var(--shadow)] transition-colors hover:border-line-strong"
+          data-reveal
+        >
+          <span class="absolute inset-y-0 left-0 w-1 bg-accent" aria-hidden="true" />
+          <div class="grid gap-8 p-7 md:grid-cols-[1.35fr_1fr] md:p-10">
+            <div>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span class="eyebrow text-accent-ink">Flagship · {featured.status}</span>
+              </div>
+              <h3 class="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
+                {featured.title}
+              </h3>
+              <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">
+                {featured.tagline}
+              </p>
+              <p class="mt-5 max-w-xl leading-relaxed text-muted">{featured.body}</p>
+
+              <ul class="mt-6 space-y-3">
+                {featured.highlights.map((h) => (
+                  <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                    <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="flex flex-col gap-6 md:border-l md:border-line md:pl-8">
+              {featured.venue && (
+                <div>
+                  <p class="eyebrow">Benchmark</p>
+                  <p class="mt-2 text-sm leading-relaxed text-ink">{featured.venue}</p>
+                </div>
+              )}
+              <div>
+                <p class="eyebrow">Stack</p>
+                <ul class="mt-3 flex flex-wrap gap-1.5">
+                  {featured.tags.map((tag) => (
+                    <li class="tag">{tag}</li>
+                  ))}
+                </ul>
+              </div>
+              {featured.href && (
+                <a
+                  href={featured.href}
+                  target="_blank"
+                  rel="noopener"
+                  class={`${ArrowLink} mt-auto hover:gap-2.5`}
+                >
+                  {featured.hrefLabel ?? "View source"}
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      )
+    }
+
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      {
+        rest.map((item, i) => (
+          <article
+            class="flex flex-col rounded-3xl border border-line bg-surface p-7 shadow-[var(--shadow)] transition-colors hover:border-line-strong"
+            data-reveal
+            style={`--reveal-delay: ${i * 80}ms`}
+          >
+            <p class="eyebrow">{item.status}</p>
+            <h3 class="mt-3 text-xl font-semibold tracking-tight text-ink">{item.title}</h3>
+            <p class="mt-1 font-serif text-lg italic text-muted">{item.tagline}</p>
+            <p class="mt-4 text-sm leading-relaxed text-muted">{item.body}</p>
+            {item.highlights.length > 0 && (
+              <ul class="mt-4 space-y-2">
+                {item.highlights.map((h) => (
+                  <li class="flex gap-2.5 text-sm leading-relaxed text-muted">
+                    <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent/70" aria-hidden="true" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <ul class="mt-6 flex flex-wrap gap-1.5">
+              {item.tags.map((tag) => (
+                <li class="tag">{tag}</li>
+              ))}
+            </ul>
+            {item.href && (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener"
+                class={`${ArrowLink} mt-5 hover:gap-2.5`}
+              >
+                {item.hrefLabel ?? "View source"}
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" />
+                </svg>
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

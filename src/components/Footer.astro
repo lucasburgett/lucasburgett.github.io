@@ -1,0 +1,68 @@
+---
+import { site, socials } from "../data/content";
+const year = 2026;
+---
+
+<footer id="contact" class="scroll-mt-20 border-t border-line">
+  <div class="shell py-20 md:py-28">
+    <div class="grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
+      <div data-reveal>
+        <p class="eyebrow">Contact</p>
+        <h2 class="mt-4 max-w-xl text-balance text-3xl font-semibold tracking-tight text-ink md:text-5xl">
+          Let's build something that
+          <span class="font-serif font-normal italic text-accent-ink">acts</span>.
+        </h2>
+        <p class="mt-5 max-w-md leading-relaxed text-muted">
+          Always glad to talk reinforcement learning, robotics, or a project you're excited about.
+          The fastest way to reach me is email.
+        </p>
+        <a
+          href={`mailto:${site.email}`}
+          class="mt-7 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast shadow-sm transition-transform hover:-translate-y-0.5"
+        >
+          {site.email}
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 6h16v12H4zM4 7l8 6 8-6"></path>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="md:justify-self-end" aria-label="Social and document links" data-reveal>
+        <ul class="space-y-1">
+          {
+            socials.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel="noopener"
+                  class="group flex items-center justify-between gap-8 border-b border-line py-3 transition-colors hover:border-accent"
+                >
+                  <span class="font-mono text-xs uppercase tracking-wider text-faint">{s.label}</span>
+                  <span class="text-sm text-ink transition-colors group-hover:text-accent">{s.handle}</span>
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={site.resume}
+              class="group flex items-center justify-between gap-8 border-b border-line py-3 transition-colors hover:border-accent"
+            >
+              <span class="font-mono text-xs uppercase tracking-wider text-faint">Résumé</span>
+              <span class="text-sm text-ink transition-colors group-hover:text-accent">PDF ↗</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div
+      class="mt-16 flex flex-col gap-2 border-t border-line pt-6 font-mono text-xs text-faint sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {site.name}</p>
+      <p>{site.location}</p>
+      <p>Built with Astro &amp; Tailwind</p>
+    </div>
+  </div>
+</footer>
