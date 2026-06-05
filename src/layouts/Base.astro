@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = `${site.name} — ${site.role}`,
-  description = "Lucas Burgett is a Stanford math major working in reinforcement learning for robotics — training vision-language models with RL for long-horizon robot memory, and joining Parametric (YC F25) this summer.",
+  title = `${site.name} · ${site.role}`,
+  description = "Lucas Burgett is a Stanford math major working in reinforcement learning for robotics. He trains vision-language models with RL for long-horizon robot memory and joins Parametric (YC F25) this summer.",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://lucasburgett.com").href;
@@ -107,6 +107,15 @@ const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").hre
 
       // Reveal-on-scroll for elements marked [data-reveal]
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Respect reduced motion: don't autoplay looping videos; show controls instead.
+      if (reduceMotion) {
+        document.querySelectorAll<HTMLVideoElement>("[data-motion-video]").forEach((video) => {
+          video.removeAttribute("autoplay");
+          video.setAttribute("controls", "");
+          video.pause();
+        });
+      }
       const revealEls = document.querySelectorAll<HTMLElement>("[data-reveal]");
       if (reduceMotion || !("IntersectionObserver" in window)) {
         revealEls.forEach((el) => el.classList.add("is-visible"));

@@ -51,9 +51,11 @@ import { site, education, skills } from "../data/content";
           <ul class="mt-5 space-y-2.5">
             {
               education.coursework.map((course) => (
-                <li class="flex gap-2.5 text-sm text-muted">
-                  <span class="mt-2 h-1 w-1 flex-none rounded-full bg-accent" aria-hidden="true" />
-                  <span>{course}</span>
+                <li class="flex gap-3 text-sm text-muted">
+                  <span class="w-[4.2rem] flex-none pt-px font-mono text-[0.7rem] text-accent-ink">
+                    {course.code}
+                  </span>
+                  <span>{course.title}</span>
                 </li>
               ))
             }

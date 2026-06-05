@@ -7,6 +7,12 @@ export interface SocialLink {
   readonly handle: string;
 }
 
+export interface ResearchMedia {
+  readonly src: string;
+  readonly poster: string;
+  readonly caption: string;
+}
+
 export interface ResearchItem {
   readonly title: string;
   readonly tagline: string;
@@ -18,6 +24,7 @@ export interface ResearchItem {
   readonly href?: string;
   readonly hrefLabel?: string;
   readonly featured?: boolean;
+  readonly media?: ResearchMedia;
 }
 
 export interface ProjectItem {
@@ -41,6 +48,11 @@ export interface ExperienceItem {
   readonly upcoming?: boolean;
 }
 
+export interface Course {
+  readonly code: string;
+  readonly title: string;
+}
+
 export interface SkillGroup {
   readonly label: string;
   readonly items: readonly string[];
@@ -52,15 +64,12 @@ export const site = {
   location: "San Diego & Stanford, California",
   email: "lburgett@stanford.edu",
   resume: "/Lucas-Burgett-Resume.pdf",
-  // Short, scannable hero statement. The serif emphasis is applied in the template.
   heroLead:
-    "I'm Lucas — a math major at Stanford teaching machines to act. I work in reinforcement learning for robotics, from training pipelines to production.",
-  heroSub:
-    "Right now: fine-tuning vision-language models with RL to give robots usable long-horizon memory. This summer I join Parametric (YC F25) to build and ship RL models for robots.",
+    "I'm a math major at Stanford. Most of my work is reinforcement learning for robots: training the policies, building the infrastructure that keeps experiments honest, and getting models from a notebook to something that runs.",
   about: [
-    "I study Mathematics (with a CS minor) at Stanford, where I spend most of my time on the question of how machines learn to act under uncertainty. That pulls me across reinforcement learning, robotics, and the systems work that makes experiments reproducible.",
-    "My current research replaces imitation learning with RL in hierarchical robot policies — training the model to remember what actually makes future tasks succeed, not just to copy what a human did. Alongside research I ship: AI products, developer tooling, and evaluation infrastructure.",
-    "Outside the terminal I help run the Blythe Fund and Stanford AI Club, write about early-stage startups, and speak Portuguese.",
+    "I'm a math major (CS minor) at Stanford. Most of what I do comes back to one question: how does a machine learn to act well when nobody hands it the right answer? That keeps me in reinforcement learning, robotics, and the unglamorous systems work that makes experiments reproducible.",
+    "My main research swaps imitation learning for RL inside hierarchical robot policies, so the model learns to remember what actually makes the next task succeed instead of copying what a human happened to do. Outside of research I build things that ship: AI products, developer tools, and evaluation setups.",
+    "Off the clock I help run the Blythe Fund and Stanford AI Club, write about early-stage startups, and speak Portuguese.",
   ],
 } as const;
 
@@ -74,20 +83,20 @@ export const socials: readonly SocialLink[] = [
   },
 ];
 
-// Headline status used in the hero "now" strip — keeps the summer role prominent.
+// Headline status used in the hero "now" strip. Keeps the summer role prominent.
 export const now = {
   summer: {
     label: "Summer 2026",
     org: "Parametric",
     badge: "YC F25",
     role: "Incoming Software Engineering Intern",
-    detail: "Reinforcement learning for robotics — full ML lifecycle, training to production.",
+    detail: "Reinforcement learning for robotics, across the full ML lifecycle from training to production.",
     location: "San Francisco, CA",
   },
   research: {
     label: "Now",
-    org: "Stanford — VLA Memory & Fan Lab",
-    detail: "RL-trained memory for long-horizon manipulation; multi-agent nanophotonic design.",
+    org: "Stanford research",
+    detail: "RL-trained memory for long-horizon robot manipulation, plus multi-agent design in the Fan Lab.",
   },
 } as const;
 
@@ -96,41 +105,50 @@ export const research: readonly ResearchItem[] = [
     title: "VLA Memory",
     tagline: "RL-trained memory for long-horizon robot manipulation",
     body:
-      "A hierarchical VLM + VLA system for robots that have to remember across tasks. A Qwen2.5-VL-7B planner is fine-tuned with GRPO to pick the keyframes that actually matter and issue subtask instructions; a frozen π₀.₅ policy handles low-level execution.",
+      "A hierarchical VLM + VLA system for robots that have to remember across tasks. A Qwen2.5-VL-7B planner is fine-tuned with GRPO to pick the keyframes that actually matter and issue the next subtask; a frozen π₀.₅ policy carries out the low-level motion.",
     highlights: [
-      "Replaces imitation learning (MemER, ICLR 2026) with reinforcement learning — the planner is rewarded for downstream task success, not for copying which keyframes a human chose.",
-      "Same architecture, backbone, and benchmark as prior work; the training algorithm is the single variable under test.",
-      "GRPO loop: sample G rollouts per prompt with the frozen VLA, score on episode success, update with group-normalized advantage and a KL anchor to the SFT reference.",
+      "Swaps the imitation learning used in MemER (ICLR 2026) for reinforcement learning. The planner is rewarded for whether the task gets done, not for copying which keyframes a human looked at.",
+      "Same architecture, backbone, and benchmark as the prior work, so the training algorithm is the only thing that changes.",
+      "GRPO loop: sample several rollouts per prompt with the frozen policy, score each on episode success, and update the planner with a group-normalized advantage and a KL anchor to the supervised model.",
     ],
     tags: ["GRPO", "Reinforcement Learning", "Qwen2.5-VL", "π₀.₅", "JAX / openpi", "Modal · A100"],
     status: "Research paper in progress",
-    venue: "Benchmarked on RoboMME (ICML 2026 Spotlight) — 16 tasks, 15th variant",
+    venue: "Benchmarked on RoboMME (ICML 2026 Spotlight): 16 tasks, entered as the 15th variant.",
     href: "https://github.com/lucasburgett/vla-memory-new",
     hrefLabel: "RoboMME evaluation harness",
     featured: true,
+    media: {
+      src: "/media/vla-memory-run.mp4",
+      poster: "/media/vla-memory-poster.png",
+      caption:
+        "A successful eval rollout: π₀.₅ carrying out a subgoal the memory planner issued on a RoboMME permanence task. The on-screen subgoal is the planner's output.",
+    },
   },
   {
-    title: "VLAScore",
-    tagline: "A reproducible evaluation platform for vision-language-action policies",
+    title: "Latent Rectified-Flow CT Reconstruction",
+    tagline: "Denoising low-dose medical scans with a latent flow model",
     body:
-      "An evaluation harness that runs VLA policies — OpenVLA, ACT, Octo — head-to-head on a Franka tabletop manipulation environment, with deterministic trials, stall detection, and CSV comparison reports.",
+      "Low-dose CT and X-ray scans are noisy, and standard diffusion models need hundreds of steps to clean them. This model learns a straight-line flow between paired low-dose and normal-dose images in a compressed latent space, so a scan reconstructs in 5 to 10 solver steps.",
     highlights: [
-      "Native-MuJoCo Franka env plus robosuite Lift, with smoke tests that pin model output shapes and GPU availability.",
-      "Runs anywhere: local, Colab, and Stanford's FarmShare GPU cluster via a standalone micromamba + Slurm setup.",
+      "A frozen VAE compresses each scan; a learned vector field transports the noisy latent toward the clean one along a straight path, trained by velocity matching.",
+      "Adds a per-pixel uncertainty map, from SDE-variance sampling or an exact log-likelihood, so a radiologist can see where the model may have invented detail.",
+      "Measured against a residual U-Net baseline on the Mayo Clinic low-dose CT data with SSIM and FID.",
     ],
-    tags: ["OpenVLA", "MuJoCo", "robosuite", "Octo", "FarmShare · Slurm"],
-    status: "Research infrastructure",
+    tags: ["Rectified Flow", "VAE", "PyTorch", "Uncertainty", "SSIM / FID"],
+    status: "CS 231N research project · 2026",
+    href: "https://github.com/nikiyoon05/medical-diffusion-reconstruction",
+    hrefLabel: "View source",
   },
   {
-    title: "Fan Lab — Autonomous Nanophotonic Design",
+    title: "Autonomous Nanophotonic Design",
     tagline: "Multi-agent design and LLM evaluation for metasurfaces",
     body:
-      "Research assistant in Stanford's Fan Lab, contributing to MetaChat 2.0 — a multi-agent framework for autonomous nanophotonic device design — and building an evaluation set that measures how well language models reason over a corpus of Tidy3D metasurface papers and simulation notebooks.",
+      "Research assistant in Stanford's Fan Lab. I contribute to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and I built an evaluation set that measures how well language models reason over a corpus of Tidy3D metasurface papers and simulation notebooks.",
     highlights: [
-      "MetaGraph-Eval: a deterministic, graded benchmark built from paper-linked simulation notebooks with reference answers and automated graders.",
+      "MetaGraph-Eval: a deterministic, graded benchmark built from paper-linked simulation notebooks, with reference answers and automated graders.",
     ],
     tags: ["Multi-agent systems", "LLM evaluation", "Nanophotonics", "Tidy3D"],
-    status: "Stanford research · Winter 2026 – present",
+    status: "Fan Lab, Stanford · Winter 2026 to present",
   },
 ];
 
@@ -140,7 +158,7 @@ export const projects: readonly ProjectItem[] = [
     kind: "AI product",
     year: "2026",
     body:
-      "An AI investment-thesis research tool: enter a thesis, get a structured report with data-driven confidence scores, company comparisons, historical parallels, and invalidation analysis. A multi-agent Claude pipeline grounds every score in real yfinance and NewsAPI signals, with scheduled re-research, portfolio tracking, and an AI morning brief.",
+      "An AI investment-thesis research tool: type a thesis, get back a structured report with data-driven confidence scores, company comparisons, historical parallels, and the conditions that would prove it wrong. A multi-agent Claude pipeline grounds every score in live yfinance and NewsAPI data, with scheduled re-research, portfolio tracking, and a daily morning brief.",
     tags: ["Claude API", "Multi-agent", "FastAPI", "React", "Postgres", "Fly.io"],
     repoPrivate: true,
   },
@@ -149,7 +167,7 @@ export const projects: readonly ProjectItem[] = [
     kind: "Developer tool",
     year: "2026",
     body:
-      "AI code review for AI-generated code, shipped as a GitHub App. It pairs Semgrep (16 custom rules for common AI mistakes) with Claude behavioral analysis to flag bugs a static linter misses, then posts a risk-scored PR comment. LLM flags are gated by static evidence to suppress false positives.",
+      "AI code review for AI-generated code, shipped as a GitHub App. It pairs Semgrep (16 custom rules for common AI mistakes) with Claude behavioral analysis to catch bugs a static linter misses, then posts a risk-scored PR comment. LLM flags only survive if Semgrep backs them up, which kills most false positives.",
     tags: ["GitHub App", "Semgrep", "Claude", "FastAPI", "SQLite"],
     href: "https://github.com/lucasburgett/codesentry",
     hrefLabel: "View source",
@@ -159,19 +177,9 @@ export const projects: readonly ProjectItem[] = [
     kind: "RL infrastructure",
     year: "2025",
     body:
-      "A production-ready template for reproducible deep RL: deterministic seeding, Hydra-managed configs, version locking, experiment logging, CI, and Docker. PPO agents on CartPole, LunarLander, and Reacher with mean ± std reported across seeds — bit-for-bit reproducible runs.",
+      "A template for deep RL experiments that actually reproduce: deterministic seeding, Hydra configs, version locking, experiment logging, CI, and Docker. PPO agents on CartPole, LunarLander, and Reacher, with mean ± std across seeds. Two runs of the same config give bit-for-bit identical results.",
     tags: ["PPO", "Stable-Baselines3", "Hydra", "MuJoCo", "CI/CD"],
     href: "https://github.com/lucasburgett/rl-reward-tuning-pipeline",
-    hrefLabel: "View source",
-  },
-  {
-    title: "Latent Rectified-Flow CT Reconstruction",
-    kind: "CS 231N · Deep Learning for CV",
-    year: "2026",
-    body:
-      "Low-dose CT and X-ray reconstruction with a latent rectified-flow model. A frozen VAE compresses the image; a learned vector field transports the noisy latent to a clean one along a straight path, decoding in 5–10 ODE steps. Adds per-pixel uncertainty maps to flag where the model may have hallucinated detail.",
-    tags: ["Rectified Flow", "VAE", "PyTorch", "Diffusion", "SSIM / FID"],
-    href: "https://github.com/nikiyoon05/medical-diffusion-reconstruction",
     hrefLabel: "View source",
   },
   {
@@ -179,7 +187,7 @@ export const projects: readonly ProjectItem[] = [
     kind: "Computer vision",
     year: "2025",
     body:
-      "A lightweight PyTorch pipeline for spotting nanoscale defects in SEM/TEM images. Produces OK/NG classifications and pixel-level defect heatmaps at under 10 ms per 512×512 tile on a laptop, served through a FastAPI + Gradio web viewer with an ONNX runtime path.",
+      "A lightweight PyTorch pipeline for spotting nanoscale defects in SEM and TEM images. It returns OK/NG classifications and pixel-level defect heatmaps in under 10 ms per 512×512 tile on a laptop, served through a FastAPI and Gradio viewer with an ONNX runtime path.",
     tags: ["PyTorch", "OpenCV", "Anomaly detection", "FastAPI", "ONNX"],
     href: "https://github.com/lucasburgett/nano-defect-detector",
     hrefLabel: "View source",
@@ -189,7 +197,7 @@ export const projects: readonly ProjectItem[] = [
     kind: "LLM application",
     year: "2025",
     body:
-      "A multi-agent system that learns a person's writing style from samples and generates style-matched content with the Claude API, then runs an iterative refinement loop against GPTZero feedback to keep the output natural.",
+      "A multi-agent system that learns a person's writing style from samples and generates content that matches it with the Claude API, then runs a refinement loop against GPTZero feedback to keep the writing natural.",
     tags: ["Claude API", "Multi-agent", "NLP"],
   },
 ];
@@ -201,7 +209,7 @@ export const experience: readonly ExperienceItem[] = [
     location: "San Francisco, CA · YC F25",
     period: "Summer 2026",
     body:
-      "Developing and deploying reinforcement learning models for robotics applications, contributing across the full ML lifecycle from training to production.",
+      "Building and deploying reinforcement learning models for robotics, across the full ML lifecycle from training to production.",
     tags: ["Reinforcement Learning", "Robotics", "MLOps"],
     upcoming: true,
   },
@@ -211,7 +219,7 @@ export const experience: readonly ExperienceItem[] = [
     location: "Stanford, CA",
     period: "Winter 2026 – present",
     body:
-      "Contributing to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and building LLM evaluation infrastructure over a metasurface research corpus.",
+      "Contributing to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and building the LLM evaluation set that measures it.",
     tags: ["Multi-agent", "LLM eval", "Nanophotonics"],
   },
   {
@@ -220,7 +228,7 @@ export const experience: readonly ExperienceItem[] = [
     location: "Stanford, CA",
     period: "Winter 2026",
     body:
-      "Researching, interviewing, and writing about high-growth startups including Imprint and Midship, with mentorship from experienced founders and operators.",
+      "Researching, interviewing, and writing about high-growth startups including Imprint and Midship, with mentorship from founders and operators.",
   },
   {
     org: "Platform Science",
@@ -228,7 +236,7 @@ export const experience: readonly ExperienceItem[] = [
     location: "San Diego, CA",
     period: "Summer 2025",
     body:
-      "Built a proof-of-concept model that computes Time-to-Collision from live vehicle video feeds at 80% accuracy, using TensorFlow and OpenCV with AWS SageMaker training and Snowflake data pipelines.",
+      "Built a proof-of-concept model that computes Time-to-Collision from live vehicle video at 80% accuracy, using TensorFlow and OpenCV, with model training on AWS SageMaker and data in Snowflake.",
     tags: ["Computer Vision", "TensorFlow", "AWS SageMaker", "Snowflake"],
   },
   {
@@ -237,7 +245,7 @@ export const experience: readonly ExperienceItem[] = [
     location: "San Diego, CA",
     period: "Summer 2023",
     body:
-      "Worked across product development, market analysis, and roadmapping, helping launch Five Iron Golf's online booking software.",
+      "Worked across product development, market analysis, and roadmapping, and helped launch Five Iron Golf's online booking software.",
   },
 ];
 
@@ -247,13 +255,13 @@ export const education = {
   period: "2024 – 2028",
   detail: "GPA 3.79 · Blythe Fund · Stanford AI Club",
   coursework: [
-    "CS 224R — Deep Reinforcement Learning",
-    "CS 231N — Deep Learning for Computer Vision",
-    "CS 109 — Probability for Computer Scientists",
-    "CS 107 — Computer Organization & Systems",
-    "Math 104 — Applied Matrix Theory",
-    "Math 53 — ODEs, Linear Algebra & Fourier Methods",
-  ],
+    { code: "CS 224R", title: "Deep Reinforcement Learning" },
+    { code: "CS 231N", title: "Deep Learning for Computer Vision" },
+    { code: "CS 109", title: "Probability for Computer Scientists" },
+    { code: "CS 107", title: "Computer Organization & Systems" },
+    { code: "Math 104", title: "Applied Matrix Theory" },
+    { code: "Math 53", title: "ODEs, Linear Algebra & Fourier Methods" },
+  ] satisfies readonly Course[],
 } as const;
 
 export const skills: readonly SkillGroup[] = [

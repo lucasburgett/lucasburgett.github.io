@@ -13,8 +13,8 @@ const ArrowLink = "inline-flex items-center gap-1.5 font-mono text-xs text-accen
     <SectionHeader
       index="01"
       eyebrow="Research"
-      title="Reinforcement learning, where it's hardest"
-      lead="I work on getting agents to act well over long horizons — the regime where imitation runs out and reward has to do the teaching. The throughline: robots that learn what to remember, and the infrastructure to measure whether they actually improved."
+      title="Reinforcement learning for robots"
+      lead="My main line of work is reinforcement learning for robot manipulation. Around it I work on generative models for medical imaging and multi-agent systems for scientific design."
     />
 
     {
@@ -24,57 +24,84 @@ const ArrowLink = "inline-flex items-center gap-1.5 font-mono text-xs text-accen
           data-reveal
         >
           <span class="absolute inset-y-0 left-0 w-1 bg-accent" aria-hidden="true" />
-          <div class="grid gap-8 p-7 md:grid-cols-[1.35fr_1fr] md:p-10">
-            <div>
-              <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-                <span class="eyebrow text-accent-ink">Flagship · {featured.status}</span>
-              </div>
-              <h3 class="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-                {featured.title}
-              </h3>
-              <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">
-                {featured.tagline}
-              </p>
-              <p class="mt-5 max-w-xl leading-relaxed text-muted">{featured.body}</p>
+          <div class="p-7 md:p-10">
+            <span class="eyebrow text-accent-ink">Flagship · {featured.status}</span>
+            <h3 class="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
+              {featured.title}
+            </h3>
+            <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">{featured.tagline}</p>
 
-              <ul class="mt-6 space-y-3">
-                {featured.highlights.map((h) => (
-                  <li class="flex gap-3 text-sm leading-relaxed text-muted">
-                    <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div class="flex flex-col gap-6 md:border-l md:border-line md:pl-8">
-              {featured.venue && (
-                <div>
-                  <p class="eyebrow">Benchmark</p>
-                  <p class="mt-2 text-sm leading-relaxed text-ink">{featured.venue}</p>
-                </div>
-              )}
+            <div class="mt-7 grid gap-8 md:grid-cols-2 md:items-start md:gap-10">
+              {/* prose */}
               <div>
-                <p class="eyebrow">Stack</p>
-                <ul class="mt-3 flex flex-wrap gap-1.5">
-                  {featured.tags.map((tag) => (
-                    <li class="tag">{tag}</li>
+                <p class="leading-relaxed text-muted">{featured.body}</p>
+                <ul class="mt-6 space-y-3">
+                  {featured.highlights.map((h) => (
+                    <li class="flex gap-3 text-sm leading-relaxed text-muted">
+                      <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
+                      <span>{h}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
-              {featured.href && (
-                <a
-                  href={featured.href}
-                  target="_blank"
-                  rel="noopener"
-                  class={`${ArrowLink} mt-auto hover:gap-2.5`}
-                >
-                  {featured.hrefLabel ?? "View source"}
-                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M7 17 17 7M9 7h8v8" />
-                  </svg>
-                </a>
-              )}
+
+              {/* media + meta */}
+              <div class="flex flex-col gap-5">
+                {featured.media && (
+                  <figure>
+                    <div class="mb-2.5 flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+                      <span class="eyebrow">Successful eval rollout</span>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl border border-line bg-[#0c0c0f] shadow-[var(--shadow)]">
+                      <video
+                        class="aspect-square w-full"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        poster={featured.media.poster}
+                        data-motion-video
+                        aria-label={featured.media.caption}
+                      >
+                        <source src={featured.media.src} type="video/mp4" />
+                      </video>
+                    </div>
+                    <figcaption class="mt-3 text-xs leading-relaxed text-faint">
+                      {featured.media.caption}
+                    </figcaption>
+                  </figure>
+                )}
+
+                <div class="mt-1 border-t border-line pt-5">
+                  {featured.venue && (
+                    <div class="mb-5">
+                      <p class="eyebrow">Benchmark</p>
+                      <p class="mt-2 text-sm leading-relaxed text-ink">{featured.venue}</p>
+                    </div>
+                  )}
+                  <p class="eyebrow">Stack</p>
+                  <ul class="mt-3 flex flex-wrap gap-1.5">
+                    {featured.tags.map((tag) => (
+                      <li class="tag">{tag}</li>
+                    ))}
+                  </ul>
+                  {featured.href && (
+                    <a
+                      href={featured.href}
+                      target="_blank"
+                      rel="noopener"
+                      class={`${ArrowLink} mt-5 hover:gap-2.5`}
+                    >
+                      {featured.hrefLabel ?? "View source"}
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17 17 7M9 7h8v8" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </article>
