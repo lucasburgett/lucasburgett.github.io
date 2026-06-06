@@ -270,18 +270,6 @@ body,
   }
 }
 
-/* ---- Editorial project index: hovering one row dims the others ------------ */
-.proj-row {
-  transition:
-    opacity 0.3s ease,
-    background-color 0.3s ease;
-}
-@media (hover: hover) {
-  .proj-list:hover .proj-row:not(:hover):not(:focus-within) {
-    opacity: 0.4;
-  }
-}
-
 /* Nav gains a soft elevation once the page is scrolled past the hero top. */
 .site-nav {
   transition:
