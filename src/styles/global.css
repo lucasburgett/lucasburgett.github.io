@@ -190,3 +190,93 @@ body,
 .no-transitions * {
   transition: none !important;
 }
+
+/* ============================================================================
+   Scroll-driven motion (progressive enhancement)
+   Native CSS scroll/view timelines run on the compositor for jank-free 60fps.
+   Everything here is gated on prefers-reduced-motion AND @supports, so older
+   browsers keep the IntersectionObserver reveal above and reduced-motion users
+   get no motion at all.
+   ============================================================================ */
+
+/* Thin progress bar that fills as the page scrolls. */
+.scroll-progress {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 60;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--color-accent-ink), var(--color-accent));
+  will-change: transform;
+}
+
+@keyframes sd-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes sd-reveal-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sd-parallax {
+  from { transform: translateY(0); }
+  to { transform: translateY(48px); }
+}
+@keyframes sd-draw-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: sd-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+
+    /* Decorative hero layers drift slower than the foreground for subtle depth. */
+    [data-parallax] {
+      animation: sd-parallax linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 820px;
+      will-change: transform;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    /* Upgrade the one-shot fade into a scroll-linked reveal. Overrides the
+       IntersectionObserver baseline above for browsers that support view(). */
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: sd-reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 2% entry 32%;
+      will-change: opacity, transform;
+    }
+
+    /* Section divider rule sweeps in as the header crosses into view. */
+    [data-draw] {
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: sd-draw-x linear both;
+      animation-timeline: view();
+      animation-range: entry 6% cover 16%;
+    }
+  }
+}
+
+/* Nav gains a soft elevation once the page is scrolled past the hero top. */
+.site-nav {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.site-nav[data-scrolled] {
+  box-shadow: 0 6px 24px -16px oklch(0.2 0.02 264 / 0.5);
+  border-color: var(--color-line-strong);
+}
