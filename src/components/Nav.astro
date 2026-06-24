@@ -1,87 +1,31 @@
 ---
-import { site } from "../data/content";
-
 const links = [
   { label: "Research", href: "#research" },
-  { label: "Projects", href: "#projects" },
+  { label: "Building", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "About", href: "#about" },
 ];
 ---
 
-<header
-  class="site-nav sticky top-0 z-40 border-b border-line/70 bg-bg/80 backdrop-blur-md supports-[backdrop-filter]:bg-bg/65"
->
-  <nav class="shell flex h-16 items-center justify-between gap-4" aria-label="Primary">
-    <a
-      href="#top"
-      class="group inline-flex items-center gap-2.5 font-mono text-sm tracking-tight"
+<header class="site-nav sticky top-0 z-40 border-b border-transparent bg-paper/95">
+  <nav class="shell flex h-[4.25rem] items-center justify-between gap-4" aria-label="Primary">
+    <a href="#top" class="font-display text-lg tracking-tight text-ink" style="font-weight: 460;"
+      >Lucas Burgett</a
     >
-      <span
-        class="grid h-7 w-7 place-items-center rounded-md bg-accent text-[0.8rem] font-semibold text-accent-contrast transition-transform group-hover:-rotate-6"
-        aria-hidden="true">LB</span
-      >
-      <span class="font-medium text-ink">Lucas Burgett</span>
-    </a>
-
-    <div class="flex items-center gap-1 sm:gap-2">
-      <ul class="mr-1 hidden items-center gap-1 md:flex">
-        {
-          links.map((link) => (
-            <li>
-              <a
-                data-nav-link
-                href={link.href}
-                class="relative rounded-md px-3 py-2 text-sm text-muted transition-colors hover:text-ink data-[active]:text-ink"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-
-      <a
-        href={site.resume}
-        class="hidden rounded-full border border-line-strong px-3.5 py-1.5 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent sm:inline-block"
-        >Résumé</a
-      >
-
-      <button
-        type="button"
-        data-theme-toggle
-        class="grid h-9 w-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-accent"
-        aria-label="Toggle color theme"
-        title="Toggle theme"
-      >
-        <svg
-          class="h-[1.05rem] w-[1.05rem] dark:hidden"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="4"></circle>
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-          ></path>
-        </svg>
-        <svg
-          class="hidden h-[1.05rem] w-[1.05rem] dark:block"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-    </div>
+    <ul class="hidden items-center gap-6 sm:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              data-nav-link
+              href={link.href}
+              class="font-mono text-[0.78rem] tracking-wide text-muted transition-colors hover:text-ink data-[active]:text-accent"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </nav>
 </header>

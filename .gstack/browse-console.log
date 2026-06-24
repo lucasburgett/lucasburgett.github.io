@@ -1,13 +1,114 @@
-[2026-06-06T01:49:28.860Z] [debug] [vite] connecting...
-[2026-06-06T01:49:28.873Z] [debug] [vite] connected.
-[2026-06-06T01:50:21.763Z] [debug] [vite] connecting...
-[2026-06-06T01:50:21.797Z] [debug] [vite] connected.
-[2026-06-06T02:21:14.552Z] [debug] [vite] hot updated: /src/styles/global.css
-[2026-06-06T02:21:14.786Z] [debug] [vite] connecting...
-[2026-06-06T02:21:14.809Z] [debug] [vite] connected.
-[2026-06-06T02:21:28.979Z] [debug] [vite] connecting...
-[2026-06-06T02:21:28.995Z] [debug] [vite] connected.
-[2026-06-06T02:24:27.451Z] [debug] [vite] connecting...
-[2026-06-06T02:24:27.468Z] [debug] [vite] connected.
-[2026-06-06T02:24:37.851Z] [debug] [vite] connecting...
-[2026-06-06T02:24:37.886Z] [debug] [vite] connected.
+[2026-06-23T23:31:03.344Z] [warning] The resource https://www.joshwcomeau.com/_next/static/css/422e1c018cbab5f0.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-06-23T23:31:03.344Z] [warning] The resource https://www.joshwcomeau.com/_next/static/css/e7ee2116c542d05c.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-06-23T23:31:03.344Z] [warning] The resource https://www.joshwcomeau.com/_next/static/css/cb046b941de0cc51.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-06-23T23:31:03.344Z] [warning] The resource https://www.joshwcomeau.com/_next/static/css/6eba673daf887b0f.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[2026-06-23T23:31:20.019Z] [log] %c __                                               _____          __          __           ______          v1.0.0
+/\ \       __                                    /\  __`\       /\ \      __/\ \__       /\__  _\                       
+\ \ \     /\_\    ___      __     __     _ __    \ \ \/\ \  _ __\ \ \____/\_\ \ ,_\      \/_/\ \/     ___     ___       
+ \ \ \  __\/\ \ /' _ `\  /'__`\ /'__`\  /\`'__\   \ \ \ \ \/\`'__\ \ '__`\/\ \ \ \/         \ \ \   /' _ `\  /'___\     
+  \ \ \L\ \\ \ \/\ \/\ \/\  __//\ \L\.\_\ \ \/     \ \ \_\ \ \ \/ \ \ \L\ \ \ \ \ \_  __     \_\ \__/\ \/\ \/\ \__/  __ 
+   \ \____/ \ \_\ \_\ \_\ \____\ \__/.\_\\ \_\      \ \_____\ \_\  \ \_,__/\ \_\ \__\/\ \    /\_____\ \_\ \_\ \____\/\_\
+    \/___/   \/_/\/_/\/_/\/____/\/__/\/_/ \/_/       \/_____/\/_/   \/___/  \/_/\/__/\ \/    \/_____/\/_/\/_/\/____/\/_/
+                                                                                      \/
+
+The product development system for teams and agents
+
+WE'RE HIRING: https://linear.app/careers
+CHANGELOG:    https://linear.app/changelog
+ 
+  font-family: monospace;
+  color: #282A30;
+  
+[2026-06-23T23:31:30.420Z] [log] %c
+▲
+
+    ________   _ __ _          ____           __
+   /  _/ __/  (_) /( )_____   / __/___ ______/ /_
+   / // /_   / / __/// ___/  / /_/ __ `/ ___/ __/
+ _/ // __/  / / /_  (__  )  / __/ /_/ (__  ) /_
+/___/_/    /_/\__/ /____/  /_/  \__,_/____/\__/
+    _ __ _                         _    __                    __
+   (_) /( )_____   ____  ____     | |  / /__  _____________  / /
+  / / __/// ___/  / __ \/ __ \    | | / / _ \/ ___/ ___/ _ \/ /
+ / / /_  (__  )  / /_/ / / / /    | |/ /  __/ /  / /__/  __/ /
+/_/\__/ /____/   \____/_/ /_/     |___/\___/_/   \___/\___/_/
+  
+
+Hello!
+
+- Open Source https://vercel.com/oss
+- Careers https://vercel.com/careers
+- Status https://vercel-status.com
+
+ font-family: "Geist Mono", monospace; white-space: pre; line-height: 1;
+[2026-06-23T23:31:30.617Z] [warning] Deprecated API for given entry type.
+[2026-06-23T23:31:30.663Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-23T23:31:30.694Z] [warning] Hero shader unavailable. WebGPU adapter unavailable.
+[2026-06-23T23:31:30.767Z] [error] Failed to load resource: the server responded with a status of 429 ()
+[2026-06-23T23:31:54.812Z] [error] Failed to load resource: the server responded with a status of 404 ()
+[2026-06-23T23:32:08.502Z] [log] {tfjs-core: 2.0.0, tfjs-backend-cpu: 2.0.0, tfjs-backend-webgl: 2.0.0, tfjs-data: 2.0.0, tfjs-layers: 2.0.0}
+[2026-06-23T23:32:08.597Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.645Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.649Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.650Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.678Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.720Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.772Z] [warning] WARN Selection not supported for boxplot yet.
+[2026-06-23T23:32:08.855Z] [warning] WebComponentsReady
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 0: No need for polyfills.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 0->1.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 1: Distill Template has started loading.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 1: Static Distill styles have been added.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 1->2.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: We can now listen to controller events.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2->3.
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: Registering custom element: d-abstract
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: Registering custom element: d-appendix
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: Registering custom element: d-article
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: Registering custom element: d-bibliography
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: Registering custom element: d-byline
+[2026-06-23T23:32:08.874Z] [debug] Runlevel 2: Registering custom element: d-cite
+[2026-06-23T23:32:08.875Z] [debug] Runlevel 2: Registering custom element: d-citation-list
+[2026-06-23T23:32:08.875Z] [debug] Runlevel 2: Registering custom element: d-code
+[2026-06-23T23:32:08.875Z] [debug] Runlevel 2: Registering custom element: d-footnote
+[2026-06-23T23:32:08.875Z] [debug] Runlevel 2: Registering custom element: d-footnote-list
+[2026-06-23T23:32:08.875Z] [debug] Runlevel 2: Registering custom element: d-front-matter
+[2026-06-23T23:32:08.875Z] [debug] Runlevel 2: Registering custom element: d-hover-box
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-title
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-math
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-references
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-toc
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-figure
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-slider
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: d-interstitial
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: distill-header
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: distill-appendix
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 2: Registering custom element: distill-footer
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 3: Distill Template finished registering custom elements.
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 3->4.
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 4: Controller running DOMContentLoaded
+[2026-06-23T23:32:08.876Z] [debug] Runlevel 4: Distill Template initialisation complete.
+[2026-06-23T23:32:08.882Z] [debug] Citation list was prerendered; not updating it.
+[2026-06-23T23:32:25.428Z] [log] %c __                                               _____          __          __           ______          v1.0.0
+/\ \       __                                    /\  __`\       /\ \      __/\ \__       /\__  _\                       
+\ \ \     /\_\    ___      __     __     _ __    \ \ \/\ \  _ __\ \ \____/\_\ \ ,_\      \/_/\ \/     ___     ___       
+ \ \ \  __\/\ \ /' _ `\  /'__`\ /'__`\  /\`'__\   \ \ \ \ \/\`'__\ \ '__`\/\ \ \ \/         \ \ \   /' _ `\  /'___\     
+  \ \ \L\ \\ \ \/\ \/\ \/\  __//\ \L\.\_\ \ \/     \ \ \_\ \ \ \/ \ \ \L\ \ \ \ \ \_  __     \_\ \__/\ \/\ \/\ \__/  __ 
+   \ \____/ \ \_\ \_\ \_\ \____\ \__/.\_\\ \_\      \ \_____\ \_\  \ \_,__/\ \_\ \__\/\ \    /\_____\ \_\ \_\ \____\/\_\
+    \/___/   \/_/\/_/\/_/\/____/\/__/\/_/ \/_/       \/_____/\/_/   \/___/  \/_/\/__/\ \/    \/_____/\/_/\/_/\/____/\/_/
+                                                                                      \/
+
+The product development system for teams and agents
+
+WE'RE HIRING: https://linear.app/careers
+CHANGELOG:    https://linear.app/changelog
+ 
+  font-family: monospace;
+  color: #282A30;
+  
+[2026-06-24T00:03:09.355Z] [debug] [vite] connecting...
+[2026-06-24T00:03:09.372Z] [debug] [vite] connected.
+[2026-06-24T00:03:10.707Z] [debug] [vite] connecting...
+[2026-06-24T00:03:10.727Z] [debug] [vite] connected.
+[2026-06-24T00:05:02.361Z] [debug] [vite] connecting...
+[2026-06-24T00:05:02.367Z] [debug] [vite] connected.
