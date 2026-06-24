@@ -4,153 +4,106 @@ import { research } from "../data/content";
 
 const featured = research.find((r) => r.featured);
 const rest = research.filter((r) => !r.featured);
-
-const ArrowLink = "inline-flex items-center gap-1.5 font-mono text-xs text-accent-ink transition-colors";
 ---
 
-<section id="research" class="scroll-mt-20 py-20 md:py-28">
-  <div class="shell">
-    <SectionHeader
-      index="01"
-      eyebrow="Research"
-      title="Reinforcement learning for robots"
-      lead="My main line of work is reinforcement learning for robot manipulation. Around it I work on generative models for medical imaging and multi-agent systems for scientific design."
-    />
+<section id="research" class="shell scroll-mt-24 py-20 md:py-28">
+  <SectionHeader
+    index="01"
+    eyebrow="Research"
+    title="Reinforcement learning for robots"
+    lead="My main line of work is reinforcement learning for robot manipulation. Around it I work on generative models for medical imaging and multi-agent systems for scientific design."
+  />
 
-    {
-      featured && (
-        <article
-          class="group relative overflow-hidden rounded-3xl border border-line bg-surface shadow-[var(--shadow)] transition-colors hover:border-line-strong"
-          data-reveal
+  {
+    featured && (
+      <article class="measure">
+        <h3
+          class="font-display text-3xl text-ink md:text-[2.4rem]"
+          style="font-weight: 420; letter-spacing: -0.02em; line-height: 1.08;"
         >
-          <span class="absolute inset-y-0 left-0 w-1 bg-accent" aria-hidden="true" />
-          <div class="p-7 md:p-10">
-            <span class="eyebrow text-accent-ink">Flagship · {featured.status}</span>
-            <h3 class="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-              {featured.title}
-            </h3>
-            <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">{featured.tagline}</p>
+          {featured.title}
+        </h3>
+        <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">{featured.tagline}</p>
+        <p class="mono mt-4 text-[0.78rem] tracking-wide text-faint">
+          {featured.status}
+          {featured.venue && <> · {featured.venue}</>}
+        </p>
+        <p class="mt-6 text-lg leading-relaxed text-body">{featured.body}</p>
+        {featured.highlights.length > 0 && (
+          <ul class="mt-6 space-y-3 border-l border-line pl-5">
+            {featured.highlights.map((h) => (
+              <li class="leading-relaxed text-muted">{h}</li>
+            ))}
+          </ul>
+        )}
+        <p class="mono mt-6 text-sm leading-relaxed text-muted">{featured.tags.join("  ·  ")}</p>
+        {featured.href && (
+          <p class="mt-4">
+            <a href={featured.href} target="_blank" rel="noopener" class="link font-mono text-sm">
+              {featured.hrefLabel ?? "View source"} ↗
+            </a>
+          </p>
+        )}
+      </article>
+    )
+  }
 
-            <div class="mt-7 grid gap-8 md:grid-cols-2 md:items-start md:gap-10">
-              {/* prose */}
-              <div>
-                <p class="leading-relaxed text-muted">{featured.body}</p>
-                <ul class="mt-6 space-y-3">
-                  {featured.highlights.map((h) => (
-                    <li class="flex gap-3 text-sm leading-relaxed text-muted">
-                      <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* media + meta */}
-              <div class="flex flex-col gap-5">
-                {featured.media && (
-                  <figure>
-                    <div class="mb-2.5 flex items-center gap-2">
-                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-                      <span class="eyebrow">Successful eval rollout</span>
-                    </div>
-                    <div class="overflow-hidden rounded-2xl border border-line bg-[#0c0c0f] shadow-[var(--shadow)]">
-                      <video
-                        class="aspect-square w-full"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="metadata"
-                        poster={featured.media.poster}
-                        data-motion-video
-                        aria-label={featured.media.caption}
-                      >
-                        <source src={featured.media.src} type="video/mp4" />
-                      </video>
-                    </div>
-                    <figcaption class="mt-3 text-xs leading-relaxed text-faint">
-                      {featured.media.caption}
-                    </figcaption>
-                  </figure>
-                )}
-
-                <div class="mt-1 border-t border-line pt-5">
-                  {featured.venue && (
-                    <div class="mb-5">
-                      <p class="eyebrow">Benchmark</p>
-                      <p class="mt-2 text-sm leading-relaxed text-ink">{featured.venue}</p>
-                    </div>
-                  )}
-                  <p class="eyebrow">Stack</p>
-                  <ul class="mt-3 flex flex-wrap gap-1.5">
-                    {featured.tags.map((tag) => (
-                      <li class="tag">{tag}</li>
-                    ))}
-                  </ul>
-                  {featured.href && (
-                    <a
-                      href={featured.href}
-                      target="_blank"
-                      rel="noopener"
-                      class={`${ArrowLink} mt-5 hover:gap-2.5`}
-                    >
-                      {featured.hrefLabel ?? "View source"}
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M7 17 17 7M9 7h8v8" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      )
-    }
-
-    <div class="mt-6 grid gap-6 md:grid-cols-2">
-      {
-        rest.map((item, i) => (
-          <article
-            class="flex flex-col rounded-3xl border border-line bg-surface p-7 shadow-[var(--shadow)] transition-colors hover:border-line-strong"
-            data-reveal
-            style={`--reveal-delay: ${i * 80}ms`}
+  {
+    featured?.media && (
+      <figure class="mt-10">
+        <div class="overflow-hidden rounded border border-line-strong bg-[#0c0c0f]">
+          <video
+            class="mx-auto block h-auto w-full"
+            style="max-height: 34rem; object-fit: contain;"
+            controls
+            preload="none"
+            playsinline
+            poster={featured.media.poster}
+            aria-label={featured.media.caption}
           >
-            <p class="eyebrow">{item.status}</p>
-            <h3 class="mt-3 text-xl font-semibold tracking-tight text-ink">{item.title}</h3>
-            <p class="mt-1 font-serif text-lg italic text-muted">{item.tagline}</p>
-            <p class="mt-4 text-sm leading-relaxed text-muted">{item.body}</p>
-            {item.highlights.length > 0 && (
-              <ul class="mt-4 space-y-2">
-                {item.highlights.map((h) => (
-                  <li class="flex gap-2.5 text-sm leading-relaxed text-muted">
-                    <span class="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent/70" aria-hidden="true" />
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-            <ul class="mt-6 flex flex-wrap gap-1.5">
-              {item.tags.map((tag) => (
-                <li class="tag">{tag}</li>
+            <source src={featured.media.src} type="video/mp4" />
+          </video>
+        </div>
+        <figcaption class="measure mt-3 text-sm leading-relaxed text-muted">
+          {featured.media.caption}
+        </figcaption>
+      </figure>
+    )
+  }
+
+  <div class="measure mt-14 space-y-12">
+    {
+      rest.map((item) => (
+        <article class="border-t border-line pt-10">
+          <h3
+            class="font-display text-2xl text-ink"
+            style="font-weight: 420; letter-spacing: -0.015em; line-height: 1.1;"
+          >
+            {item.title}
+          </h3>
+          <p class="mt-1.5 font-serif text-lg italic text-muted">{item.tagline}</p>
+          <p class="mono mt-3 text-[0.78rem] tracking-wide text-faint">
+            {item.status}
+            {item.venue && <> · {item.venue}</>}
+          </p>
+          <p class="mt-5 leading-relaxed text-body">{item.body}</p>
+          {item.highlights.length > 0 && (
+            <ul class="mt-5 space-y-2.5 border-l border-line pl-5">
+              {item.highlights.map((h) => (
+                <li class="leading-relaxed text-muted">{h}</li>
               ))}
             </ul>
-            {item.href && (
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener"
-                class={`${ArrowLink} mt-5 hover:gap-2.5`}
-              >
-                {item.hrefLabel ?? "View source"}
-                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M7 17 17 7M9 7h8v8" />
-                </svg>
+          )}
+          <p class="mono mt-5 text-sm leading-relaxed text-muted">{item.tags.join("  ·  ")}</p>
+          {item.href && (
+            <p class="mt-4">
+              <a href={item.href} target="_blank" rel="noopener" class="link font-mono text-sm">
+                {item.hrefLabel ?? "View source"} ↗
               </a>
-            )}
-          </article>
-        ))
-      }
-    </div>
+            </p>
+          )}
+        </article>
+      ))
+    }
   </div>
 </section>

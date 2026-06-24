@@ -5,117 +5,48 @@ const github = socials.find((s) => s.label === "GitHub");
 const linkedin = socials.find((s) => s.label === "LinkedIn");
 ---
 
-<section id="top" class="relative overflow-hidden">
-  <!-- Ambient accent glow + grid -->
-  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true" data-parallax>
-    <div
-      class="absolute -top-40 left-1/2 h-[34rem] w-[60rem] -translate-x-1/2 rounded-full opacity-[0.5] blur-3xl"
-      style="background: radial-gradient(closest-side, var(--accent-soft), transparent 70%);"
+<section id="top" class="shell pb-16 pt-24 md:pb-24 md:pt-28">
+  <h1
+    class="ed-enter font-display text-ink"
+    style="font-weight: 340; font-size: clamp(3.1rem, 8.5vw, 5.6rem); line-height: 0.98; letter-spacing: -0.025em;"
+  >
+    Lucas Burgett
+  </h1>
+
+  <p class="measure mt-7 text-xl leading-relaxed text-body md:text-2xl">
+    {site.heroLead}
+  </p>
+
+  <p class="mono mt-6 text-sm text-muted">
+    {site.role} · {site.location}
+  </p>
+
+  <nav class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-base" aria-label="Profile links">
+    <a href={site.resume} class="link-quiet inline-flex min-h-11 items-center">Résumé ↗</a>
+    <a href={github?.href} target="_blank" rel="noopener" class="link-quiet inline-flex min-h-11 items-center"
+      >GitHub</a
     >
+    <a href={linkedin?.href} target="_blank" rel="noopener" class="link-quiet inline-flex min-h-11 items-center"
+      >LinkedIn</a
+    >
+    <a href={`mailto:${site.email}`} class="link-quiet inline-flex min-h-11 items-center">Email</a>
+  </nav>
+
+  <!-- Currently -->
+  <div class="measure mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+    <div>
+      <p class="label">{now.summer.label} — {now.summer.org} ({now.summer.badge})</p>
+      <p class="mt-2 font-display text-xl text-ink" style="font-weight: 460; letter-spacing: -0.01em;">
+        {now.summer.role}
+      </p>
+      <p class="mt-1.5 text-base leading-relaxed text-muted">{now.summer.detail}</p>
     </div>
-    <div
-      class="absolute inset-0 opacity-[0.4]"
-      style="background-image: radial-gradient(currentColor 0.6px, transparent 0.6px); background-size: 22px 22px; color: var(--color-faint); -webkit-mask-image: linear-gradient(to bottom, black, transparent 70%); mask-image: linear-gradient(to bottom, black, transparent 70%);"
-    >
-    </div>
-  </div>
-
-  <div class="shell pb-16 pt-20 md:pb-24 md:pt-28">
-    <p class="eyebrow flex items-center gap-2.5" data-reveal>
-      <span class="relative flex h-2 w-2">
-        <span
-          class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"
-        ></span>
-        <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
-      </span>
-      Reinforcement Learning · Robotics · {site.location}
-    </p>
-
-    <h1
-      class="mt-6 max-w-4xl text-balance text-2xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-3xl md:text-4xl"
-      data-reveal
-      style="--reveal-delay: 60ms"
-    >
-      Lucas Burgett
-    </h1>
-
-    <p
-      class="mt-7 max-w-2xl text-lg leading-relaxed text-muted md:text-xl"
-      data-reveal
-      style="--reveal-delay: 120ms"
-    >
-      {site.heroLead}
-    </p>
-
-    <div
-      class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3"
-      data-reveal
-      style="--reveal-delay: 180ms"
-    >
-      <a
-        href={site.resume}
-        class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast shadow-sm transition-transform hover:-translate-y-0.5"
-      >
-        View résumé
-        <svg
-          class="h-4 w-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M5 12h14M13 6l6 6-6 6"></path>
-        </svg>
-      </a>
-      <a
-        href="#research"
-        class="text-sm font-medium text-ink link-underline">Explore the research</a
-      >
-      <span class="hidden h-4 w-px bg-line sm:block"></span>
-      <a
-        href={github?.href}
-        target="_blank"
-        rel="noopener"
-        class="text-sm text-muted transition-colors hover:text-ink">GitHub</a
-      >
-      <a
-        href={linkedin?.href}
-        target="_blank"
-        rel="noopener"
-        class="text-sm text-muted transition-colors hover:text-ink">LinkedIn</a
-      >
-      <a href={`mailto:${site.email}`} class="text-sm text-muted transition-colors hover:text-ink"
-        >Email</a
-      >
-    </div>
-
-    <!-- Now / Summer strip -->
-    <div class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2"
-      data-reveal
-      style="--reveal-delay: 240ms"
-    >
-      <div class="relative bg-surface p-5 md:p-6">
-        <span
-          class="absolute right-5 top-5 rounded-full bg-accent-soft px-2 py-0.5 font-mono text-[0.65rem] font-medium uppercase tracking-wider text-accent-ink"
-          >{now.summer.badge}</span
-        >
-        <p class="eyebrow text-accent-ink">{now.summer.label}</p>
-        <p class="mt-2.5 text-lg font-semibold tracking-tight text-ink">
-          {now.summer.role}
-        </p>
-        <p class="mt-1 text-sm text-muted">
-          <span class="font-medium text-ink">{now.summer.org}</span> · {now.summer.location}
-        </p>
-        <p class="mt-3 text-sm leading-relaxed text-muted">{now.summer.detail}</p>
-      </div>
-      <div class="bg-surface p-5 md:p-6">
-        <p class="eyebrow">{now.research.label}</p>
-        <p class="mt-2.5 text-lg font-semibold tracking-tight text-ink">{now.research.org}</p>
-        <p class="mt-3 text-sm leading-relaxed text-muted">{now.research.detail}</p>
-      </div>
+    <div>
+      <p class="label">{now.research.label} — {now.research.org}</p>
+      <p class="mt-2 font-display text-xl text-ink" style="font-weight: 460; letter-spacing: -0.01em;">
+        Research
+      </p>
+      <p class="mt-1.5 text-base leading-relaxed text-muted">{now.research.detail}</p>
     </div>
   </div>
 </section>

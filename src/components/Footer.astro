@@ -1,63 +1,37 @@
 ---
 import { site, socials } from "../data/content";
 const year = 2026;
+const github = socials.find((s) => s.label === "GitHub");
+const linkedin = socials.find((s) => s.label === "LinkedIn");
 ---
 
-<footer id="contact" class="scroll-mt-20 border-t border-line">
-  <div class="shell py-20 md:py-28">
-    <div class="grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
-      <div data-reveal>
-        <p class="eyebrow">Contact</p>
-        <p class="mt-4 max-w-md text-2xl font-medium leading-snug tracking-tight text-ink md:text-3xl">
-          The fastest way to reach me is email.
-        </p>
-        <a
-          href={`mailto:${site.email}`}
-          class="mt-7 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast shadow-sm transition-transform hover:-translate-y-0.5"
-        >
-          {site.email}
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 6h16v12H4zM4 7l8 6 8-6"></path>
-          </svg>
-        </a>
-      </div>
+<footer id="contact" class="shell scroll-mt-24 border-t border-line py-20 md:py-24">
+  <p class="label">Contact</p>
+  <p
+    class="measure mt-4 font-display text-2xl leading-snug text-ink md:text-3xl"
+    style="font-weight: 420; letter-spacing: -0.015em;"
+  >
+    The fastest way to reach me is email.
+  </p>
+  <p class="mt-4">
+    <a href={`mailto:${site.email}`} class="link text-lg">{site.email}</a>
+  </p>
 
-      <nav class="md:justify-self-end" aria-label="Social and document links" data-reveal>
-        <ul class="space-y-1">
-          {
-            socials.map((s) => (
-              <li>
-                <a
-                  href={s.href}
-                  target={s.href.startsWith("mailto:") ? undefined : "_blank"}
-                  rel="noopener"
-                  class="group flex items-center justify-between gap-8 border-b border-line py-3 transition-colors hover:border-accent"
-                >
-                  <span class="font-mono text-xs uppercase tracking-wider text-faint">{s.label}</span>
-                  <span class="text-sm text-ink transition-colors group-hover:text-accent">{s.handle}</span>
-                </a>
-              </li>
-            ))
-          }
-          <li>
-            <a
-              href={site.resume}
-              class="group flex items-center justify-between gap-8 border-b border-line py-3 transition-colors hover:border-accent"
-            >
-              <span class="font-mono text-xs uppercase tracking-wider text-faint">Résumé</span>
-              <span class="text-sm text-ink transition-colors group-hover:text-accent">PDF ↗</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div
-      class="mt-16 flex flex-col gap-2 border-t border-line pt-6 font-mono text-xs text-faint sm:flex-row sm:items-center sm:justify-between"
+  <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+    <a href={github?.href} target="_blank" rel="noopener" class="link-quiet inline-flex min-h-11 items-center"
+      >GitHub</a
     >
-      <p>© {year} {site.name}</p>
-      <p>{site.location}</p>
-      <p>Built with Astro &amp; Tailwind</p>
-    </div>
+    <a href={linkedin?.href} target="_blank" rel="noopener" class="link-quiet inline-flex min-h-11 items-center"
+      >LinkedIn</a
+    >
+    <a href={site.resume} class="link-quiet inline-flex min-h-11 items-center">Résumé ↗</a>
+  </div>
+
+  <div
+    class="mono mt-14 flex flex-col gap-2 border-t border-line pt-6 text-xs text-faint sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p>© {year} {site.name}</p>
+    <p>{site.location}</p>
+    <p>Built with Astro &amp; Tailwind</p>
   </div>
 </footer>
