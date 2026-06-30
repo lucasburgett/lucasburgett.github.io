@@ -193,14 +193,6 @@ export const experience: readonly ExperienceItem[] = [
     tags: ["Multi-agent", "LLM eval", "Nanophotonics"],
   },
   {
-    org: "Startups To Join",
-    role: "Research Fellow",
-    location: "Stanford, CA",
-    period: "Winter 2026",
-    body:
-      "Researching, interviewing, and writing about high-growth startups including Imprint and Midship, with mentorship from founders and operators.",
-  },
-  {
     org: "Platform Science",
     role: "Engineering Intern",
     location: "San Diego, CA",
@@ -223,7 +215,7 @@ export const education = {
   school: "Stanford University",
   degree: "B.S. Mathematics · Minor in Computer Science",
   period: "2024 – 2028",
-  detail: "GPA 3.80 · Blythe Fund · Stanford AI Club · Xfund Ethics Fellow",
+  detail: "GPA 3.80 · Blythe Fund · Stanford AI Club · Startups To Join · Xfund Ethics Fellow",
   coursework: [
     { code: "CS 224R", title: "Deep Reinforcement Learning" },
     { code: "CS 231N", title: "Deep Learning for Computer Vision" },
