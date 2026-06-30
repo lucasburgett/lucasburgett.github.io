@@ -1,17 +1,16 @@
 ---
 import SectionHeader from "./SectionHeader.astro";
-import { research } from "../data/content";
+import { work } from "../data/content";
 
-const featured = research.find((r) => r.featured);
-const rest = research.filter((r) => !r.featured);
+const featured = work.find((w) => w.featured);
+const rest = work.filter((w) => !w.featured);
 ---
 
-<section id="research" class="shell scroll-mt-24 py-20 md:py-28">
+<section id="work" class="shell scroll-mt-24 py-20 md:py-28">
   <SectionHeader
     index="01"
-    eyebrow="Research"
-    title="Reinforcement learning for robots"
-    lead="My main line of work is reinforcement learning for robot manipulation. Around it I work on generative models for medical imaging and multi-agent systems for scientific design."
+    eyebrow="Projects & Personal Research"
+    title="Research and projects, in and out of class"
   />
 
   {
@@ -23,13 +22,14 @@ const rest = research.filter((r) => !r.featured);
         >
           {featured.title}
         </h3>
-        <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">{featured.tagline}</p>
-        <p class="mono mt-4 text-[0.78rem] tracking-wide text-faint">
-          {featured.status}
-          {featured.venue && <> · {featured.venue}</>}
-        </p>
+        {featured.tagline && (
+          <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">{featured.tagline}</p>
+        )}
+        {featured.inProgress && (
+          <p class="mono mt-4 text-[0.78rem] tracking-wide text-accent">in progress</p>
+        )}
         <p class="mt-6 text-lg leading-relaxed text-body">{featured.body}</p>
-        {featured.highlights.length > 0 && (
+        {featured.highlights && featured.highlights.length > 0 && (
           <ul class="mt-6 space-y-3 border-l border-line pl-5">
             {featured.highlights.map((h) => (
               <li class="leading-relaxed text-muted">{h}</li>
@@ -81,13 +81,12 @@ const rest = research.filter((r) => !r.featured);
           >
             {item.title}
           </h3>
-          <p class="mt-1.5 font-serif text-lg italic text-muted">{item.tagline}</p>
-          <p class="mono mt-3 text-[0.78rem] tracking-wide text-faint">
-            {item.status}
-            {item.venue && <> · {item.venue}</>}
-          </p>
+          {item.tagline && <p class="mt-1.5 font-serif text-lg italic text-muted">{item.tagline}</p>}
+          {item.inProgress && (
+            <p class="mono mt-3 text-[0.78rem] tracking-wide text-accent">in progress</p>
+          )}
           <p class="mt-5 leading-relaxed text-body">{item.body}</p>
-          {item.highlights.length > 0 && (
+          {item.highlights && item.highlights.length > 0 && (
             <ul class="mt-5 space-y-2.5 border-l border-line pl-5">
               {item.highlights.map((h) => (
                 <li class="leading-relaxed text-muted">{h}</li>
@@ -95,13 +94,15 @@ const rest = research.filter((r) => !r.featured);
             </ul>
           )}
           <p class="mono mt-5 text-sm leading-relaxed text-muted">{item.tags.join("  ·  ")}</p>
-          {item.href && (
-            <p class="mt-4">
+          <p class="mt-4">
+            {item.href ? (
               <a href={item.href} target="_blank" rel="noopener" class="link font-mono text-sm">
                 {item.hrefLabel ?? "View source"} ↗
               </a>
-            </p>
-          )}
+            ) : item.repoNote ? (
+              <span class="mono text-sm text-faint">{item.repoNote}</span>
+            ) : null}
+          </p>
         </article>
       ))
     }
