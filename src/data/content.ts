@@ -215,7 +215,7 @@ export const education = {
   school: "Stanford University",
   degree: "B.S. Mathematics · Minor in Computer Science",
   period: "2024 – 2028",
-  detail: "GPA 3.80 · Blythe Fund · Stanford AI Club · Startups To Join · Xfund Ethics Fellow",
+  detail: "GPA 3.80 · Xfund Ethics Fellow · Stanford AI Club · Blythe Fund · Startups To Join",
   coursework: [
     { code: "CS 224R", title: "Deep Reinforcement Learning" },
     { code: "CS 231N", title: "Deep Learning for Computer Vision" },
