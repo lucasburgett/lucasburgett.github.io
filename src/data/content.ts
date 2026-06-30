@@ -60,7 +60,6 @@ export const site = {
   heroLead:
     "I'm studying math and computer science at Stanford. I'm super interested in physical AI systems. I love learning about VLA's, Reinforcement learning, and how to deploy reliable policies in the real world.",
   about: [
-    "I study math and computer science at Stanford. I love learning about reinforcement learning, robotics, and understanding what characteristics make models perform well.",
     "In my free time, I love working out, golfing, seeing the world, and meeting new people. I'm also half Brazilian, so I try to go visit my family there as much as I can.",
   ],
 } as const;
