@@ -7,35 +7,28 @@ export interface SocialLink {
   readonly handle: string;
 }
 
-export interface ResearchMedia {
+export interface WorkMedia {
   readonly src: string;
   readonly poster: string;
   readonly caption: string;
 }
 
-export interface ResearchItem {
+// A single "Projects & Personal Research" entry. Covers both shipped projects and
+// research write-ups; optional fields let research items carry a tagline, highlights,
+// and a demo video, while projects can fall back to a repo note. `inProgress` shows a
+// small "in progress" tag — that is the only status an item ever displays.
+export interface WorkItem {
   readonly title: string;
-  readonly tagline: string;
+  readonly tagline?: string;
   readonly body: string;
-  readonly highlights: readonly string[];
+  readonly highlights?: readonly string[];
   readonly tags: readonly string[];
-  readonly status: string;
-  readonly venue?: string;
   readonly href?: string;
   readonly hrefLabel?: string;
+  readonly repoNote?: string; // shown when there is no href
+  readonly inProgress?: boolean;
   readonly featured?: boolean;
-  readonly media?: ResearchMedia;
-}
-
-export interface ProjectItem {
-  readonly title: string;
-  readonly kind: string;
-  readonly year: string;
-  readonly body: string;
-  readonly tags: readonly string[];
-  readonly href?: string;
-  readonly hrefLabel?: string;
-  readonly repoPrivate?: boolean;
+  readonly media?: WorkMedia;
 }
 
 export interface ExperienceItem {
@@ -60,16 +53,15 @@ export interface SkillGroup {
 
 export const site = {
   name: "Lucas Burgett",
-  role: "Math @ Stanford · Reinforcement learning for robots",
-  location: "San Diego & Stanford, California",
+  role: "Math + CS @ Stanford · Intern @ Parametric (F25)",
+  location: "Stanford & San Diego, California",
   email: "lburgett@stanford.edu",
   resume: "/Lucas-Burgett-Resume.pdf",
   heroLead:
-    "I'm a math major at Stanford. Most of my work is reinforcement learning for robots: training the policies, building the infrastructure that keeps experiments honest, and getting models from a notebook to something that runs.",
+    "I'm studying math and computer science at Stanford. I'm super interested in physical AI systems. I love learning about VLA's, Reinforcement learning, and how to deploy reliable policies in the real world.",
   about: [
-    "I'm a math major (CS minor) at Stanford. Most of what I do comes back to one question: how does a machine learn to act well when nobody hands it the right answer? That keeps me in reinforcement learning, robotics, and the unglamorous systems work that makes experiments reproducible.",
-    "My main research swaps imitation learning for RL inside hierarchical robot policies, so the model learns to remember what actually makes the next task succeed instead of copying what a human happened to do. Outside of research I build things that ship: AI products, developer tools, and evaluation setups.",
-    "Off the clock I help run the Blythe Fund and Stanford AI Club, write about early-stage startups, and speak Portuguese.",
+    "I study math and computer science at Stanford. I love learning about reinforcement learning, robotics, and understanding what characteristics make models perform well.",
+    "In my free time, I love working out, golfing, seeing the world, and meeting new people. I'm also half Brazilian, so I try to go visit my family there as much as I can.",
   ],
 } as const;
 
@@ -83,24 +75,29 @@ export const socials: readonly SocialLink[] = [
   },
 ];
 
-// Headline status used in the hero "now" strip. Keeps the summer role prominent.
+// Headline status used in the hero "now" strip.
 export const now = {
   summer: {
-    label: "Summer 2026",
+    label: "Now",
     org: "Parametric",
     badge: "YC F25",
-    role: "Incoming Software Engineering Intern",
-    detail: "Reinforcement learning for robotics, across the full ML lifecycle from training to production.",
+    role: "Software Engineering Intern",
+    detail:
+      "Building out the policy eval pipeline, and designing the metrics and statistics that decipher if a policy is usable in the real world.",
     location: "San Francisco, CA",
   },
   research: {
     label: "Now",
-    org: "Stanford research",
-    detail: "RL-trained memory for long-horizon robot manipulation, plus multi-agent design in the Fan Lab.",
+    org: "Fan Lab, Stanford University",
+    detail:
+      "Contributing to the development of MetaChat 2.0, a multi-agentic framework for autonomous nanophotonic device design.",
   },
 } as const;
 
-export const research: readonly ResearchItem[] = [
+// Projects & personal research, in display order. The featured item leads the section
+// with its demo video; the rest render as a blended list of cards. The Fan Lab /
+// nanophotonics work is intentionally not here — it lives under Experience.
+export const work: readonly WorkItem[] = [
   {
     title: "VLA Memory",
     tagline: "RL-trained memory for long-horizon robot manipulation",
@@ -112,8 +109,6 @@ export const research: readonly ResearchItem[] = [
       "GRPO loop: sample several rollouts per prompt with the frozen policy, score each on episode success, and update the planner with a group-normalized advantage and a KL anchor to the supervised model.",
     ],
     tags: ["GRPO", "Reinforcement Learning", "Qwen2.5-VL", "π₀.₅", "JAX / openpi", "Modal · A100"],
-    status: "Research paper in progress",
-    venue: "Benchmarked on RoboMME (ICML 2026 Spotlight): 16 tasks, entered as the 15th variant.",
     href: "https://github.com/lucasburgett/vla-memory-new",
     hrefLabel: "RoboMME evaluation harness",
     featured: true,
@@ -123,6 +118,13 @@ export const research: readonly ResearchItem[] = [
       caption:
         "A successful eval rollout: π₀.₅ carrying out a subgoal the memory planner issued on a RoboMME permanence task. The on-screen subgoal is the planner's output.",
     },
+  },
+  {
+    title: "Coinvest",
+    body:
+      "An AI investment-thesis research tool: type a thesis, get back a structured report with data-driven confidence scores, company comparisons, historical parallels, and the conditions that would prove it wrong. A multi-agent Claude pipeline grounds every score in live yfinance and NewsAPI data, with scheduled re-research, portfolio tracking, and a daily morning brief.",
+    tags: ["Claude API", "Multi-agent", "FastAPI", "React", "Postgres", "Fly.io"],
+    repoNote: "Private repository",
   },
   {
     title: "Latent Rectified-Flow CT Reconstruction",
@@ -135,37 +137,11 @@ export const research: readonly ResearchItem[] = [
       "Measured against a residual U-Net baseline on the Mayo Clinic low-dose CT data with SSIM and FID.",
     ],
     tags: ["Rectified Flow", "VAE", "PyTorch", "Uncertainty", "SSIM / FID"],
-    status: "CS 231N research project · 2026",
     href: "https://github.com/nikiyoon05/medical-diffusion-reconstruction",
     hrefLabel: "View source",
   },
   {
-    title: "Autonomous Nanophotonic Design",
-    tagline: "Multi-agent design and LLM evaluation for metasurfaces",
-    body:
-      "Research assistant in Stanford's Fan Lab. I contribute to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and I built an evaluation set that measures how well language models reason over a corpus of Tidy3D metasurface papers and simulation notebooks.",
-    highlights: [
-      "MetaGraph-Eval: a deterministic, graded benchmark built from paper-linked simulation notebooks, with reference answers and automated graders.",
-    ],
-    tags: ["Multi-agent systems", "LLM evaluation", "Nanophotonics", "Tidy3D"],
-    status: "Fan Lab, Stanford · Winter 2026 to present",
-  },
-];
-
-export const projects: readonly ProjectItem[] = [
-  {
-    title: "Coinvest",
-    kind: "AI product",
-    year: "2026",
-    body:
-      "An AI investment-thesis research tool: type a thesis, get back a structured report with data-driven confidence scores, company comparisons, historical parallels, and the conditions that would prove it wrong. A multi-agent Claude pipeline grounds every score in live yfinance and NewsAPI data, with scheduled re-research, portfolio tracking, and a daily morning brief.",
-    tags: ["Claude API", "Multi-agent", "FastAPI", "React", "Postgres", "Fly.io"],
-    repoPrivate: true,
-  },
-  {
     title: "CodeSentry",
-    kind: "Developer tool",
-    year: "2026",
     body:
       "AI code review for AI-generated code, shipped as a GitHub App. It pairs Semgrep (16 custom rules for common AI mistakes) with Claude behavioral analysis to catch bugs a static linter misses, then posts a risk-scored PR comment. LLM flags only survive if Semgrep backs them up, which kills most false positives.",
     tags: ["GitHub App", "Semgrep", "Claude", "FastAPI", "SQLite"],
@@ -174,8 +150,6 @@ export const projects: readonly ProjectItem[] = [
   },
   {
     title: "Reproducible RL Pipeline",
-    kind: "RL infrastructure",
-    year: "2025",
     body:
       "A template for deep RL experiments that actually reproduce: deterministic seeding, Hydra configs, version locking, experiment logging, CI, and Docker. PPO agents on CartPole, LunarLander, and Reacher, with mean ± std across seeds. Two runs of the same config give bit-for-bit identical results.",
     tags: ["PPO", "Stable-Baselines3", "Hydra", "MuJoCo", "CI/CD"],
@@ -184,8 +158,6 @@ export const projects: readonly ProjectItem[] = [
   },
   {
     title: "Nano Defect Detector",
-    kind: "Computer vision",
-    year: "2025",
     body:
       "A lightweight PyTorch pipeline for spotting nanoscale defects in SEM and TEM images. It returns OK/NG classifications and pixel-level defect heatmaps in under 10 ms per 512×512 tile on a laptop, served through a FastAPI and Gradio viewer with an ONNX runtime path.",
     tags: ["PyTorch", "OpenCV", "Anomaly detection", "FastAPI", "ONNX"],
@@ -194,11 +166,10 @@ export const projects: readonly ProjectItem[] = [
   },
   {
     title: "Personalized Writing-Style Tool",
-    kind: "LLM application",
-    year: "2025",
     body:
       "A multi-agent system that learns a person's writing style from samples and generates content that matches it with the Claude API, then runs a refinement loop against GPTZero feedback to keep the writing natural.",
     tags: ["Claude API", "Multi-agent", "NLP"],
+    repoNote: "Source unavailable",
   },
 ];
 
@@ -253,7 +224,7 @@ export const education = {
   school: "Stanford University",
   degree: "B.S. Mathematics · Minor in Computer Science",
   period: "2024 – 2028",
-  detail: "GPA 3.79 · Blythe Fund · Stanford AI Club",
+  detail: "GPA 3.80 · Blythe Fund · Stanford AI Club",
   coursework: [
     { code: "CS 224R", title: "Deep Reinforcement Learning" },
     { code: "CS 231N", title: "Deep Learning for Computer Vision" },
