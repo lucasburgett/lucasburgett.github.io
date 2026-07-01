@@ -136,8 +136,6 @@ export const work: readonly WorkItem[] = [
       "Measured against a residual U-Net baseline on the Mayo Clinic low-dose CT data with SSIM and FID.",
     ],
     tags: ["Rectified Flow", "VAE", "PyTorch", "Uncertainty", "SSIM / FID"],
-    href: "https://github.com/nikiyoon05/medical-diffusion-reconstruction",
-    hrefLabel: "View source",
   },
   {
     title: "CodeSentry",
