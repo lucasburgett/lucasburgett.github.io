@@ -11,11 +11,11 @@ interface Props {
 
 const {
   title = `${site.name} · ${site.role}`,
-  description = "Lucas Burgett is a Stanford math major working in reinforcement learning for robotics. He trains vision-language models with RL for long-horizon robot memory and is interning at Parametric (YC F25) this summer.",
+  description = "I'm studying math and computer science at Stanford and building physical AI systems — reinforcement learning, VLAs, and reliable policies in the real world. Interning at Parametric (YC F25).",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://lucasburgett.com").href;
-const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").href;
+const ogImage = new URL("/og-2.png", Astro.site ?? "https://lucasburgett.com").href;
 // Site-wide origin for stable JSON-LD @id anchors (WebSite/Person are singletons;
 // ProfilePage is per-page). e.g. https://lucasburgett.com/
 const siteUrl = new URL(Astro.site ?? "https://lucasburgett.com").href;
