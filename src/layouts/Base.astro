@@ -16,6 +16,9 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://lucasburgett.com").href;
 const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").href;
+// Site-wide origin for stable JSON-LD @id anchors (WebSite/Person are singletons;
+// ProfilePage is per-page). e.g. https://lucasburgett.com/
+const siteUrl = new URL(Astro.site ?? "https://lucasburgett.com").href;
 ---
 
 <!doctype html>
@@ -31,6 +34,7 @@ const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").hre
     <meta name="author" content={site.name} />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f8f6f0" />
+    <meta name="google-site-verification" content="iASbm3BFs_axlTdM-GdW5dfidV79c303HGuwut_yxKk" />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
@@ -53,23 +57,47 @@ const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").hre
       is:inline
       set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Person",
-        name: site.name,
-        url: canonical,
-        image: ogImage,
-        email: site.email,
-        jobTitle: "Reinforcement Learning Researcher",
-        alumniOf: "Stanford University",
-        worksFor: { "@type": "Organization", name: "Parametric" },
-        knowsAbout: [
-          "Reinforcement Learning",
-          "Robotics",
-          "Vision-Language Models",
-          "Machine Learning",
-        ],
-        sameAs: [
-          "https://github.com/lucasburgett",
-          "https://www.linkedin.com/in/lucas-burgett-494a98207",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${siteUrl}#website`,
+            url: siteUrl,
+            name: site.name,
+            publisher: { "@id": `${siteUrl}#person` },
+            inLanguage: "en-US",
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": `${canonical}#profilepage`,
+            url: canonical,
+            name: title,
+            isPartOf: { "@id": `${siteUrl}#website` },
+            about: { "@id": `${siteUrl}#person` },
+            mainEntity: { "@id": `${siteUrl}#person` },
+            inLanguage: "en-US",
+          },
+          {
+            "@type": "Person",
+            "@id": `${siteUrl}#person`,
+            name: site.name,
+            url: siteUrl,
+            image: ogImage,
+            email: site.email,
+            jobTitle: "Reinforcement Learning Researcher",
+            alumniOf: { "@type": "CollegeOrUniversity", name: "Stanford University" },
+            worksFor: { "@type": "Organization", name: "Parametric" },
+            knowsAbout: [
+              "Reinforcement Learning",
+              "Robotics",
+              "Vision-Language Models",
+              "Machine Learning",
+            ],
+            sameAs: [
+              "https://github.com/lucasburgett",
+              "https://www.linkedin.com/in/lucas-burgett-494a98207",
+            ],
+            mainEntityOfPage: { "@id": `${canonical}#profilepage` },
+          },
         ],
       })}
     />
