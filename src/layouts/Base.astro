@@ -27,18 +27,26 @@ const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").hre
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="author" content={site.name} />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f8f6f0" />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <script
       type="application/ld+json"
@@ -48,9 +56,17 @@ const ogImage = new URL("/og.png", Astro.site ?? "https://lucasburgett.com").hre
         "@type": "Person",
         name: site.name,
         url: canonical,
+        image: ogImage,
         email: site.email,
         jobTitle: "Reinforcement Learning Researcher",
         alumniOf: "Stanford University",
+        worksFor: { "@type": "Organization", name: "Parametric" },
+        knowsAbout: [
+          "Reinforcement Learning",
+          "Robotics",
+          "Vision-Language Models",
+          "Machine Learning",
+        ],
         sameAs: [
           "https://github.com/lucasburgett",
           "https://www.linkedin.com/in/lucas-burgett-494a98207",
