@@ -175,13 +175,12 @@ export const work: readonly WorkItem[] = [
 export const experience: readonly ExperienceItem[] = [
   {
     org: "Parametric",
-    role: "Software Engineering Intern (Incoming)",
+    role: "Software Engineering Intern",
     location: "San Francisco, CA · YC F25",
-    period: "Summer 2026",
+    period: "Summer 2026 – present",
     body:
       "Building and deploying reinforcement learning models for robotics, across the full ML lifecycle from training to production.",
     tags: ["Reinforcement Learning", "Robotics", "MLOps"],
-    upcoming: true,
   },
   {
     org: "Fan Lab, Stanford University",
