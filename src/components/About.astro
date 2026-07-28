@@ -30,12 +30,12 @@ import { education, site, skills } from "../data/content";
           </ul>
         </section>
 
-        <section aria-labelledby="toolbox-title">
-          <p class="detail-label" id="toolbox-title">Toolbox</p>
-          <dl class="toolbox-list">
+        <section aria-labelledby="skills-title">
+          <p class="detail-label" id="skills-title">Skills</p>
+          <dl class="skills-list">
             {
               skills.map((group) => (
-                <div class="toolbox-row">
+                <div class="skills-row">
                   <dt>{group.label}</dt>
                   <dd>{group.items.join(" · ")}</dd>
                 </div>
