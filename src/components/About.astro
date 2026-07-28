@@ -1,54 +1,49 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
-import { site, education, skills } from "../data/content";
+import { education, site, skills } from "../data/content";
 ---
 
-<section id="about" class="shell scroll-mt-24 py-20 md:py-28">
-  <SectionHeader index="04" eyebrow="About" title="A little more" />
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="folio about-grid">
+    <p class="kicker">05 / About</p>
+    <div class="about-main">
+      <h2 id="about-title">A little <em>more.</em></h2>
 
-  <div class="measure space-y-5 text-lg leading-relaxed text-body">
-    {site.about.map((p) => <p>{p}</p>)}
-  </div>
+      <div class="about-copy">
+        {site.about.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
 
-  <!-- Education -->
-  <div class="measure mt-12 border-t border-line pt-7">
-    <p class="label">Education</p>
-    <h3 class="mt-3 font-display text-xl text-ink" style="font-weight: 440; letter-spacing: -0.01em;">
-      {education.school}
-    </h3>
-    <p class="mt-1 text-muted">{education.degree}</p>
-    <p class="mono mt-2 text-sm text-faint">{education.period} · {education.detail}</p>
-  </div>
+      <div class="about-details">
+        <section class="education" aria-labelledby="education-title">
+          <p class="detail-label">Education</p>
+          <h3 id="education-title">{education.school}</h3>
+          <p>{education.degree}</p>
+          <p>{education.period} · {education.detail}</p>
+          <ul class="coursework" aria-label="Selected coursework">
+            {
+              education.coursework.map((course) => (
+                <li>
+                  <span>{course.code}</span>
+                  <span>{course.title}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
 
-  <!-- Selected coursework -->
-  <div class="measure mt-10">
-    <p class="label">Selected coursework</p>
-    <ul class="mt-4 space-y-2">
-      {
-        education.coursework.map((course) => (
-          <li class="flex gap-4 text-muted">
-            <span class="mono w-20 flex-none pt-px text-sm text-accent">{course.code}</span>
-            <span>{course.title}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
-  <!-- Toolbox -->
-  <div class="measure mt-10">
-    <p class="label">Toolbox</p>
-    <dl class="mt-4 space-y-3">
-      {
-        skills.map((group) => (
-          <div class="grid grid-cols-[6.5rem_1fr] gap-4 sm:grid-cols-[8rem_1fr]">
-            <dt class="mono pt-0.5 text-[0.7rem] uppercase tracking-wider text-faint">
-              {group.label}
-            </dt>
-            <dd class="mono text-sm leading-relaxed text-muted">{group.items.join("  ·  ")}</dd>
-          </div>
-        ))
-      }
-    </dl>
+        <section aria-labelledby="toolbox-title">
+          <p class="detail-label" id="toolbox-title">Toolbox</p>
+          <dl class="toolbox-list">
+            {
+              skills.map((group) => (
+                <div class="toolbox-row">
+                  <dt>{group.label}</dt>
+                  <dd>{group.items.join(" · ")}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </section>
+      </div>
+    </div>
   </div>
 </section>
