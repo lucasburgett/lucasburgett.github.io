@@ -1,37 +1,28 @@
 ---
 import { site, socials } from "../data/content";
+
+const github = socials.find((social) => social.label === "GitHub");
+const linkedin = socials.find((social) => social.label === "LinkedIn");
 const year = 2026;
-const github = socials.find((s) => s.label === "GitHub");
-const linkedin = socials.find((s) => s.label === "LinkedIn");
 ---
 
-<footer id="contact" class="shell scroll-mt-24 border-t border-line py-20 md:py-24">
-  <p class="label">Contact</p>
-  <p
-    class="measure mt-4 font-display text-2xl leading-snug text-ink md:text-3xl"
-    style="font-weight: 420; letter-spacing: -0.015em;"
-  >
-    The fastest way to reach me is email.
-  </p>
-  <p class="mt-4">
-    <a href={`mailto:${site.email}`} class="link text-lg">{site.email}</a>
-  </p>
-
-  <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-    <a href={github?.href} target="_blank" rel="noopener" class="link-quiet inline-flex min-h-11 items-center"
-      >GitHub</a
-    >
-    <a href={linkedin?.href} target="_blank" rel="noopener" class="link-quiet inline-flex min-h-11 items-center"
-      >LinkedIn</a
-    >
-    <a href={site.resume} class="link-quiet inline-flex min-h-11 items-center">Resume ↗</a>
+<footer class="closing" id="contact">
+  <div class="folio closing__grid">
+    <p class="kicker closing__note">06 / Contact</p>
+    <div class="closing__main">
+      <h2>The fastest way to reach me is <em>email.</em></h2>
+      <p>{site.email}</p>
+      <div class="closing__links">
+        <a class="text-link" href={`mailto:${site.email}`}>{site.email} ↗</a>
+        <a class="text-link" href={linkedin?.href} target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="text-link" href={github?.href} target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="text-link" href={site.resume} target="_blank">Resume ↗</a>
+      </div>
+    </div>
   </div>
 
-  <div
-    class="mono mt-14 flex flex-col gap-2 border-t border-line pt-6 text-xs text-faint sm:flex-row sm:items-center sm:justify-between"
-  >
-    <p>© {year} {site.name}</p>
-    <p>{site.location}</p>
-    <p>Built with Astro &amp; Tailwind</p>
+  <div class="folio footer">
+    <span>© {year} {site.name} · {site.location}</span>
+    <span>Math / Computer Science / Physical AI</span>
   </div>
 </footer>

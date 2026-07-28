@@ -1,49 +1,32 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
 import { literature } from "../data/content";
 ---
 
-<section id="literature" class="shell scroll-mt-24 py-20 md:py-28">
-  <SectionHeader
-    index="02"
-    eyebrow="Literature"
-    title="Writing on robotics and evaluation"
-  />
+<section class="folio section" id="writing" aria-labelledby="writing-title">
+  <header class="section-head">
+    <p class="kicker">03 / Literature</p>
+    <h2 id="writing-title">Writing on robotics <em>and evaluation.</em></h2>
+  </header>
 
-  <div class="measure">
+  <div class="writing-index">
     {
       literature.map((item) => (
-        <article class="grid gap-x-8 gap-y-3 border-t border-line py-8 md:grid-cols-[9rem_1fr]">
-          <p class="mono pt-1 text-[0.78rem] leading-relaxed tracking-wide text-faint">
-            {item.published}
-            <span class="block">{item.readTime}</span>
+        <article class="writing-story">
+          <p class="writing-story__meta">
+            <span>{item.published}</span>
+            <span>{item.readTime}</span>
+            <span>{item.publication}</span>
           </p>
-          <div>
-            <h3
-              class="font-display text-2xl text-ink"
-              style="font-weight: 440; letter-spacing: -0.015em; line-height: 1.1;"
-            >
-              {item.title}
-            </h3>
-            <p class="mt-3 leading-relaxed text-body">{item.summary}</p>
-            <p class="mono mt-4 text-sm leading-relaxed text-muted">
-              {item.authors.join("  ·  ")}
-              <span class="mt-1 block sm:mt-0 sm:inline">
-                <span class="hidden sm:inline">&nbsp;·&nbsp;</span>
-                {item.publication}
-              </span>
-            </p>
-            <p class="mt-4">
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener"
-                class="link inline-flex min-h-11 items-center font-mono text-sm"
-              >
-                Read on Parametric ↗
-              </a>
-            </p>
+
+          <div class="writing-story__content">
+            <h3>{item.title}</h3>
+            <p class="writing-story__summary">{item.summary}</p>
+            <p class="writing-story__authors">{item.authors.join(" · ")}</p>
           </div>
+
+          <a class="writing-story__action" href={item.href} target="_blank" rel="noopener">
+            Read on {item.publication} ↗
+          </a>
         </article>
       ))
     }

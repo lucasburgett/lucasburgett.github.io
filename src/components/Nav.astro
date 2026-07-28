@@ -1,31 +1,20 @@
 ---
+import { site } from "../data/content";
+
 const links = [
-  { label: "Projects & Personal Research", href: "#work" },
-  { label: "Literature", href: "#literature" },
+  { label: "Research", href: "#research" },
+  { label: "Projects", href: "#projects" },
+  { label: "Writing", href: "#writing" },
   { label: "Experience", href: "#experience" },
-  { label: "About", href: "#about" },
 ];
 ---
 
-<header class="site-nav sticky top-0 z-40 border-b border-transparent bg-paper/95">
-  <nav class="shell flex h-[4.25rem] items-center justify-between gap-4" aria-label="Primary">
-    <a href="#top" class="font-display text-lg tracking-tight text-ink" style="font-weight: 460;"
-      >Lucas Burgett</a
-    >
-    <ul class="hidden items-center gap-5 sm:flex md:gap-6">
-      {
-        links.map((link) => (
-          <li>
-            <a
-              data-nav-link
-              href={link.href}
-              class="font-mono text-[0.78rem] tracking-wide text-muted transition-colors hover:text-ink data-[active]:text-accent"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+<header class="masthead">
+  <div class="folio masthead__inner">
+    <a class="wordmark" href="#top" aria-label={`${site.name}, home`}>{site.name}</a>
+    <nav aria-label="Primary navigation">
+      {links.map((link) => <a data-nav-link href={link.href}>{link.label}</a>)}
+    </nav>
+    <a class="header-contact" href={`mailto:${site.email}`}>Get in touch ↗</a>
+  </div>
 </header>

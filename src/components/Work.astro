@@ -1,108 +1,127 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
 import { work } from "../data/content";
 
-const featured = work.find((w) => w.featured);
-const rest = work.filter((w) => !w.featured);
+const featured = work.find((item) => item.featured);
+const projects = work.filter((item) => !item.featured);
 ---
 
-<section id="work" class="shell scroll-mt-24 py-20 md:py-28">
-  <SectionHeader
-    index="01"
-    eyebrow="Projects & Personal Research"
-    title="Research and projects, in and out of class"
-  />
-
-  {
-    featured && (
-      <article class="measure">
-        <h3
-          class="font-display text-3xl text-ink md:text-[2.4rem]"
-          style="font-weight: 420; letter-spacing: -0.02em; line-height: 1.08;"
-        >
-          {featured.title}
-        </h3>
-        {featured.tagline && (
-          <p class="mt-1.5 font-serif text-xl italic text-muted md:text-2xl">{featured.tagline}</p>
-        )}
-        {featured.inProgress && (
-          <p class="mono mt-4 text-[0.78rem] tracking-wide text-accent">in progress</p>
-        )}
-        <p class="mt-6 text-lg leading-relaxed text-body">{featured.body}</p>
-        {featured.highlights && featured.highlights.length > 0 && (
-          <ul class="mt-6 space-y-3 border-l border-line pl-5">
-            {featured.highlights.map((h) => (
-              <li class="leading-relaxed text-muted">{h}</li>
-            ))}
-          </ul>
-        )}
-        <p class="mono mt-6 text-sm leading-relaxed text-muted">{featured.tags.join("  ·  ")}</p>
-        {featured.href && (
-          <p class="mt-4">
-            <a href={featured.href} target="_blank" rel="noopener" class="link font-mono text-sm">
-              {featured.hrefLabel ?? "View source"} ↗
-            </a>
+{
+  featured && (
+    <section class="feature" id="research" aria-labelledby="research-title">
+      <div class="folio">
+        <header class="feature__top">
+          <p class="kicker">01 / Featured research</p>
+          <h2 class="feature__title" id="research-title">
+            VLA <span>Memory</span>
+          </h2>
+          <p class="feature__status">
+            <span>{featured.inProgress ? "In progress" : "Featured project"}</span>
+            <br />
+            <span>Robot learning</span>
+            <br />
+            <span>2026</span>
           </p>
-        )}
-      </article>
-    )
-  }
+        </header>
 
-  {
-    featured?.media && (
-      <figure class="mt-10">
-        <div class="overflow-hidden rounded border border-line-strong bg-[#0c0c0f]">
-          <video
-            class="mx-auto block h-auto w-full"
-            style="max-height: 34rem; object-fit: contain;"
-            controls
-            preload="none"
-            playsinline
-            poster={featured.media.poster}
-            aria-label={featured.media.caption}
-          >
-            <source src={featured.media.src} type="video/mp4" />
-          </video>
-        </div>
-        <figcaption class="measure mt-3 text-sm leading-relaxed text-muted">
-          {featured.media.caption}
-        </figcaption>
-      </figure>
-    )
-  }
-
-  <div class="measure mt-14 space-y-12">
-    {
-      rest.map((item) => (
-        <article class="border-t border-line pt-10">
-          <h3
-            class="font-display text-2xl text-ink"
-            style="font-weight: 420; letter-spacing: -0.015em; line-height: 1.1;"
-          >
-            {item.title}
-          </h3>
-          {item.tagline && <p class="mt-1.5 font-serif text-lg italic text-muted">{item.tagline}</p>}
-          {item.inProgress && (
-            <p class="mono mt-3 text-[0.78rem] tracking-wide text-accent">in progress</p>
-          )}
-          <p class="mt-5 leading-relaxed text-body">{item.body}</p>
-          {item.highlights && item.highlights.length > 0 && (
-            <ul class="mt-5 space-y-2.5 border-l border-line pl-5">
-              {item.highlights.map((h) => (
-                <li class="leading-relaxed text-muted">{h}</li>
-              ))}
-            </ul>
-          )}
-          <p class="mono mt-5 text-sm leading-relaxed text-muted">{item.tags.join("  ·  ")}</p>
-          <p class="mt-4">
-            {item.href ? (
-              <a href={item.href} target="_blank" rel="noopener" class="link font-mono text-sm">
-                {item.hrefLabel ?? "View source"} ↗
+        <div class="feature__spread">
+          <div class="feature__abstract">
+            {featured.tagline && <p class="feature__lead">{featured.tagline}.</p>}
+            <p class="feature__body">{featured.body}</p>
+            {featured.href && (
+              <a class="text-link" href={featured.href} target="_blank" rel="noopener">
+                {featured.hrefLabel ?? "View source"} ↗
               </a>
-            ) : item.repoNote ? (
-              <span class="mono text-sm text-faint">{item.repoNote}</span>
-            ) : null}
+            )}
+          </div>
+
+          {featured.media && (
+            <figure class="research-figure">
+              <div class="research-figure__frame">
+                <video
+                  controls
+                  preload="none"
+                  playsinline
+                  poster={featured.media.poster}
+                  aria-label={featured.media.caption}
+                >
+                  <source src={featured.media.src} type="video/mp4" />
+                </video>
+                <span class="research-figure__mark">RoboMME / Evaluation rollout</span>
+              </div>
+              <figcaption>
+                <strong>Fig. 01</strong>
+                <span>{featured.media.caption}</span>
+              </figcaption>
+            </figure>
+          )}
+
+          {featured.highlights && (
+            <dl class="feature__notes">
+              {featured.highlights.map((highlight, index) => (
+                <div class="feature__note">
+                  <dt>{String(index + 1).padStart(2, "0")} / Research note</dt>
+                  <dd>{highlight}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<section class="folio section" id="projects" aria-labelledby="projects-title">
+  <header class="section-head">
+    <p class="kicker">02 / Projects &amp; Personal Research</p>
+    <h2 id="projects-title">Research and projects, <em>in and out of class.</em></h2>
+  </header>
+
+  <div class="project-index">
+    {
+      projects.map((item, index) => (
+        <article class="project">
+          <div class="project__identity">
+            <span class="project__number">P—{String(index + 1).padStart(2, "0")}</span>
+            <h3 class="project__title">
+              {item.href ? (
+                <a href={item.href} target="_blank" rel="noopener">
+                  {item.title}
+                </a>
+              ) : (
+                item.title
+              )}
+            </h3>
+          </div>
+
+          <div class="project__copy">
+            {item.tagline && <p class="project__tagline">{item.tagline}</p>}
+            <p>{item.body}</p>
+            {item.highlights && (
+              <ul class="project__highlights">
+                {item.highlights.map((highlight) => <li>{highlight}</li>)}
+              </ul>
+            )}
+          </div>
+
+          <p class="project__stack">
+            {item.tags.map((tag) => <span>{tag}</span>)}
+            {item.repoNote && <span class="project__repo">{item.repoNote}</span>}
           </p>
+
+          {item.href ? (
+            <a
+              class="project__action"
+              href={item.href}
+              target="_blank"
+              rel="noopener"
+              aria-label={`${item.hrefLabel ?? "View source"} for ${item.title}`}
+            >
+              ↗
+            </a>
+          ) : (
+            <span class="project__action" aria-hidden="true">—</span>
+          )}
         </article>
       ))
     }
