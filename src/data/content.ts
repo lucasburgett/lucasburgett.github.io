@@ -66,7 +66,7 @@ export const site = {
   role: "Math + CS @ Stanford · Intern @ Parametric (F25)",
   location: "Stanford & San Diego, California",
   email: "lburgett@stanford.edu",
-  resume: "/Lucas-Burgett-Resume.pdf",
+  resume: "/Lucas-Burgett-Resume-2026.pdf",
   heroLead:
     "I'm studying math and computer science at Stanford. I'm super interested in physical AI systems. I love learning about VLA's, Reinforcement learning, and how to deploy reliable policies in the real world.",
   about: [
