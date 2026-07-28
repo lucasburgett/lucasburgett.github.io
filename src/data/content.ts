@@ -41,6 +41,16 @@ export interface ExperienceItem {
   readonly upcoming?: boolean;
 }
 
+export interface LiteratureItem {
+  readonly title: string;
+  readonly summary: string;
+  readonly authors: readonly string[];
+  readonly publication: string;
+  readonly published: string;
+  readonly readTime: string;
+  readonly href: string;
+}
+
 export interface Course {
   readonly code: string;
   readonly title: string;
@@ -167,6 +177,19 @@ export const work: readonly WorkItem[] = [
       "A multi-agent system that learns a person's writing style from samples and generates content that matches it with the Claude API, then runs a refinement loop against GPTZero feedback to keep the writing natural.",
     tags: ["Claude API", "Multi-agent", "NLP"],
     repoNote: "Source unavailable",
+  },
+];
+
+export const literature: readonly LiteratureItem[] = [
+  {
+    title: "Calibration Precedes Evaluation",
+    summary:
+      "How we calibrate real-world robot evaluations with an adaptive difficulty staircase to learn more, spend less, and iterate faster.",
+    authors: ["John Alvarez", "Lucas Burgett"],
+    publication: "Parametric",
+    published: "July 2026",
+    readTime: "8 min read",
+    href: "https://www.parametric.company/blog/calibration-precedes-evaluation",
   },
 ];
 
