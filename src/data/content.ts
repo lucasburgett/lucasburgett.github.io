@@ -107,7 +107,7 @@ export const work: readonly WorkItem[] = [
       "Same architecture, backbone, and benchmark as the prior work, so the training algorithm is the only thing that changes.",
       "GRPO loop: sample several rollouts per prompt with the frozen policy, score each on episode success, and update the planner with a group-normalized advantage and a KL anchor to the supervised model.",
     ],
-    tags: ["GRPO", "Reinforcement Learning", "Qwen2.5-VL", "π₀.₅", "JAX / openpi", "Modal · A100"],
+    tags: ["GRPO", "Reinforcement Learning", "Qwen2.5-VL-7B", "π₀.₅", "JAX / openpi", "Modal · A100"],
     href: "https://github.com/lucasburgett/vla-memory-new",
     hrefLabel: "RoboMME evaluation harness",
     featured: true,
