@@ -103,8 +103,8 @@ export const now = {
   },
 } as const;
 
-// Projects & personal research, in display order. The featured item leads the section
-// with its demo video; the rest render as a blended list of cards. The Fan Lab /
+// Projects & personal research, in display order. VLA Memory leads the compact list
+// with its demo video. The Fan Lab /
 // nanophotonics work is intentionally not here — it lives under Experience.
 export const work: readonly WorkItem[] = [
   {
