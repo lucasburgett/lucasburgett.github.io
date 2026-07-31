@@ -6,42 +6,39 @@ const linkedin = socials.find((social) => social.label === "LinkedIn");
 ---
 
 <section class="folio hero" id="top" aria-labelledby="hero-title">
-  <div class="hero__edition">
-    <p class="kicker">Portfolio / 2026</p>
-    <p>{site.location}</p>
-  </div>
+  <h1 id="hero-title">{site.name}</h1>
+  <p class="hero__role">{site.role}</p>
+  <p class="hero__lead">{site.heroLead}</p>
+  <p class="meta-line">{site.location}</p>
+  <nav class="utility-links" aria-label="Profile links">
+    <a class="text-link" href={site.resume} target="_blank">Resume ↗</a>
+    <a class="text-link" href={github?.href} target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="text-link" href={linkedin?.href} target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="text-link" href={`mailto:${site.email}`}>Email ↗</a>
+  </nav>
 
-  <h1 class="hero__headline" id="hero-title">
-    <span>Lucas</span>
-    <span>Burgett.</span>
-  </h1>
-
-  <div class="hero__intro">
-    <p class="dek">{site.heroLead}</p>
-    <p class="meta">{site.role} · {site.location}</p>
-    <nav class="hero__links" aria-label="Profile links">
-      <a class="text-link" href={site.resume} target="_blank">Resume ↗</a>
-      <a class="text-link" href={github?.href} target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="text-link" href={linkedin?.href} target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="text-link" href={`mailto:${site.email}`}>Email ↗</a>
-    </nav>
-  </div>
-
-  <div class="hero__now">
-    <article class="now-item">
-      <p class="now-item__label">{now.summer.label} / Parametric ({now.summer.badge})</p>
-      <h2>{now.summer.role}</h2>
-      <p>{now.summer.detail}</p>
+  <section class="current" aria-labelledby="current-title">
+    <h2 class="current__title" id="current-title">Currently</h2>
+    <article class="current__item">
+      <p class="current__label">Parametric · {now.summer.badge}</p>
+      <div>
+        <h3>{now.summer.role}</h3>
+        <p>{now.summer.detail}</p>
+      </div>
     </article>
-    <article class="now-item">
-      <p class="now-item__label">{now.research.label} / {now.research.org}</p>
-      <h2>Research Assistant</h2>
-      <p>{now.research.detail}</p>
+    <article class="current__item">
+      <p class="current__label">Stanford research</p>
+      <div>
+        <h3>{now.research.org}</h3>
+        <p>{now.research.detail}</p>
+      </div>
     </article>
-    <article class="now-item now-item--study">
-      <p class="now-item__label">Study / Stanford</p>
-      <h2>{education.school}</h2>
-      <p>{education.degree}</p>
+    <article class="current__item">
+      <p class="current__label">Education</p>
+      <div>
+        <h3>{education.school}</h3>
+        <p>{education.degree}</p>
+      </div>
     </article>
-  </div>
+  </section>
 </section>

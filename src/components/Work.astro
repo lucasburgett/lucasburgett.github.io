@@ -7,121 +7,85 @@ const projects = work.filter((item) => !item.featured);
 
 {
   featured && (
-    <section class="feature" id="research" aria-labelledby="research-title">
-      <div class="folio">
-        <header class="feature__top">
-          <p class="kicker">01 / Featured research</p>
-          <h2 class="feature__title" id="research-title">
-            VLA <span>Memory</span>
-          </h2>
-          <p class="feature__status">
-            <span>{featured.inProgress ? "In progress" : "Featured project"}</span>
-            <br />
-            <span>Robot learning</span>
-            <br />
-            <span>2026</span>
+    <section class="folio section" id="research" aria-labelledby="research-title">
+      <h2 class="section-title" id="research-title">Featured Research</h2>
+
+      <article class="featured-research">
+        <h3>{featured.title}</h3>
+        <p class="entry-meta">
+          {featured.inProgress ? "In progress" : "Featured project"} · Robot learning · 2026
+        </p>
+        {featured.tagline && <p class="entry-tagline">{featured.tagline}.</p>}
+        <p class="entry-copy">{featured.body}</p>
+
+        {featured.href && (
+          <p class="entry-actions">
+            <a href={featured.href} target="_blank" rel="noopener">
+              {featured.hrefLabel ?? "View source"} ↗
+            </a>
           </p>
-        </header>
+        )}
 
-        <div class="feature__spread">
-          <div class="feature__abstract">
-            {featured.tagline && <p class="feature__lead">{featured.tagline}.</p>}
-            <p class="feature__body">{featured.body}</p>
-            {featured.href && (
-              <a class="text-link" href={featured.href} target="_blank" rel="noopener">
-                {featured.hrefLabel ?? "View source"} ↗
-              </a>
-            )}
-          </div>
+        {featured.media && (
+          <figure class="research-figure">
+            <div class="research-figure__frame">
+              <video
+                controls
+                preload="none"
+                playsinline
+                poster={featured.media.poster}
+                aria-label={featured.media.caption}
+              >
+                <source src={featured.media.src} type="video/mp4" />
+              </video>
+            </div>
+            <figcaption>Evaluation rollout · {featured.media.caption}</figcaption>
+          </figure>
+        )}
 
-          {featured.media && (
-            <figure class="research-figure">
-              <div class="research-figure__frame">
-                <video
-                  controls
-                  preload="none"
-                  playsinline
-                  poster={featured.media.poster}
-                  aria-label={featured.media.caption}
-                >
-                  <source src={featured.media.src} type="video/mp4" />
-                </video>
-                <span class="research-figure__mark">RoboMME / Evaluation rollout</span>
-              </div>
-              <figcaption>
-                <strong>Fig. 01</strong>
-                <span>{featured.media.caption}</span>
-              </figcaption>
-            </figure>
-          )}
+        {featured.highlights && (
+          <ol class="research-notes" aria-label="Research notes">
+            {featured.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ol>
+        )}
 
-          {featured.highlights && (
-            <dl class="feature__notes">
-              {featured.highlights.map((highlight, index) => (
-                <div class="feature__note">
-                  <dt>{String(index + 1).padStart(2, "0")} / Research note</dt>
-                  <dd>{highlight}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-        </div>
-      </div>
+        <p class="entry-tags">{featured.tags.join(" · ")}</p>
+      </article>
     </section>
   )
 }
 
 <section class="folio section" id="projects" aria-labelledby="projects-title">
-  <header class="section-head">
-    <p class="kicker">02 / Projects &amp; Personal Research</p>
-    <h2 id="projects-title">Research and projects, <em>in and out of class.</em></h2>
-  </header>
+  <h2 class="section-title" id="projects-title">Projects &amp; Personal Research</h2>
 
-  <div class="project-index">
+  <div class="entry-list">
     {
-      projects.map((item, index) => (
-        <article class="project">
-          <div class="project__identity">
-            <span class="project__number">P—{String(index + 1).padStart(2, "0")}</span>
-            <h3 class="project__title">
-              {item.href ? (
-                <a href={item.href} target="_blank" rel="noopener">
-                  {item.title}
-                </a>
-              ) : (
-                item.title
-              )}
-            </h3>
-          </div>
-
-          <div class="project__copy">
-            {item.tagline && <p class="project__tagline">{item.tagline}</p>}
-            <p>{item.body}</p>
-            {item.highlights && (
-              <ul class="project__highlights">
-                {item.highlights.map((highlight) => <li>{highlight}</li>)}
-              </ul>
+      projects.map((item) => (
+        <article class="entry project-entry">
+          <h3>
+            {item.href ? (
+              <a href={item.href} target="_blank" rel="noopener">{item.title}</a>
+            ) : (
+              item.title
             )}
-          </div>
-
-          <p class="project__stack">
-            {item.tags.map((tag) => <span>{tag}</span>)}
-            {item.repoNote && <span class="project__repo">{item.repoNote}</span>}
-          </p>
-
-          {item.href ? (
-            <a
-              class="project__action"
-              href={item.href}
-              target="_blank"
-              rel="noopener"
-              aria-label={`${item.hrefLabel ?? "View source"} for ${item.title}`}
-            >
-              ↗
-            </a>
-          ) : (
-            <span class="project__action" aria-hidden="true">—</span>
+          </h3>
+          {item.tagline && <p class="entry-tagline">{item.tagline}</p>}
+          <p class="entry-copy">{item.body}</p>
+          {item.highlights && (
+            <ul class="entry-highlights">
+              {item.highlights.map((highlight) => <li>{highlight}</li>)}
+            </ul>
           )}
+          <p class="entry-tags">{item.tags.join(" · ")}</p>
+          <p class="entry-actions">
+            {item.href ? (
+              <a href={item.href} target="_blank" rel="noopener">
+                {item.hrefLabel ?? "View source"} ↗
+              </a>
+            ) : (
+              <span class="entry-meta">{item.repoNote}</span>
+            )}
+          </p>
         </article>
       ))
     }

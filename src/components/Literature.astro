@@ -3,30 +3,21 @@ import { literature } from "../data/content";
 ---
 
 <section class="folio section" id="writing" aria-labelledby="writing-title">
-  <header class="section-head">
-    <p class="kicker">03 / Literature</p>
-    <h2 id="writing-title">Writing on robotics <em>and evaluation.</em></h2>
-  </header>
+  <h2 class="section-title" id="writing-title">Writing</h2>
 
-  <div class="writing-index">
+  <div class="entry-list">
     {
       literature.map((item) => (
-        <article class="writing-story">
-          <p class="writing-story__meta">
-            <span>{item.published}</span>
-            <span>{item.readTime}</span>
-            <span>{item.publication}</span>
-          </p>
-
-          <div class="writing-story__content">
+        <article class="entry writing-entry">
+          <div class="writing-entry__head">
             <h3>{item.title}</h3>
-            <p class="writing-story__summary">{item.summary}</p>
-            <p class="writing-story__authors">{item.authors.join(" · ")}</p>
+            <p class="entry-meta">{item.publication} · {item.published} · {item.readTime}</p>
           </div>
-
-          <a class="writing-story__action" href={item.href} target="_blank" rel="noopener">
-            Read on {item.publication} ↗
-          </a>
+          <p class="entry-copy">{item.summary}</p>
+          <p class="writing-entry__authors">{item.authors.join(" · ")}</p>
+          <p class="entry-actions">
+            <a href={item.href} target="_blank" rel="noopener">Read on {item.publication} ↗</a>
+          </p>
         </article>
       ))
     }

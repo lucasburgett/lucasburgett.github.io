@@ -3,40 +3,26 @@ import { experience } from "../data/content";
 ---
 
 <section class="folio section" id="experience" aria-labelledby="experience-title">
-  <header class="section-head">
-    <p class="kicker">04 / Experience</p>
-    <h2 id="experience-title">Where I’ve <em>worked.</em></h2>
-    <p class="section-note">
-      From production computer vision to startup research. This summer, reinforcement learning for
-      robots at Parametric.
-    </p>
-  </header>
+  <h2 class="section-title" id="experience-title">Experience</h2>
+  <p class="section-intro">
+    From production computer vision to startup research and reinforcement learning for robots.
+  </p>
 
-  <div class="career">
-    <aside class="career__aside">
-      <p class="kicker">Selected roles</p>
-      <p>Stanford &amp; San Francisco, with roots in San Diego.</p>
-    </aside>
-
-    <div class="career__list">
-      {
-        experience.map((job) => (
-          <article class="role">
-            <h3 class="role__org">{job.org}</h3>
-            <p class="role__meta">
-              {job.role}
-              <br />
-              {job.period}
-              <br />
-              {job.location}
-            </p>
+  <div class="role-list">
+    {
+      experience.map((job) => (
+        <article class="role">
+          <p class="role__period">{job.period}</p>
+          <div>
+            <h3>{job.role}</h3>
+            <p class="role__org">{job.org} · {job.location}</p>
             <p class="role__copy">
               {job.body}
               {job.tags && <span class="role__tags">{job.tags.join(" · ")}</span>}
             </p>
-          </article>
-        ))
-      }
-    </div>
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
