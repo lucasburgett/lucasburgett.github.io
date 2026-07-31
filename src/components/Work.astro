@@ -1,77 +1,46 @@
 ---
 import { work } from "../data/content";
-
-const featured = work.find((item) => item.featured);
-const projects = work.filter((item) => !item.featured);
 ---
 
-{
-  featured && (
-    <section class="folio section" id="research" aria-labelledby="research-title">
-      <h2 class="section-title" id="research-title">Featured Research</h2>
-
-      <article class="featured-research">
-        <h3>{featured.title}</h3>
-        <p class="entry-meta">
-          {featured.inProgress ? "In progress" : "Featured project"} · Robot learning · 2026
-        </p>
-        {featured.tagline && <p class="entry-tagline">{featured.tagline}.</p>}
-        <p class="entry-copy">{featured.body}</p>
-
-        {featured.href && (
-          <p class="entry-actions">
-            <a href={featured.href} target="_blank" rel="noopener">
-              {featured.hrefLabel ?? "View source"} ↗
-            </a>
-          </p>
-        )}
-
-        {featured.media && (
-          <figure class="research-figure">
-            <div class="research-figure__frame">
-              <video
-                controls
-                preload="none"
-                playsinline
-                poster={featured.media.poster}
-                aria-label={featured.media.caption}
-              >
-                <source src={featured.media.src} type="video/mp4" />
-              </video>
-            </div>
-            <figcaption>Evaluation rollout · {featured.media.caption}</figcaption>
-          </figure>
-        )}
-
-        {featured.highlights && (
-          <ol class="research-notes" aria-label="Research notes">
-            {featured.highlights.map((highlight) => <li>{highlight}</li>)}
-          </ol>
-        )}
-
-        <p class="entry-tags">{featured.tags.join(" · ")}</p>
-      </article>
-    </section>
-  )
-}
-
 <section class="folio section" id="projects" aria-labelledby="projects-title">
+  <span class="anchor-alias" id="research" aria-hidden="true"></span>
   <h2 class="section-title" id="projects-title">Projects &amp; Personal Research</h2>
 
   <div class="entry-list">
     {
-      projects.map((item) => (
-        <article class="entry project-entry">
+      work.map((item) => (
+        <article class={`entry project-entry${item.featured ? " project-entry--research" : ""}`}>
           <h3>
-            {item.href ? (
+            {item.href && !item.featured ? (
               <a href={item.href} target="_blank" rel="noopener">{item.title}</a>
             ) : (
               item.title
             )}
           </h3>
+          {item.featured && (
+            <p class="entry-meta">
+              {item.inProgress ? "In progress" : "Research project"} · Robot learning · 2026
+            </p>
+          )}
           {item.tagline && <p class="entry-tagline">{item.tagline}</p>}
           <p class="entry-copy">{item.body}</p>
-          {item.highlights && (
+          {item.media && (
+            <figure class="research-figure">
+              <div class="research-figure__frame">
+                <video
+                  controls
+                  preload="none"
+                  playsinline
+                  poster={item.media.poster}
+                  aria-label={item.media.caption}
+                >
+                  <source src={item.media.src} type="video/mp4" />
+                </video>
+              </div>
+              <figcaption>Evaluation rollout · {item.media.caption}</figcaption>
+            </figure>
+          )}
+          {item.highlights && !item.featured && (
             <ul class="entry-highlights">
               {item.highlights.map((highlight) => <li>{highlight}</li>)}
             </ul>
