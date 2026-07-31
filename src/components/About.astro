@@ -2,48 +2,45 @@
 import { education, site, skills } from "../data/content";
 ---
 
-<section class="section about" id="about" aria-labelledby="about-title">
-  <div class="folio about-grid">
-    <p class="kicker">05 / About</p>
-    <div class="about-main">
-      <h2 id="about-title">A little <em>more.</em></h2>
+<section class="folio section" id="about" aria-labelledby="about-title">
+  <h2 class="section-title" id="about-title">About</h2>
 
-      <div class="about-copy">
-        {site.about.map((paragraph) => <p>{paragraph}</p>)}
-      </div>
+  <div class="about-copy">
+    {site.about.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
 
-      <div class="about-details">
-        <section class="education" aria-labelledby="education-title">
-          <p class="detail-label">Education</p>
-          <h3 id="education-title">{education.school}</h3>
-          <p>{education.degree}</p>
-          <p>{education.period} · {education.detail}</p>
-          <ul class="coursework" aria-label="Selected coursework">
-            {
-              education.coursework.map((course) => (
-                <li>
-                  <span>{course.code}</span>
-                  <span>{course.title}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
+  <div class="about-details">
+    <section class="detail-section" aria-labelledby="education-title">
+      <h3 id="education-title">Education</h3>
+      <p class="education-summary">
+        <strong>{education.school}</strong><br />
+        {education.degree}<br />
+        {education.period} · {education.detail}
+      </p>
+      <ul class="coursework" aria-label="Selected coursework">
+        {
+          education.coursework.map((course) => (
+            <li>
+              <span>{course.code}</span>
+              <span>{course.title}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
-        <section aria-labelledby="skills-title">
-          <p class="detail-label" id="skills-title">Skills</p>
-          <dl class="skills-list">
-            {
-              skills.map((group) => (
-                <div class="skills-row">
-                  <dt>{group.label}</dt>
-                  <dd>{group.items.join(" · ")}</dd>
-                </div>
-              ))
-            }
-          </dl>
-        </section>
-      </div>
-    </div>
+    <section class="detail-section" aria-labelledby="skills-title">
+      <h3 id="skills-title">Skills</h3>
+      <dl class="skills-list">
+        {
+          skills.map((group) => (
+            <div class="skills-row">
+              <dt>{group.label}</dt>
+              <dd>{group.items.join(" · ")}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
   </div>
 </section>

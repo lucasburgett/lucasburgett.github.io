@@ -6,6 +6,7 @@ const links = [
   { label: "Projects", href: "#projects" },
   { label: "Writing", href: "#writing" },
   { label: "Experience", href: "#experience" },
+  { label: "About", href: "#about" },
 ];
 ---
 
@@ -15,6 +16,5 @@ const links = [
     <nav aria-label="Primary navigation">
       {links.map((link) => <a data-nav-link href={link.href}>{link.label}</a>)}
     </nav>
-    <a class="header-contact" href={`mailto:${site.email}`}>Get in touch ↗</a>
   </div>
 </header>
