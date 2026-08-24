@@ -95,12 +95,6 @@ export const now = {
       "Building out the policy eval pipeline, and designing the metrics and statistics that decipher if a policy is usable in the real world.",
     location: "San Francisco, CA",
   },
-  research: {
-    label: "Now",
-    org: "Fan Lab, Stanford University",
-    detail:
-      "Contributing to the development of MetaChat 2.0, a multi-agentic framework for autonomous nanophotonic device design.",
-  },
 } as const;
 
 // Projects & personal research, in display order. VLA Memory leads the compact list
@@ -207,9 +201,9 @@ export const experience: readonly ExperienceItem[] = [
     org: "Fan Lab, Stanford University",
     role: "Research Assistant",
     location: "Stanford, CA",
-    period: "Winter 2026 – present",
+    period: "Winter 2026 – June 2026",
     body:
-      "Contributing to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and building the LLM evaluation set that measures it.",
+      "Contributed to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and built the LLM evaluation set that measures it.",
     tags: ["Multi-agent", "LLM eval", "Nanophotonics"],
   },
   {
