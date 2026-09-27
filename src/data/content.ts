@@ -105,13 +105,13 @@ export const work: readonly WorkItem[] = [
     title: "VLA Memory",
     tagline: "RL-trained memory for long-horizon robot manipulation",
     body:
-      "A hierarchical VLM + VLA system for robots that have to remember across tasks. A Qwen2.5-VL-7B planner is fine-tuned with GRPO to pick the keyframes that actually matter and issue the next subtask; a frozen π₀.₅ policy carries out the low-level motion.",
+      "A hierarchical VLM + VLA system for robots that have to remember across tasks. A Qwen3-VL-4B planner is fine-tuned with GRPO to pick the keyframes that actually matter and issue the next subtask; a frozen π₀.₅ policy carries out the low-level motion.",
     highlights: [
       "Swaps the imitation learning used in MemER (ICLR 2026) for reinforcement learning. The planner is rewarded for whether the task gets done, not for copying which keyframes a human looked at.",
       "Same architecture, backbone, and benchmark as the prior work, so the training algorithm is the only thing that changes.",
       "GRPO loop: sample several rollouts per prompt with the frozen policy, score each on episode success, and update the planner with a group-normalized advantage and a KL anchor to the supervised model.",
     ],
-    tags: ["GRPO", "Reinforcement Learning", "Qwen2.5-VL-7B", "π₀.₅", "JAX / openpi", "Modal · A100"],
+    tags: ["GRPO", "Reinforcement Learning", "Qwen3-VL-4B", "π₀.₅", "JAX / openpi", "Modal · A100"],
     href: "https://github.com/lucasburgett/vla-memory-new",
     hrefLabel: "RoboMME evaluation harness",
     featured: true,
