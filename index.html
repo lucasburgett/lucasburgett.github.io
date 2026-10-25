@@ -1,8 +1,637 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lucas Burgett · Math + CS @ Stanford · Intern @ Parametric (F25)</title><meta name="description" content="I'm studying math and computer science at Stanford and building physical AI systems — reinforcement learning, VLAs, and reliable policies in the real world. Interning at Parametric (YC F25)."><link rel="canonical" href="https://lucasburgett.com/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="manifest" href="/site.webmanifest"><meta name="author" content="Lucas Burgett"><meta name="robots" content="index, follow"><meta name="theme-color" content="#ffffff"><meta name="google-site-verification" content="iASbm3BFs_axlTdM-GdW5dfidV79c303HGuwut_yxKk"><!-- Open Graph / Twitter --><meta property="og:type" content="website"><meta property="og:site_name" content="Lucas Burgett"><meta property="og:locale" content="en_US"><meta property="og:title" content="Lucas Burgett · Math + CS @ Stanford · Intern @ Parametric (F25)"><meta property="og:description" content="I'm studying math and computer science at Stanford and building physical AI systems — reinforcement learning, VLAs, and reliable policies in the real world. Interning at Parametric (YC F25)."><meta property="og:url" content="https://lucasburgett.com/"><meta property="og:image" content="https://lucasburgett.com/og-2.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Lucas Burgett — Math + CS @ Stanford · Intern @ Parametric (F25)"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Lucas Burgett · Math + CS @ Stanford · Intern @ Parametric (F25)"><meta name="twitter:description" content="I'm studying math and computer science at Stanford and building physical AI systems — reinforcement learning, VLAs, and reliable policies in the real world. Interning at Parametric (YC F25)."><meta name="twitter:image" content="https://lucasburgett.com/og-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://lucasburgett.com/#website","url":"https://lucasburgett.com/","name":"Lucas Burgett","publisher":{"@id":"https://lucasburgett.com/#person"},"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https://lucasburgett.com/#profilepage","url":"https://lucasburgett.com/","name":"Lucas Burgett · Math + CS @ Stanford · Intern @ Parametric (F25)","isPartOf":{"@id":"https://lucasburgett.com/#website"},"about":{"@id":"https://lucasburgett.com/#person"},"mainEntity":{"@id":"https://lucasburgett.com/#person"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://lucasburgett.com/#person","name":"Lucas Burgett","url":"https://lucasburgett.com/","image":"https://lucasburgett.com/og-2.png","email":"lburgett@stanford.edu","jobTitle":"Reinforcement Learning Researcher","alumniOf":{"@type":"CollegeOrUniversity","name":"Stanford University"},"worksFor":{"@type":"Organization","name":"Parametric"},"knowsAbout":["Reinforcement Learning","Robotics","Vision-Language Models","Machine Learning"],"sameAs":["https://github.com/lucasburgett","https://www.linkedin.com/in/lucas-burgett-494a98207"],"mainEntityOfPage":{"@id":"https://lucasburgett.com/#profilepage"}}]}</script><link rel="stylesheet" href="/_astro/index.DU32KT6M.css"></head> <body> <a href="#main" class="skip-link">Skip to content</a> <header class="masthead"> <div class="folio masthead__inner"> <a class="wordmark" href="#top" aria-label="Lucas Burgett, home">Lucas Burgett</a> <nav aria-label="Primary navigation"> <a data-nav-link href="#projects">Projects</a><a data-nav-link href="#writing">Writing</a><a data-nav-link href="#experience">Experience</a><a data-nav-link href="#about">About</a> </nav> </div> </header> <main id="main">  <section class="folio hero" id="top" aria-labelledby="hero-title"> <h1 id="hero-title">Lucas Burgett</h1> <p class="hero__role">Math + CS @ Stanford · Intern @ Parametric (F25)</p> <p class="hero__lead">I&#39;m studying math and computer science at Stanford. I&#39;m super interested in physical AI systems. I love learning about VLA&#39;s, Reinforcement learning, and how to deploy reliable policies in the real world.</p> <p class="meta-line">Stanford &amp; San Diego, California</p> <nav class="utility-links" aria-label="Profile links"> <a class="text-link" href="/Lucas-Burgett-Resume-2026.pdf" target="_blank">Resume ↗</a> <a class="text-link" href="https://github.com/lucasburgett" target="_blank" rel="noopener">GitHub ↗</a> <a class="text-link" href="https://www.linkedin.com/in/lucas-burgett-494a98207" target="_blank" rel="noopener">LinkedIn ↗</a> <a class="text-link" href="mailto:lburgett@stanford.edu">Email ↗</a> </nav> <section class="current" aria-labelledby="current-title"> <h2 class="current__title" id="current-title">Currently</h2> <article class="current__item"> <p class="current__label">Parametric · YC F25</p> <div> <h3>Software Engineering Intern</h3> <p>Building out the policy eval pipeline, and designing the metrics and statistics that decipher if a policy is usable in the real world.</p> </div> </article> <article class="current__item"> <p class="current__label">Education</p> <div> <h3>Stanford University</h3> <p>B.S. Mathematics · Minor in Computer Science</p> </div> </article> </section> </section> <section class="folio section" id="projects" aria-labelledby="projects-title"> <span class="anchor-alias" id="research" aria-hidden="true"></span> <h2 class="section-title" id="projects-title">Projects &amp; Personal Research</h2> <div class="entry-list"> <article class="entry project-entry project-entry--research"> <h3> VLA Memory </h3> <p class="entry-meta"> Research project · Robot learning · 2026
-</p> <p class="entry-tagline">RL-trained memory for long-horizon robot manipulation</p> <p class="entry-copy">A hierarchical VLM + VLA system for robots that have to remember across tasks. A Qwen3-VL-4B planner is fine-tuned with GRPO to pick the keyframes that actually matter and issue the next subtask; a frozen π₀.₅ policy carries out the low-level motion.</p> <figure class="research-figure"> <div class="research-figure__frame"> <video controls preload="none" playsinline poster="/media/vla-memory-poster.png" aria-label="A successful eval rollout: π₀.₅ carrying out a subgoal the memory planner issued on a RoboMME permanence task. The on-screen subgoal is the planner's output."> <source src="/media/vla-memory-run.mp4" type="video/mp4"> </video> </div> <figcaption>Evaluation rollout · A successful eval rollout: π₀.₅ carrying out a subgoal the memory planner issued on a RoboMME permanence task. The on-screen subgoal is the planner&#39;s output.</figcaption> </figure>  <p class="entry-tags">GRPO · Reinforcement Learning · Qwen3-VL-4B · π₀.₅ · JAX / openpi · Modal · A100</p> <p class="entry-actions"> <a href="https://github.com/lucasburgett/vla-memory-new" target="_blank" rel="noopener"> RoboMME evaluation harness ↗
-</a> </p> </article><article class="entry project-entry"> <h3> Coinvest </h3>   <p class="entry-copy">An AI investment-thesis research tool: type a thesis, get back a structured report with data-driven confidence scores, company comparisons, historical parallels, and the conditions that would prove it wrong. A multi-agent Claude pipeline grounds every score in live yfinance and NewsAPI data, with scheduled re-research, portfolio tracking, and a daily morning brief.</p>   <p class="entry-tags">Claude API · Multi-agent · FastAPI · React · Postgres · Fly.io</p> <p class="entry-actions"> <span class="entry-meta">Private repository</span> </p> </article><article class="entry project-entry"> <h3> Latent Rectified-Flow CT Reconstruction </h3>  <p class="entry-tagline">Denoising low-dose medical scans with a latent flow model</p> <p class="entry-copy">Low-dose CT and X-ray scans are noisy, and standard diffusion models need hundreds of steps to clean them. This model learns a straight-line flow between paired low-dose and normal-dose images in a compressed latent space, so a scan reconstructs in 5 to 10 solver steps.</p>  <ul class="entry-highlights"> <li>A frozen VAE compresses each scan; a learned vector field transports the noisy latent toward the clean one along a straight path, trained by velocity matching.</li><li>Adds a per-pixel uncertainty map, from SDE-variance sampling or an exact log-likelihood, so a radiologist can see where the model may have invented detail.</li><li>Measured against a residual U-Net baseline on the Mayo Clinic low-dose CT data with SSIM and FID.</li> </ul> <p class="entry-tags">Rectified Flow · VAE · PyTorch · Uncertainty · SSIM / FID</p> <p class="entry-actions"> <span class="entry-meta"></span> </p> </article><article class="entry project-entry"> <h3> <a href="https://github.com/lucasburgett/codesentry" target="_blank" rel="noopener">CodeSentry</a> </h3>   <p class="entry-copy">AI code review for AI-generated code, shipped as a GitHub App. It pairs Semgrep (16 custom rules for common AI mistakes) with Claude behavioral analysis to catch bugs a static linter misses, then posts a risk-scored PR comment. LLM flags only survive if Semgrep backs them up, which kills most false positives.</p>   <p class="entry-tags">GitHub App · Semgrep · Claude · FastAPI · SQLite</p> <p class="entry-actions"> <a href="https://github.com/lucasburgett/codesentry" target="_blank" rel="noopener"> View source ↗
-</a> </p> </article><article class="entry project-entry"> <h3> <a href="https://github.com/lucasburgett/rl-reward-tuning-pipeline" target="_blank" rel="noopener">Reproducible RL Pipeline</a> </h3>   <p class="entry-copy">A template for deep RL experiments that actually reproduce: deterministic seeding, Hydra configs, version locking, experiment logging, CI, and Docker. PPO agents on CartPole, LunarLander, and Reacher, with mean ± std across seeds. Two runs of the same config give bit-for-bit identical results.</p>   <p class="entry-tags">PPO · Stable-Baselines3 · Hydra · MuJoCo · CI/CD</p> <p class="entry-actions"> <a href="https://github.com/lucasburgett/rl-reward-tuning-pipeline" target="_blank" rel="noopener"> View source ↗
-</a> </p> </article><article class="entry project-entry"> <h3> <a href="https://github.com/lucasburgett/nano-defect-detector" target="_blank" rel="noopener">Nano Defect Detector</a> </h3>   <p class="entry-copy">A lightweight PyTorch pipeline for spotting nanoscale defects in SEM and TEM images. It returns OK/NG classifications and pixel-level defect heatmaps in under 10 ms per 512×512 tile on a laptop, served through a FastAPI and Gradio viewer with an ONNX runtime path.</p>   <p class="entry-tags">PyTorch · OpenCV · Anomaly detection · FastAPI · ONNX</p> <p class="entry-actions"> <a href="https://github.com/lucasburgett/nano-defect-detector" target="_blank" rel="noopener"> View source ↗
-</a> </p> </article><article class="entry project-entry"> <h3> Personalized Writing-Style Tool </h3>   <p class="entry-copy">A multi-agent system that learns a person&#39;s writing style from samples and generates content that matches it with the Claude API, then runs a refinement loop against GPTZero feedback to keep the writing natural.</p>   <p class="entry-tags">Claude API · Multi-agent · NLP</p> <p class="entry-actions"> <span class="entry-meta">Source unavailable</span> </p> </article> </div> </section> <section class="folio section" id="writing" aria-labelledby="writing-title"> <h2 class="section-title" id="writing-title">Writing</h2> <div class="entry-list"> <article class="entry writing-entry"> <div class="writing-entry__head"> <h3>Calibration Precedes Evaluation</h3> <p class="entry-meta">Parametric · July 2026 · 8 min read</p> </div> <p class="entry-copy">How we calibrate real-world robot evaluations with an adaptive difficulty staircase to learn more, spend less, and iterate faster.</p> <p class="writing-entry__authors">John Alvarez · Lucas Burgett</p> <p class="entry-actions"> <a href="https://www.parametric.company/blog/calibration-precedes-evaluation" target="_blank" rel="noopener">Read on Parametric ↗</a> </p> </article> </div> </section> <section class="folio section" id="experience" aria-labelledby="experience-title"> <h2 class="section-title" id="experience-title">Experience</h2> <p class="section-intro">
-From production computer vision to startup research and reinforcement learning for robots.
-</p> <div class="role-list"> <article class="role"> <p class="role__period">Summer 2026 – present</p> <div> <h3>Software Engineering Intern</h3> <p class="role__org">Parametric · San Francisco, CA · YC F25</p> <p class="role__copy"> Building and deploying reinforcement learning models for robotics, across the full ML lifecycle from training to production. <span class="role__tags">Reinforcement Learning · Robotics · MLOps</span> </p> </div> </article><article class="role"> <p class="role__period">Winter 2026 – June 2026</p> <div> <h3>Research Assistant</h3> <p class="role__org">Fan Lab, Stanford University · Stanford, CA</p> <p class="role__copy"> Contributed to MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and built the LLM evaluation set that measures it. <span class="role__tags">Multi-agent · LLM eval · Nanophotonics</span> </p> </div> </article><article class="role"> <p class="role__period">Summer 2025</p> <div> <h3>Engineering Intern</h3> <p class="role__org">Platform Science · San Diego, CA</p> <p class="role__copy"> Built a proof-of-concept model that computes Time-to-Collision from live vehicle video at 80% accuracy, using TensorFlow and OpenCV, with model training on AWS SageMaker and data in Snowflake. <span class="role__tags">Computer Vision · TensorFlow · AWS SageMaker · Snowflake</span> </p> </div> </article><article class="role"> <p class="role__period">Summer 2023</p> <div> <h3>Product Manager Intern</h3> <p class="role__org">Treeline Interactive · San Diego, CA</p> <p class="role__copy"> Worked across product development, market analysis, and roadmapping, and helped launch Five Iron Golf&#39;s online booking software.  </p> </div> </article> </div> </section> <section class="folio section" id="about" aria-labelledby="about-title"> <h2 class="section-title" id="about-title">About</h2> <div class="about-copy"> <p>In my free time, I love working out, golfing, seeing the world, and meeting new people. I&#39;m also half Brazilian, so I try to go visit my family there as much as I can.</p> </div> <div class="about-details"> <section class="detail-section" aria-labelledby="education-title"> <h3 id="education-title">Education</h3> <p class="education-summary"> <strong>Stanford University</strong><br> B.S. Mathematics · Minor in Computer Science<br> 2024 – 2028 · GPA 3.80 · Xfund Ethics Fellow · Stanford AI Club · Blythe Fund · Startups To Join </p> <ul class="coursework" aria-label="Selected coursework"> <li> <span>CS 224R</span> <span>Deep Reinforcement Learning</span> </li><li> <span>CS 231N</span> <span>Deep Learning for Computer Vision</span> </li><li> <span>CS 109</span> <span>Probability for Computer Scientists</span> </li><li> <span>CS 107</span> <span>Computer Organization &amp; Systems</span> </li><li> <span>Math 104</span> <span>Applied Matrix Theory</span> </li><li> <span>Math 53</span> <span>ODEs, Linear Algebra &amp; Fourier Methods</span> </li> </ul> </section> <section class="detail-section" aria-labelledby="skills-title"> <h3 id="skills-title">Skills</h3> <dl class="skills-list"> <div class="skills-row"> <dt>Languages</dt> <dd>Python · Java · C++ · C · MATLAB · SQL</dd> </div><div class="skills-row"> <dt>ML &amp; RL</dt> <dd>PyTorch · JAX · TensorFlow · Stable-Baselines3 · GRPO / PPO · Hugging Face · OpenCV</dd> </div><div class="skills-row"> <dt>Infrastructure</dt> <dd>Modal · AWS SageMaker · Docker · Fly.io · Snowflake · Hydra · W&amp;B</dd> </div><div class="skills-row"> <dt>Product</dt> <dd>React · FastAPI · Postgres · Claude API</dd> </div><div class="skills-row"> <dt>Spoken</dt> <dd>English · Portuguese</dd> </div> </dl> </section> </div> </section>  </main> <footer class="site-footer" id="contact"> <div class="folio"> <div class="site-footer__top"> <p class="site-footer__name">Lucas Burgett</p> <nav class="utility-links" aria-label="Contact links"> <a href="mailto:lburgett@stanford.edu">Email</a> <a href="/Lucas-Burgett-Resume-2026.pdf" target="_blank">Résumé ↗</a> <a href="https://github.com/lucasburgett" target="_blank" rel="noopener">GitHub ↗</a> <a href="https://www.linkedin.com/in/lucas-burgett-494a98207" target="_blank" rel="noopener">LinkedIn ↗</a> </nav> </div> <p class="site-footer__meta">© 2026 Lucas Burgett · Stanford &amp; San Diego, California</p> </div> </footer> <script type="module">const c=document.querySelector(".masthead"),n=()=>c?.toggleAttribute("data-scrolled",window.scrollY>8);c&&(n(),window.addEventListener("scroll",n,{passive:!0}));const a=Array.from(document.querySelectorAll("[data-nav-link]")),s=a.map(e=>document.querySelector(e.hash)).filter(e=>e!==null);if("IntersectionObserver"in window&&s.length){const e=new IntersectionObserver(t=>{for(const o of t)if(o.isIntersecting){const i=o.target.id;a.forEach(r=>r.toggleAttribute("data-active",r.hash===`#${i}`))}},{rootMargin:"-45% 0px -50% 0px",threshold:0});s.forEach(t=>e.observe(t))}</script> </body> </html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lucas Burgett, Robot policy evaluation</title><meta name="description" content="I build evaluations for robot policies: the metrics and statistics that decide whether a policy is usable in the real world. Math and CS at Stanford; built the policy evaluation pipeline at Parametric (YC F25) in summer 2026."><link rel="canonical" href="https://lucasburgett.com/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="manifest" href="/site.webmanifest"><meta name="author" content="Lucas Burgett"><meta name="robots" content="index, follow"><meta name="theme-color" content="#efeee9"><meta name="google-site-verification" content="iASbm3BFs_axlTdM-GdW5dfidV79c303HGuwut_yxKk"><!-- Open Graph / Twitter --><meta property="og:type" content="website"><meta property="og:site_name" content="Lucas Burgett"><meta property="og:locale" content="en_US"><meta property="og:title" content="Lucas Burgett, Robot policy evaluation"><meta property="og:description" content="I build evaluations for robot policies: the metrics and statistics that decide whether a policy is usable in the real world. Math and CS at Stanford; built the policy evaluation pipeline at Parametric (YC F25) in summer 2026."><meta property="og:url" content="https://lucasburgett.com/"><meta property="og:image" content="https://lucasburgett.com/og-2.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Lucas Burgett, Robot policy evaluation"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Lucas Burgett, Robot policy evaluation"><meta name="twitter:description" content="I build evaluations for robot policies: the metrics and statistics that decide whether a policy is usable in the real world. Math and CS at Stanford; built the policy evaluation pipeline at Parametric (YC F25) in summer 2026."><meta name="twitter:image" content="https://lucasburgett.com/og-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://lucasburgett.com/#website","url":"https://lucasburgett.com/","name":"Lucas Burgett","publisher":{"@id":"https://lucasburgett.com/#person"},"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https://lucasburgett.com/#profilepage","url":"https://lucasburgett.com/","name":"Lucas Burgett, Robot policy evaluation","isPartOf":{"@id":"https://lucasburgett.com/#website"},"about":{"@id":"https://lucasburgett.com/#person"},"mainEntity":{"@id":"https://lucasburgett.com/#person"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://lucasburgett.com/#person","name":"Lucas Burgett","url":"https://lucasburgett.com/","image":"https://lucasburgett.com/og-2.png","email":"lburgett@stanford.edu","affiliation":{"@type":"CollegeOrUniversity","name":"Stanford University"},"knowsAbout":["Robot policy evaluation","Machine learning evaluation","Reinforcement Learning","Robotics"],"sameAs":["https://github.com/lucasburgett","https://www.linkedin.com/in/lucas-burgett-494a98207"],"mainEntityOfPage":{"@id":"https://lucasburgett.com/#profilepage"}}]}</script> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="/_astro/index.Cm4rXooU.css"></head> <body> <a href="#top" class="skip-link">Skip to content</a>   <canvas id="gl" aria-hidden="true"></canvas> <div class="callouts" id="callouts" aria-hidden="true"></div> <header class="top"> <a class="name" href="#top">Lucas Burgett</a> <nav aria-label="Sections"><a href="#evals">Evals</a><a href="#writing">Writing</a><a href="#work">Work</a><a href="#about">About</a><button class="lights" id="lights" type="button">Lights off</button></nav> </header> <main id="top"> <section class="beat" data-beat="0"> <h1>I build evaluations for robot policies.</h1> <p class="lead">The metrics and statistics that decide whether a policy is usable in the real world. I study math and computer science at Stanford, and this summer I built the policy evaluation pipeline at Parametric (YC&nbsp;F25).</p> <p class="live">The arm here is an animated Franka Panda acting out pick-and-place rollouts. <span id="pointer-copy">Move your cursor over its table to choose where the next block starts.</span> Since you arrived it has run <b class="num" id="h-n">0</b> rollouts and <b class="num" id="h-k">0</b> succeeded<span class="num" id="h-rate"></span><svg class="ci" id="h-ci" viewBox="0 0 64 12" aria-hidden="true"></svg></p> <p class="small" id="h-state"></p> </section> <section class="beat" data-beat="1" id="evals"> <h2>Evaluation at Parametric</h2> <p>A policy that succeeds once might succeed 30% of the time. A real evaluation repeats the task many times, records every outcome, and reports an interval next to the success rate, so the number means what it says. This summer I built Parametric's internal evaluation pipeline for robot manipulation policies, and designed the metrics and statistical analyses used to decide whether a policy was ready for real-world use. I also rebuilt the robot telemetry for real-time remote debugging of policy runs, cutting chart payloads by over 100x.</p> <p class="live">The sixteen arms in view act out the same task, each with a true success rate of 74%, which the 95% interval should usually contain. Together they have logged <b class="num" id="g-n">0</b> rollouts, and <b class="num" id="g-k">0</b> succeeded<span class="num" id="g-rate"></span><svg class="ci" id="g-ci" viewBox="0 0 64 12" aria-hidden="true"></svg></p> <p class="meta">Software engineering intern, summer 2026, San Francisco.</p> </section> <section class="beat" data-beat="2" id="writing"> <figure> <svg id="stairchart" viewBox="0 0 440 200" role="img" aria-label="Success rates with 95% intervals for four policies across four t-shirt folding levels"></svg> <div class="legend"><span style="--c:var(--ink)"><i></i>Matched</span><span style="--c:var(--tape)"><i></i>Policy A</span><span style="--c:#8f9398"><i></i>Policy B</span><span style="--c:#b9bcbf"><i></i>Policy C</span></div> <figcaption>Real counts: four π0.5 fine-tunes folding a t-shirt, 30 to 50 blind rollouts per policy per level, with 95% Wilson intervals.</figcaption> </figure> <h2><a href="https://www.parametric.company/blog/calibration-precedes-evaluation" target="_blank" rel="noopener">Calibration Precedes Evaluation</a></h2> <p>Written with John Alvarez for the Parametric blog, July 2026. If a task is too easy every policy passes, and if it is too hard every policy fails. We raise the difficulty one level at a time until the policies separate, then spend the rollout budget there.</p> <p class="live" id="s-live">The raised tables in view act out a toy version, with true success rates of 95%, 74%, 47% and 20% from level 1 to level 4.</p> </section> <section class="beat" data-beat="3"> <h2><a href="https://github.com/lucasburgett/vla-memory-new" target="_blank" rel="noopener">VLA Memory</a></h2> <p>The arm here acts out a simple memory task: a light comes on behind one of three squares and goes off before the arm moves, and the block has to end up on that square. VLA Memory, my CS 224R project, targets tasks like this. I trained a Qwen3-VL-4B planner with persistent keyframe memory using streaming GRPO, driving a frozen π0.5 action expert. It reached 31.4% ± 3.1% success on the RoboMME ButtonUnmaskSwap benchmark, 10.1 points above the MemER-IL baseline, with zero human demonstrations.</p> <p class="live">In this animation the right square comes up <b class="num" id="m-k">0</b> times in <b class="num" id="m-n">0</b> tries<span class="num" id="m-rate"></span>, against a set rate of 80%.</p> </section> <section class="beat" data-beat="4"> <h2>Scam-victim protection eval</h2> <p>When someone who is being scammed asks a chatbot for help, does the model recognize the scam and keep warning them after they push back? I'm building a multi-turn evaluation for it, graded against six bright-line rules taken from FTC guidance, with two judges that must both quote the words that break a rule.</p> <p class="meta">In progress. Pilot started October 2026.</p> </section> <section class="beat" data-beat="5" id="work"> <h2>Other work</h2> <ul class="work"> <li><span class="yr">2026</span><div><b>MetaChat 2.0 evaluation set</b> <span>At Stanford's Fan Lab I built the LLM evaluation set for MetaChat 2.0, a multi-agent framework for autonomous nanophotonic device design, and contributed to the framework itself.</span></div></li> <li><span class="yr">2026</span><div><b>Everen</b> <span>Co-founder. A local-AI app for private clinical transcription and note generation: Tauri desktop app, Rust backend, encrypted local storage. We tested it with 10 therapy offices, and 8 joined the waitlist with stated intent to purchase.</span></div></li> <li><span class="yr">2026</span><div><b><a href="https://github.com/lucasburgett/codesentry" target="_blank" rel="noopener">CodeSentry</a></b> <span>Reviews AI-written code. Claude's flags only survive when a Semgrep rule backs them up.</span></div></li> <li><span class="yr">2026</span><div><b>CoInvest</b> <span>A multi-agent Claude pipeline that grounds each investment-thesis report in live market and news data, and lists the conditions that would disprove the thesis.</span></div></li> <li><span class="yr">2026</span><div><b>Latent rectified-flow CT</b> <span>Low-dose CT denoising in 5 to 10 steps with a per-pixel uncertainty map. CS 231N.</span></div></li> <li><span class="yr">2025</span><div><b><a href="https://github.com/lucasburgett/rl-reward-tuning-pipeline" target="_blank" rel="noopener">Reproducible RL pipeline</a></b> <span>PPO with seeded determinism; two runs of one config match bit for bit.</span></div></li> </ul> </section> <section class="beat" data-beat="6" id="about"> <h2>About</h2> <p>Math major with a CS minor at Stanford, class of 2028. Xfund Ethics Fellow, Startups to Join research fellow, and a member of the Blythe Fund and the Stanford AI Club. I spent summer 2026 at Parametric; before that I was a research assistant in Stanford's Fan Lab and an engineering intern at Platform Science. Outside work I lift, golf, travel, and visit family in Brazil whenever I can.</p> <div class="contact"><span class="addr">lburgett@stanford.edu</span><a href="https://github.com/lucasburgett" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/lucas-burgett-494a98207" target="_blank" rel="noopener">LinkedIn</a><a href="/Lucas-Burgett-Resume-2026.pdf" target="_blank" rel="noopener">Résumé</a></div> <p class="live" id="watched">While you read, the animated arms on this page acted out <b class="num">0</b> rollouts.</p> <p class="credit">The arms are an animation: each rollout's outcome is a random draw against a success rate set in the page's code, and the motion is scripted to match. The t-shirt folding chart uses real results from the Parametric post. Robot model: Franka Emika Panda from MuJoCo Menagerie (Apache-2.0), simplified for the web.</p> </section> </main> <script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+} }
+</script> <script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { toCreasedNormals } from "three/addons/utils/BufferGeometryUtils.js";
+
+const $ = (s) => document.querySelector(s);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const mj = (s) => s * s * s * (10 + s * (-15 + 6 * s)); // minimum-jerk profile
+const rand = (a, b) => a + Math.random() * (b - a);
+const pc = (v) => Math.round(v * 100);
+const wilson = (k, n, z = 1.959964) => {
+  if (!n) return [0, 1];
+  const p = k / n, d = 1 + (z * z) / n, c = (p + (z * z) / (2 * n)) / d;
+  const h = (z * Math.sqrt((p * (1 - p)) / n + (z * z) / (4 * n * n))) / d;
+  return [Math.max(0, c - h), Math.min(1, c + h)];
+};
+
+// ---------------- theme ----------------
+const root = document.documentElement;
+const mqDark = matchMedia("(prefers-color-scheme: dark)");
+const isDark = () => (root.dataset.theme ? root.dataset.theme === "dark" : mqDark.matches);
+const lightsBtn = $("#lights");
+let onTheme = () => {};
+const syncTheme = () => { lightsBtn.textContent = isDark() ? "Lights on" : "Lights off"; onTheme(); };
+lightsBtn.addEventListener("click", () => { root.dataset.theme = isDark() ? "light" : "dark"; });
+mqDark.addEventListener("change", syncTheme);
+new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+syncTheme();
+
+// ---------------- real staircase chart ----------------
+(function chart() {
+  const LV = [
+    { s: "One sleeve", n: 50, k: { M: 49, A: 34, B: 31, C: 25 } },
+    { s: "Both sleeves", n: 50, k: { M: 46, A: 27, B: 11, C: 11 } },
+    { s: "Straightened", n: 50, k: { M: 50, A: 12 } },
+    { s: "Crumpled", n: 30, k: { M: 23, A: 2 } },
+  ];
+  const COL = { M: "var(--ink)", A: "var(--tape)", B: "#8f9398", C: "#b9bcbf" };
+  const OFF = { M: -21, A: -7, B: 7, C: 21 };
+  const X0 = 36, X1 = 434, YT = 10, YB = 156, cw = (X1 - X0) / 4, Y = (v) => YB - (YB - YT) * v;
+  let s = "";
+  for (const v of [0, 0.5, 1]) s += `<line x1="${X0}" x2="${X1}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--rule)"/><text x="${X0 - 7}" y="${Y(v) + 4}" text-anchor="end" fill="var(--ink-3)" font-family="Source Sans 3, sans-serif" font-size="11">${v * 100}%</text>`;
+  const pts = { M: [], A: [], B: [], C: [] };
+  LV.forEach((lv, i) => {
+    const cx = X0 + cw * (i + 0.5);
+    s += `<text x="${cx}" y="${YB + 20}" text-anchor="middle" fill="var(--ink-2)" font-family="Source Sans 3, sans-serif" font-size="12.5">${lv.s}</text><text x="${cx}" y="${YB + 36}" text-anchor="middle" fill="var(--ink-3)" font-family="Source Sans 3, sans-serif" font-size="11">n = ${lv.n}</text>`;
+    for (const id in lv.k) {
+      const k = lv.k[id], [lo, hi] = wilson(k, lv.n), x = cx + OFF[id];
+      s += `<line x1="${x}" x2="${x}" y1="${Y(hi)}" y2="${Y(lo)}" stroke="${COL[id]}" stroke-width="2.5" stroke-linecap="round" opacity=".35"/>`;
+      pts[id].push([x, Y(k / lv.n)]);
+    }
+  });
+  for (const id in pts) {
+    s += `<path d="${pts[id].map((p, j) => (j ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("")}" fill="none" stroke="${COL[id]}" stroke-width="1.3" opacity=".7"/>`;
+    for (const [x, y] of pts[id]) s += `<circle cx="${x}" cy="${y}" r="3.6" fill="${COL[id]}" stroke="var(--bg)" stroke-width="1.5"/>`;
+  }
+  $("#stairchart").innerHTML = s;
+})();
+
+const coarse = matchMedia("(pointer: coarse)").matches;
+if (coarse) $("#pointer-copy").textContent = "Tap its table to choose where the next block starts.";
+
+// ---------------- WebGL ----------------
+const canvas = $("#gl");
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); }
+catch (e) { document.body.classList.add("nogl"); throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.75));
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.toneMappingExposure = 0.95;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(32, 1, 0.05, 60);
+const key = new THREE.DirectionalLight(0xffffff, 1.3);
+key.position.set(3.2, 7, 4.2);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+Object.assign(key.shadow.camera, { left: -4.2, right: 4.2, top: 4.2, bottom: -4.2, near: 1, far: 20 });
+key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02; key.shadow.radius = 3;
+scene.add(key, key.target);
+
+// ---------------- the room ----------------
+const FLOOR_Y = -0.75, BASE_Z = -0.3, BLOCK = 0.05;
+const floorMat = new THREE.ShadowMaterial({ opacity: 0.16 });
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), floorMat);
+floor.rotation.x = -Math.PI / 2; floor.position.y = FLOOR_Y; floor.receiveShadow = true;
+scene.add(floor);
+
+// Cell-local layout (meters). The arm base sits at the back edge, reaching toward +z.
+const START = { x: -0.15, z: 0.08, h: 0.07 };                      // taped training region (half-size)
+const TARGETS = [{ x: -0.22, z: 0.3 }, { x: 0, z: 0.3 }, { x: 0.22, z: 0.3 }];
+const STD_TARGET = 2;
+const SPX = 1.55, SPZ = 1.35, STEP = 0.2, N = 16, HERO = 5;
+
+// Cutting-mat texture: printed 1 cm / 5 cm grid, like the mats on real eval tables.
+function matTexture() {
+  const c = document.createElement("canvas"); c.width = c.height = 1024;
+  const g = c.getContext("2d");
+  g.fillStyle = "#2e3236"; g.fillRect(0, 0, 1024, 1024);
+  for (let i = 0; i <= 100; i++) {
+    const p = (i / 100) * 1024;
+    g.strokeStyle = i % 5 === 0 ? "rgba(210,220,225,.20)" : "rgba(210,220,225,.07)";
+    g.lineWidth = i % 5 === 0 ? 1.6 : 1;
+    g.beginPath(); g.moveTo(p, 0); g.lineTo(p, 1024); g.moveTo(0, p); g.lineTo(1024, p); g.stroke();
+  }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+}
+
+const M = {
+  top: new THREE.MeshStandardMaterial({ color: 0xd8d2c6, roughness: 0.75 }),
+  mat: new THREE.MeshStandardMaterial({ map: matTexture(), roughness: 0.9 }),
+  alu: new THREE.MeshStandardMaterial({ color: 0xb4b8bc, roughness: 0.38, metalness: 0.75 }),
+  tape: new THREE.MeshStandardMaterial({ color: 0x3a6cc9, roughness: 0.8 }),
+  dark: new THREE.MeshStandardMaterial({ color: 0x1d2024, roughness: 0.5 }),
+  lens: new THREE.MeshStandardMaterial({ color: 0x0b0c0e, roughness: 0.15, metalness: 0.3 }),
+  wood: new THREE.MeshStandardMaterial({ color: 0xb98e5a, roughness: 0.72 }),
+  lamp: new THREE.MeshBasicMaterial({ color: 0xffffff }),
+};
+
+// Instanced props: each entry is a geometry + material + a list of cell-local matrices.
+const props = [];
+const m4 = (x, y, z, sx = 1, sy = 1, sz = 1, ry = 0, rx = 0) =>
+  new THREE.Matrix4().compose(new THREE.Vector3(x, y, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(rx, ry, 0)), new THREE.Vector3(sx, sy, sz));
+function addProp(geo, mat, locals, { shadow = true, colors = false } = {}) {
+  const mesh = new THREE.InstancedMesh(geo, mat, N * locals.length);
+  mesh.castShadow = shadow; mesh.receiveShadow = true; mesh.frustumCulled = false;
+  if (colors) mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(N * locals.length * 3).fill(0.3), 3);
+  scene.add(mesh);
+  const p = { mesh, locals }; props.push(p); return p;
+}
+const box = new THREE.BoxGeometry(1, 1, 1);
+const cyl = new THREE.CylinderGeometry(1, 1, 1, 24);
+addProp(box, M.top, [m4(0, -0.02, 0.0, 1.12, 0.04, 0.84)]);
+addProp(box, M.mat, [m4(0, 0.001, 0.08, 0.9, 0.002, 0.56)], { shadow: false });
+const legs = addProp(box, M.alu, [[-0.52, -0.38], [0.52, -0.38], [-0.52, 0.38], [0.52, 0.38]].map(([x, z]) => m4(x, -0.4, z, 0.04, 0.7, 0.04)));
+legs.dynamic = true;
+// Blue painter's tape L-marks: corners of the training square and the three targets.
+const tapeLocals = [];
+function lMarks(cx, cz, h, len = 0.035, w = 0.012) {
+  for (const sx of [-1, 1]) for (const sz of [-1, 1]) {
+    const x = cx + sx * h, z = cz + sz * h;
+    tapeLocals.push(m4(x - sx * (len / 2 - w / 2), 0.0025, z, len, 0.001, w));
+    tapeLocals.push(m4(x, 0.0025, z - sz * (len / 2 - w / 2), w, 0.001, len));
+  }
+}
+lMarks(START.x, START.z, START.h);
+TARGETS.forEach((t) => lMarks(t.x, t.z, 0.045));
+addProp(box, M.tape, tapeLocals, { shadow: false });
+// Masking-tape labels, written in marker, like operators do.
+function tapeLabel(text) {
+  const c = document.createElement("canvas"); c.width = 512; c.height = 112;
+  const g = c.getContext("2d");
+  g.fillStyle = "#ece6d3"; g.fillRect(0, 0, 512, 112);
+  g.fillStyle = "rgba(0,0,0,.06)"; for (let i = 0; i < 512; i += 7) g.fillRect(i, 0, 2, 112);
+  g.fillStyle = "#1d2024"; g.font = "700 64px 'Source Sans 3', Arial, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
+  g.save(); g.translate(256, 60); g.rotate(-0.025); g.fillText(text, 0, 0); g.restore();
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  return new THREE.MeshStandardMaterial({ map: t, roughness: 0.85 });
+}
+const labelGeo = new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2);
+addProp(labelGeo, tapeLabel("TRAINING"), [m4(START.x, 0.0035, START.z + START.h + 0.032, 0.115, 1, 0.025, 0.04)], { shadow: false });
+addProp(labelGeo, tapeLabel("CUE"), [m4(TARGETS[0].x - 0.075, 0.0035, TARGETS[0].z + 0.072, 0.06, 1, 0.022, -0.03)], { shadow: false });
+// Wrist-height camera on a post, aimed at the workspace.
+addProp(cyl, M.alu, [m4(0.5, 0.2, -0.32, 0.009, 0.4, 0.009)]);
+addProp(box, M.dark, [m4(0.5, 0.415, -0.32, 0.075, 0.032, 0.03, -Math.PI * 0.22, -0.55)]);
+// Tower light at the back corner: off, green after a success, red after a failure.
+addProp(cyl, M.alu, [m4(-0.5, 0.09, -0.33, 0.007, 0.18, 0.007)]);
+const tower = addProp(cyl, M.lamp, [m4(-0.5, 0.195, -0.33, 0.015, 0.032, 0.015)], { shadow: false, colors: true });
+// Cue lights behind each target (used by the memory task).
+const cues = addProp(cyl, M.lamp, TARGETS.map((t) => m4(t.x, 0.004, t.z + 0.072, 0.014, 0.006, 0.014)), { shadow: false, colors: true });
+// Blocks.
+const blockMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(BLOCK, BLOCK, BLOCK), M.wood, N);
+blockMesh.castShadow = blockMesh.receiveShadow = true; blockMesh.frustumCulled = false; scene.add(blockMesh);
+// Hero-only cursor mark: a thin chalk ring on the mat.
+const chalkMat = new THREE.MeshBasicMaterial({ color: 0xe9e6dc, transparent: true, opacity: 0 });
+const chalk = new THREE.Mesh(new THREE.RingGeometry(0.018, 0.022, 40), chalkMat);
+chalk.rotation.x = -Math.PI / 2; scene.add(chalk);
+
+// ---------------- the robot ----------------
+const gltf = await new GLTFLoader().loadAsync("/models/panda.glb");
+const NAMES = ["link0", "link1", "link2", "link3", "link4", "link5", "link6", "link7", "hand", "left_finger", "right_finger"];
+gltf.scene.updateMatrixWorld(true);
+const bodyObj = NAMES.map((n) => gltf.scene.getObjectByName(n));
+// Kinematic tree from the Menagerie MJCF (pos, quat as w x y z). The GLB's own node transforms
+// include quantization offsets, so the joint math uses these values instead.
+const HJ = { type: "hinge", axis: [0, 0, 1] }, SJ = { type: "slide", axis: [0, 1, 0] };
+const MJCF = [
+  [-1, [0, 0, 0], [1, 0, 0, 0], null], [0, [0, 0, 0.333], [1, 0, 0, 0], HJ], [1, [0, 0, 0], [1, -1, 0, 0], HJ],
+  [2, [0, -0.316, 0], [1, 1, 0, 0], HJ], [3, [0.0825, 0, 0], [1, 1, 0, 0], HJ], [4, [-0.0825, 0.384, 0], [1, -1, 0, 0], HJ],
+  [5, [0, 0, 0], [1, 1, 0, 0], HJ], [6, [0.088, 0, 0], [1, 1, 0, 0], HJ], [7, [0, 0, 0.107], [0.9238795, 0, 0, -0.3826834], null],
+  [8, [0, 0, 0.0584], [1, 0, 0, 0], SJ], [8, [0, 0, 0.0584], [0, 0, 0, 1], SJ],
+];
+const bodies = MJCF.map(([parent, pos, q, joint]) => ({
+  parent, pos: new THREE.Vector3(...pos), quat: new THREE.Quaternion(q[1], q[2], q[3], q[0]).normalize(), joint,
+}));
+let qi = 0;
+for (const b of bodies) if (b.joint) { b.axis = new THREE.Vector3().fromArray(b.joint.axis).normalize(); if (b.joint.type === "hinge") b.qi = qi++; }
+const bodyIndex = new Map(bodyObj.map((o, i) => [o, i]));
+const matCache = new Map();
+const tune = (m) => {
+  if (matCache.has(m)) return matCache.get(m);
+  const t = m.clone();
+  if (t.color.r > 0.5) { t.color.setRGB(0.74, 0.745, 0.75); t.roughness = 0.42; }
+  else if (t.color.r < 0.3) { t.color.setRGB(0.04, 0.042, 0.046); t.roughness = 0.5; }
+  t.metalness = 0;
+  matCache.set(m, t); return t;
+};
+const parts = [];
+const restW = (() => { const out = bodies.map(() => new THREE.Matrix4()), m = new THREE.Matrix4();
+  bodies.forEach((b, i) => { m.compose(b.pos, b.quat, new THREE.Vector3(1, 1, 1)); if (b.parent < 0) out[i].copy(m); else out[i].multiplyMatrices(out[b.parent], m); });
+  return out; })();
+gltf.scene.traverse((o) => {
+  if (!o.isMesh) return;
+  let p = o; while (p && !bodyIndex.has(p)) p = p.parent;
+  if (!p) return;
+  const local = restW[bodyIndex.get(p)].clone().invert().multiply(o.matrixWorld);
+  let g = o.geometry;
+  if (!g.attributes.normal) g = toCreasedNormals(g, THREE.MathUtils.degToRad(40));
+  const mesh = new THREE.InstancedMesh(g, tune(o.material), N);
+  mesh.castShadow = mesh.receiveShadow = true; mesh.frustumCulled = false;
+  scene.add(mesh);
+  parts.push({ bi: bodyIndex.get(p), local, mesh });
+});
+
+// Mount: MJCF is Z-up with the reach along +x; the cell is Y-up with the reach along +z.
+const MOUNT = new THREE.Matrix4().compose(new THREE.Vector3(0, 0, BASE_Z),
+  new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, -Math.PI / 2, 0, "YXZ")), new THREE.Vector3(1, 1, 1));
+const toMJ = (x, y, z) => [z - BASE_Z, x, y];            // cell (x, y, z) -> MJCF (x, y, z)
+const toCell = (p) => [p[1], p[2], p[0] + BASE_Z];
+
+// ---- array-math FK / damped-least-squares IK on the 7-joint chain ----
+const chain = [];
+{ let i = NAMES.indexOf("hand"); while (i >= 0) { chain.unshift(i); i = bodies[i].parent; } }
+const links = chain.filter((i) => NAMES[i] !== "link0").map((i) => bodies[i]);
+const quatToMat = (q) => { const w = q.w, x = q.x, y = q.y, z = q.z;
+  return [1 - 2 * (y * y + z * z), 2 * (x * y - w * z), 2 * (x * z + w * y), 2 * (x * y + w * z), 1 - 2 * (x * x + z * z), 2 * (y * z - w * x), 2 * (x * z - w * y), 2 * (y * z + w * x), 1 - 2 * (x * x + y * y)]; };
+const mul3 = (A, B) => { const C = new Array(9); for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) C[r * 3 + c] = A[r * 3] * B[c] + A[r * 3 + 1] * B[3 + c] + A[r * 3 + 2] * B[6 + c]; return C; };
+const mv = (A, v) => [A[0] * v[0] + A[1] * v[1] + A[2] * v[2], A[3] * v[0] + A[4] * v[1] + A[5] * v[2], A[6] * v[0] + A[7] * v[1] + A[8] * v[2]];
+const axisAngle = (a, t) => { const c = Math.cos(t), s = Math.sin(t), C = 1 - c, x = a[0], y = a[1], z = a[2];
+  return [c + x * x * C, x * y * C - z * s, x * z * C + y * s, y * x * C + z * s, c + y * y * C, y * z * C - x * s, z * x * C - y * s, z * y * C + x * s, c + z * z * C]; };
+const restR = links.map((b) => quatToMat(b.quat));
+const linkPos = links.map((b) => b.pos.toArray());
+const linkAxis = links.map((b) => (b.joint && b.joint.type === "hinge" ? b.joint.axis : null));
+const TCP = [0, 0, 0.1034];
+const QMIN = [-2.8973, -1.7628, -2.8973, -3.0718, -2.8973, -0.0175, -2.8973];
+const QMAX = [2.8973, 1.7628, 2.8973, -0.0698, 2.8973, 3.7525, 2.8973];
+const HOME = [0, -0.6, 0, -2.25, 0, 1.65, 0.785];
+function fk(q) {
+  let R = [1, 0, 0, 0, 1, 0, 0, 0, 1], p = [0, 0, 0], k = 0; const o = [], z = [];
+  for (let i = 0; i < links.length; i++) {
+    const d = mv(R, linkPos[i]); p = [p[0] + d[0], p[1] + d[1], p[2] + d[2]]; R = mul3(R, restR[i]);
+    if (linkAxis[i]) { o[k] = p; z[k] = mv(R, linkAxis[i]); R = mul3(R, axisAngle(linkAxis[i], q[k])); k++; }
+  }
+  const t = mv(R, TCP); return { p: [p[0] + t[0], p[1] + t[1], p[2] + t[2]], R, o, z };
+}
+function solve6(A, b) {
+  const n = 6;
+  for (let c = 0; c < n; c++) {
+    let piv = c; for (let r = c + 1; r < n; r++) if (Math.abs(A[r * n + c]) > Math.abs(A[piv * n + c])) piv = r;
+    if (piv !== c) { for (let k = 0; k < n; k++) { const t = A[c * n + k]; A[c * n + k] = A[piv * n + k]; A[piv * n + k] = t; } const t = b[c]; b[c] = b[piv]; b[piv] = t; }
+    for (let r = c + 1; r < n; r++) { const f = A[r * n + c] / A[c * n + c]; for (let k = c; k < n; k++) A[r * n + k] -= f * A[c * n + k]; b[r] -= f * b[c]; }
+  }
+  const x = new Array(n); for (let r = n - 1; r >= 0; r--) { let s = b[r]; for (let k = r + 1; k < n; k++) s -= A[r * n + k] * x[k]; x[r] = s / A[r * n + r]; } return x;
+}
+function ikStep(q, tp, tR, pull = 0) {
+  const f = fk(q);
+  const ep = [tp[0] - f.p[0], tp[1] - f.p[1], tp[2] - f.p[2]];
+  let eo = [0, 0, 0];
+  for (let c = 0; c < 3; c++) { const a = [f.R[c], f.R[3 + c], f.R[6 + c]], t = [tR[c], tR[3 + c], tR[6 + c]];
+    eo = [eo[0] + 0.5 * (a[1] * t[2] - a[2] * t[1]), eo[1] + 0.5 * (a[2] * t[0] - a[0] * t[2]), eo[2] + 0.5 * (a[0] * t[1] - a[1] * t[0])]; }
+  const e = [ep[0], ep[1], ep[2], eo[0], eo[1], eo[2]], J = [];
+  for (let k = 0; k < 7; k++) { const zz = f.z[k], d = [f.p[0] - f.o[k][0], f.p[1] - f.o[k][1], f.p[2] - f.o[k][2]];
+    J.push([zz[1] * d[2] - zz[2] * d[1], zz[2] * d[0] - zz[0] * d[2], zz[0] * d[1] - zz[1] * d[0], zz[0], zz[1], zz[2]]); }
+  const A = new Array(36).fill(0);
+  for (let r = 0; r < 6; r++) for (let c = 0; c < 6; c++) { let s = 0; for (let k = 0; k < 7; k++) s += J[k][r] * J[k][c]; A[r * 6 + c] = s + (r === c ? 0.0025 : 0); }
+  const y = solve6(A, e.slice());
+  for (let k = 0; k < 7; k++) { let s = 0; for (let r = 0; r < 6; r++) s += J[k][r] * y[r];
+    q[k] = clamp(q[k] + s + pull * (HOME[k] - q[k]), QMIN[k], QMAX[k]); }
+}
+const downR = (yaw) => { const c = Math.cos(yaw), s = Math.sin(yaw); return [c, s, 0, s, -c, 0, 0, 0, -1]; };
+function solveTo(q0, cellP, yaw) {
+  const q = q0.slice(), tp = toMJ(cellP[0], cellP[1], cellP[2]), R = downR(yaw);
+  for (let i = 0; i < 40; i++) ikStep(q, tp, R, i < 28 ? 0.03 : 0);
+  return q;
+}
+
+// ---------------- rollouts ----------------
+const S = { cursor: { k: 0, n: 0 }, grid: { k: 0, n: 0 }, memory: { k: 0, n: 0 }, stairs: [0, 1, 2, 3].map(() => ({ k: 0, n: 0 })), total: { k: 0, n: 0 } };
+const STAIR_P = [0.95, 0.74, 0.47, 0.2];
+const VMAX = 0.9; // rad/s, about 40% of the Panda's joint limit
+let domTask = "cursor", curLocal = null, curSeen = -1e9;
+
+const arms = Array.from({ length: N }, (_, i) => ({
+  i, row: Math.floor(i / 4), col: i % 4,
+  q: HOME.slice(), g: 0.04, steps: [], cur: null, delay: rand(0, 2.5), speed: 1,
+  block: { p: [0, BLOCK / 2, 0], yaw: 0, vis: false, att: false, fall: false, vy: 0, tilt: 0 },
+  light: 0, lightCol: 0, cue: -1, cueT: 0, task: "grid", vis: true,
+}));
+
+function taskFor(a) {
+  if (domTask === "cursor") return a.i === HERO ? "cursor" : "grid";
+  if (domTask === "memory") return a.i === HERO ? "memory" : "grid";
+  return domTask;
+}
+const above = (p, h) => [p[0], p[1] + h, p[2]];
+function planRollout(a) {
+  const task = taskFor(a); a.task = task;
+  let start, target, p = 0.74;
+  if (task === "cursor") {
+    const active = curLocal && performance.now() - curSeen < 6000;
+    if (active) start = [curLocal.x + rand(-0.01, 0.01), BLOCK / 2, curLocal.z + rand(-0.01, 0.01)];
+    else if (Math.random() < 0.75) start = [START.x + rand(-1, 1) * START.h * 0.8, BLOCK / 2, START.z + rand(-1, 1) * START.h * 0.8];
+    else start = [rand(-0.36, 0.1), BLOCK / 2, rand(-0.02, 0.2)];
+    const d = Math.max(Math.abs(start[0] - START.x), Math.abs(start[2] - START.z)) - START.h;
+    p = d <= 0 ? 0.93 : Math.max(0.1, 0.93 - d * 3);
+  } else {
+    start = [START.x + rand(-0.05, 0.05), BLOCK / 2, START.z + rand(-0.05, 0.05)];
+    if (task === "stairs") p = STAIR_P[a.col];
+    if (task === "memory") p = 0.8;
+  }
+  start[0] = clamp(start[0], -0.36, 0.12); start[2] = clamp(start[2], -0.02, 0.21);
+  const succ = Math.random() < p;
+  let mode = "ok";
+  if (task === "memory") mode = succ ? "ok" : "wrong";
+  else if (succ) mode = Math.random() < 0.18 ? "regrasp" : "ok";
+  else { const r = Math.random(); mode = r < 0.35 ? "timeout" : r < 0.65 ? "drop" : "off"; }
+  let ti = STD_TARGET, lit = -1;
+  if (task === "memory") { lit = Math.floor(rand(0, 3)); ti = succ ? lit : (lit + (Math.random() < 0.5 ? 1 : 2)) % 3; }
+  target = [TARGETS[ti].x, BLOCK / 2 + 0.001, TARGETS[ti].z];
+  if (mode === "off") { const ang = rand(0, Math.PI * 2); target[0] += Math.cos(ang) * 0.1; target[2] = clamp(target[2] + Math.sin(ang) * 0.08, 0.16, 0.36); }
+  const yaw = rand(-0.6, 0.6);
+  const gy = yaw - Math.round(yaw / (Math.PI / 2)) * (Math.PI / 2);
+  const miss = [start[0] + (Math.random() < 0.5 ? -1 : 1) * 0.032, start[1], start[2]];
+  const st = [];
+  st.push({ type: "call", fn: () => { Object.assign(a.block, { p: start.slice(), yaw, vis: true, att: false, fall: false, vy: 0, tilt: 0 }); a.light = 0; if (lit >= 0) { a.cue = lit; a.cueT = 1.1; } } });
+  st.push({ type: "wait", dur: 0.45 });
+  st.push({ type: "joint", to: above(start, 0.12), yaw: gy });
+  const attempt = (p0, hit) => {
+    st.push({ type: "cart", to: p0, yaw: gy, dur: 0.6 });
+    st.push({ type: "grip", to: hit ? 0.025 : 0.0, dur: 0.4, end: () => { if (hit) a.block.att = true; } });
+    st.push({ type: "wait", dur: 0.15 });
+    st.push({ type: "cart", to: above(p0, 0.13), yaw: gy, dur: 0.55 });
+  };
+  if (mode === "timeout") {
+    attempt(miss, false);
+    st.push({ type: "grip", to: 0.04, dur: 0.3 });
+    attempt([start[0] - (miss[0] - start[0]) * 0.8, start[1], start[2]], false);
+    st.push({ type: "grip", to: 0.04, dur: 0.3 });
+    st.push({ type: "call", fn: () => judge(a, false) });
+  } else {
+    if (mode === "regrasp") { attempt(miss, false); st.push({ type: "grip", to: 0.04, dur: 0.3 }); }
+    attempt(start, true);
+    st.push({ type: "joint", to: above(target, 0.14), yaw: gy, drop: mode === "drop" });
+    if (mode === "drop") {
+      st.push({ type: "grip", to: 0.04, dur: 0.3 });
+      st.push({ type: "call", fn: () => judge(a, false) });
+    } else {
+      st.push({ type: "cart", to: target, yaw: gy, dur: 0.6 });
+      st.push({ type: "grip", to: 0.04, dur: 0.35, start: () => { a.block.att = false; a.block.p[1] = BLOCK / 2 + 0.001; } });
+      st.push({ type: "cart", to: above(target, 0.12), yaw: gy, dur: 0.5 });
+      st.push({ type: "call", fn: () => judge(a, succ) });
+    }
+  }
+  st.push({ type: "joint", q: HOME });
+  st.push({ type: "wait", dur: 0.6 });
+  st.push({ type: "call", fn: () => { a.block.vis = false; } });
+  return st;
+}
+function judge(a, ok) {
+  S.total.n++; if (ok) S.total.k++;
+  const b = a.task === "stairs" ? S.stairs[a.col] : S[a.task];
+  b.n++; if (ok) b.k++;
+  a.light = 1.6; a.lightCol = ok ? 1 : 2;
+}
+function tcpCell(q) { return toCell(fk(q).p); }
+function startStep(a, s) {
+  s.t = 0;
+  if (s.type === "joint") {
+    s.q0 = a.q.slice();
+    s.q1 = s.q ? s.q.slice() : solveTo(a.q, s.to, s.yaw);
+    let d = 0; for (let k = 0; k < 7; k++) d = Math.max(d, Math.abs(s.q1[k] - s.q0[k]));
+    s.dur = clamp(d / VMAX, 0.6, 2.4);
+  } else if (s.type === "cart") { s.p0 = toMJ(...tcpCell(a.q)); s.p1 = toMJ(...s.to); s.R = downR(s.yaw); }
+  else if (s.type === "grip") s.g0 = a.g;
+  else if (s.type === "call") s.dur = 0;
+  if (s.start) s.start();
+}
+function stepArm(a, dt) {
+  if (a.delay > 0) { a.delay -= dt; return; }
+  if (!a.cur) { if (!a.steps.length) a.steps = planRollout(a); a.cur = a.steps.shift(); startStep(a, a.cur); if (a.cur.type === "call") { a.cur.fn(); a.cur = null; return; } }
+  const s = a.cur; s.t += dt * a.speed;
+  const u = s.dur > 0 ? clamp(s.t / s.dur, 0, 1) : 1, e = mj(u);
+  if (s.type === "joint") { for (let k = 0; k < 7; k++) a.q[k] = s.q0[k] + (s.q1[k] - s.q0[k]) * e; if (s.drop && a.block.att && u > 0.45) { a.block.att = false; a.block.fall = true; a.block.vy = 0; } }
+  else if (s.type === "cart") { const tp = [lerp(s.p0[0], s.p1[0], e), lerp(s.p0[1], s.p1[1], e), lerp(s.p0[2], s.p1[2], e)]; for (let i = 0; i < 3; i++) ikStep(a.q, tp, s.R); }
+  else if (s.type === "grip") a.g = lerp(s.g0, s.to, e);
+  if (u >= 1) { if (s.end) s.end(); a.cur = null; }
+}
+function stepBlock(a, dt) {
+  const b = a.block;
+  if (b.att) { const c = tcpCell(a.q); b.p = c; }
+  if (b.fall) {
+    b.vy -= 9.8 * dt; b.p[1] += b.vy * dt; b.tilt += dt * 4;
+    if (b.p[1] <= BLOCK / 2) { b.p[1] = BLOCK / 2; b.fall = false; b.tilt = Math.round(b.tilt / (Math.PI / 2)) * (Math.PI / 2); }
+  }
+  if (a.light > 0) a.light -= dt;
+  if (a.cueT > 0) a.cueT -= dt;
+}
+
+// ---------------- scroll beats ----------------
+const BEATS = [
+  { layout: "single", cam: [2.05, 1.45, 2.45], look: [-0.12, 0.2, -0.05], task: "cursor" },
+  { layout: "grid", cam: [7.1, 7.3, 11.3], look: [0, -0.6, 0], task: "grid" },
+  { layout: "stairs", cam: [0.35, 4.7, 14.6], look: [0, -0.15, 0], task: "stairs" },
+  { layout: "single", cam: [1.55, 1.4, 2.05], look: [-0.04, 0.12, 0.06], task: "memory" },
+  { layout: "grid", cam: [-7.9, 5.9, 9.5], look: [0, -0.6, 0], task: "grid" },
+  { layout: "grid", cam: [10.6, 9.0, -3.1], look: [0, -0.6, 0], task: "grid" },
+  { layout: "grid", cam: [0.2, 12.5, 10.5], look: [0, -0.7, 0], task: "grid" },
+];
+const sections = [...document.querySelectorAll(".beat")];
+let centers = [];
+const narrowQ = matchMedia("(max-width: 860px)");
+const measure = () => { centers = sections.map((s) => { const r = s.getBoundingClientRect(); return r.top + scrollY + (narrowQ.matches ? 0 : r.height / 2); }); };
+let progress = () => {
+  const y = scrollY + innerHeight * (narrowQ.matches ? 0.62 : 0.5);
+  if (y <= centers[0]) return 0;
+  for (let i = 0; i < centers.length - 1; i++) if (y < centers[i + 1]) return i + (y - centers[i]) / (centers[i + 1] - centers[i]);
+  return centers.length - 1;
+};
+function layoutOf(b, a) {
+  const L = BEATS[b].layout, gx = (a.col - 1.5) * SPX, gz = (a.row - 1.5) * SPZ;
+  if (L === "single") return a.i === HERO ? [0, 0, 0, 1] : [gx * 1.6, 0, gz * 1.6, 0];
+  if (L === "stairs") return [gx, a.col * STEP, gz, 1];
+  return [gx, 0, gz, 1];
+}
+
+// ---------------- pointer ----------------
+const ndc = new THREE.Vector2(), par = new THREE.Vector2();
+const ray = new THREE.Raycaster(), plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), hit = new THREE.Vector3();
+const cellPos = arms.map(() => new THREE.Vector3()), cellScale = new Float32Array(N);
+function onPoint(x, y) {
+  const r = canvas.getBoundingClientRect();
+  if (y < r.top || y > r.bottom) return;
+  ndc.set(((x - r.left) / r.width) * 2 - 1, -((y - r.top) / r.height) * 2 + 1);
+  par.copy(ndc);
+  if (domTask !== "cursor") return;
+  ray.setFromCamera(ndc, camera);
+  plane.constant = -cellPos[HERO].y;
+  if (ray.ray.intersectPlane(plane, hit)) {
+    const lx = hit.x - cellPos[HERO].x, lz = hit.z - cellPos[HERO].z;
+    if (Math.abs(lx) < 0.56 && lz > -0.42 && lz < 0.42) { curLocal = { x: clamp(lx, -0.36, 0.12), z: clamp(lz, -0.02, 0.21) }; curSeen = performance.now(); }
+  }
+}
+addEventListener("pointermove", (e) => onPoint(e.clientX, e.clientY), { passive: true });
+addEventListener("pointerdown", (e) => onPoint(e.clientX, e.clientY), { passive: true });
+
+// ---------------- theme in the scene ----------------
+const bgDay = new THREE.Color(0xefeee9), bgNight = new THREE.Color(0x15181b);
+onTheme = () => {
+  const d = isDark();
+  scene.environmentIntensity = d ? 0.22 : 0.9;
+  key.intensity = d ? 2.0 : 1.3;
+  key.color.set(d ? 0xffe6c8 : 0xffffff);
+  floorMat.opacity = d ? 0.42 : 0.16;
+  chalkMat.color.set(d ? 0xd8d4c8 : 0xf3f0e6);
+};
+onTheme();
+
+// ---------------- callouts ----------------
+const calloutsEl = $("#callouts");
+const mkCallout = () => { const d = document.createElement("div"); d.className = "callout"; calloutsEl.appendChild(d); return d; };
+const coLevels = [0, 1, 2, 3].map(mkCallout);
+const proj = new THREE.Vector3();
+function place(el, x, y, z, op, html, down = false) {
+  if (op < 0.02) { el.style.opacity = 0; return; }
+  proj.set(x, y, z).project(camera);
+  const r = canvas.getBoundingClientRect();
+  const sx = r.left + ((proj.x + 1) / 2) * r.width, sy = r.top + ((1 - proj.y) / 2) * r.height;
+  if (html !== undefined && el._h !== html) { el.innerHTML = html; el._h = html; }
+  el.classList.toggle("down", down);
+  el.style.transform = down ? `translate(${sx.toFixed(1)}px, ${sy.toFixed(1)}px) translate(-50%, 38px)` : `translate(${sx.toFixed(1)}px, ${sy.toFixed(1)}px) translate(-50%, calc(-100% - 24px))`;
+  el.style.opacity = op;
+}
+
+// ---------------- live prose ----------------
+function setCI(id, k, n) {
+  const el = $(id); if (!el) return;
+  if (!n) { el.innerHTML = ""; return; }
+  const [lo, hi] = wilson(k, n), x = (v) => (v * 64).toFixed(1);
+  el.innerHTML = `<line x1="0" x2="64" y1="6" y2="6"/><rect x="${x(lo)}" y="4.5" width="${Math.max(1, (hi - lo) * 64).toFixed(1)}" height="3" rx="1"/><rect class="pt" x="${(k / n * 64 - 0.75).toFixed(1)}" y="1.5" width="1.5" height="9"/>`;
+}
+const rateText = (k, n) => { if (!n) return ""; const [lo, hi] = wilson(k, n); return ` (${pc(k / n)}%, 95% interval ${pc(lo)}–${pc(hi)}%)`; };
+function writeLive() {
+  const h = S.cursor, g = S.grid, m = S.memory, t = S.total;
+  $("#h-n").textContent = h.n; $("#h-k").textContent = h.k; $("#h-rate").textContent = rateText(h.k, h.n) + "."; setCI("#h-ci", h.k, h.n);
+  $("#g-n").textContent = g.n; $("#g-k").textContent = g.k; $("#g-rate").textContent = rateText(g.k, g.n) + "."; setCI("#g-ci", g.k, g.n);
+  $("#m-n").textContent = m.n; $("#m-k").textContent = m.k; $("#m-rate").textContent = m.n ? ` (${pc(m.k / m.n)}%)` : "";
+  const sl = S.stairs.map((s, i) => `level ${i + 1} at ${s.k} of ${s.n}`).join(", ");
+  $("#s-live").textContent = `The raised tables in view act out a toy version, with true success rates of 95%, 74%, 47% and 20% from level 1 to level 4.` + (S.stairs[0].n ? ` So far: ${sl}.` : "");
+  let st = "";
+  if (curLocal && performance.now() - curSeen < 6000) {
+    const d = Math.max(Math.abs(curLocal.x - START.x), Math.abs(curLocal.z - START.z)) - START.h;
+    st = d > 0 ? `Your start position is ${Math.round(d * 100)} cm outside the taped square.` : "Your start position is inside the taped square.";
+  }
+  $("#h-state").textContent = st;
+  $("#watched").innerHTML = t.n
+    ? `While you read, the animated arms on this page acted out <b class="num">${t.n}</b> rollouts, and <b class="num">${t.k}</b> came up as successes${rateText(t.k, t.n)}.`
+    : "While you read, the animated arms on this page acted out <b class=\"num\">0</b> rollouts.";
+}
+
+// ---------------- resize ----------------
+let W = 0, H = 0;
+function resize() {
+  const r = canvas.getBoundingClientRect();
+  W = Math.max(1, r.width); H = Math.max(1, r.height);
+  renderer.setSize(W, H, false);
+  camera.aspect = W / H;
+  camera.fov = narrowQ.matches ? 38 : 32;
+  if (narrowQ.matches) camera.clearViewOffset(); else camera.setViewOffset(W, H, -W * 0.2, 0, W, H);
+  camera.updateProjectionMatrix();
+  measure();
+}
+addEventListener("resize", resize);
+new ResizeObserver(measure).observe(document.querySelector("main"));
+resize();
+
+// ---------------- frame ----------------
+const camPos = new THREE.Vector3(...BEATS[0].cam), camLook = new THREE.Vector3(...BEATS[0].look);
+const tA = new THREE.Vector3(), tB = new THREE.Vector3();
+const bodyM = bodies.map(() => new THREE.Matrix4());
+const outM = new THREE.Matrix4(), _eu = new THREE.Euler();
+const cellM = new THREE.Matrix4(), armM = new THREE.Matrix4(), tmpM = new THREE.Matrix4(), ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
+const _q = new THREE.Quaternion(), _jq = new THREE.Quaternion(), _v = new THREE.Vector3(), _s = new THREE.Vector3(1, 1, 1), _ax = new THREE.Vector3();
+const COLS = { off: new THREE.Color(0x8d9195), offN: new THREE.Color(0x4a4e52), ok: new THREE.Color(0x3fbf62), bad: new THREE.Color(0xe0443a), cue: new THREE.Color(0xfff0c8) };
+function fkMatrices(a) {
+  for (let i = 0; i < bodies.length; i++) {
+    const b = bodies[i];
+    _v.copy(b.pos); _q.copy(b.quat);
+    if (b.joint) {
+      if (b.joint.type === "hinge") { _jq.setFromAxisAngle(b.axis, a.q[b.qi]); _q.multiply(_jq); }
+      else _v.add(_ax.copy(b.axis).applyQuaternion(b.quat).multiplyScalar(a.g));
+    }
+    tmpM.compose(_v, _q, _s);
+    if (b.parent < 0) bodyM[i].copy(tmpM); else bodyM[i].multiplyMatrices(bodyM[b.parent], tmpM);
+  }
+}
+let last = performance.now(), liveT = 0;
+function update(now, draw = true) {
+  const dt = clamp((now - last) / 1000, 0, 0.05); last = Math.max(last, now);
+  const t = progress();
+  const b0 = Math.floor(t), b1 = Math.min(b0 + 1, BEATS.length - 1), e = smooth(0.18, 0.82, t - b0);
+  domTask = BEATS[e < 0.5 ? b0 : b1].task;
+  const dark = isDark();
+
+  for (const a of arms) {
+    const A = layoutOf(b0, a), B = layoutOf(b1, a);
+    cellPos[a.i].set(lerp(A[0], B[0], e), lerp(A[1], B[1], e), lerp(A[2], B[2], e));
+    cellScale[a.i] = lerp(A[3], B[3], e);
+    a.vis = cellScale[a.i] > 0.01;
+    a.speed = a.i === HERO && (domTask === "cursor" || domTask === "memory") ? 1 : 1.7;
+    if (a.vis || a.i === HERO) { stepArm(a, dt); stepBlock(a, dt); }
+  }
+
+  // instance matrices
+  for (const a of arms) {
+    const s = cellScale[a.i];
+    if (s < 0.01) {
+      for (const p of parts) p.mesh.setMatrixAt(a.i, ZERO);
+      for (const pr of props) for (let j = 0; j < pr.locals.length; j++) pr.mesh.setMatrixAt(a.i * pr.locals.length + j, ZERO);
+      blockMesh.setMatrixAt(a.i, ZERO);
+      continue;
+    }
+    cellM.compose(cellPos[a.i], _q.identity(), _v.set(s, s, s));
+    armM.multiplyMatrices(cellM, MOUNT);
+    fkMatrices(a);
+    for (const p of parts) { tmpM.multiplyMatrices(armM, bodyM[p.bi]).multiply(p.local); p.mesh.setMatrixAt(a.i, tmpM); }
+    const legLen = 0.71 + cellPos[a.i].y;
+    for (const pr of props) for (let j = 0; j < pr.locals.length; j++) {
+      let L = pr.locals[j];
+      if (pr === legs) { L = tmpM.copy(L); const el = L.elements; el[5] = legLen; el[13] = -0.04 - legLen / 2; }
+      pr.mesh.setMatrixAt(a.i * pr.locals.length + j, outM.multiplyMatrices(cellM, L));
+    }
+    const off = dark ? COLS.offN : COLS.off;
+    tower.mesh.setColorAt(a.i, a.light > 0 ? (a.lightCol === 1 ? COLS.ok : COLS.bad) : off);
+    for (let j = 0; j < 3; j++) cues.mesh.setColorAt(a.i * 3 + j, a.cueT > 0 && a.cue === j ? COLS.cue : off);
+    const bl = a.block;
+    if (bl.vis) {
+      tmpM.compose(_v.fromArray(bl.p), _jq.setFromEuler(_eu.set(bl.tilt * 0.6, bl.yaw, bl.tilt * 0.35)), _s);
+      blockMesh.setMatrixAt(a.i, outM.multiplyMatrices(cellM, tmpM));
+    } else blockMesh.setMatrixAt(a.i, ZERO);
+  }
+  for (const p of parts) p.mesh.instanceMatrix.needsUpdate = true;
+  for (const pr of props) { pr.mesh.instanceMatrix.needsUpdate = true; if (pr.mesh.instanceColor) pr.mesh.instanceColor.needsUpdate = true; }
+  blockMesh.instanceMatrix.needsUpdate = true;
+
+  // hero overlays
+  const heroW = b0 === 0 ? 1 - e : 0;
+  const curActive = curLocal && now - curSeen < 6000;
+  chalkMat.opacity = curActive ? 0.9 * heroW : 0;
+  if (curLocal) chalk.position.set(cellPos[HERO].x + curLocal.x, cellPos[HERO].y + 0.004, cellPos[HERO].z + curLocal.z);
+
+  // camera
+  tA.set(...BEATS[b0].cam).lerp(tB.set(...BEATS[b1].cam), e);
+  if (!reduce && !coarse) tA.add(_v.set(par.x * 0.1, par.y * 0.05, 0));
+  camPos.lerp(tA, reduce ? 1 : 0.1);
+  tA.set(...BEATS[b0].look).lerp(tB.set(...BEATS[b1].look), e);
+  camLook.lerp(tA, reduce ? 1 : 0.1);
+  camera.position.copy(camPos); camera.lookAt(camLook);
+
+  // callouts
+  const stW = BEATS[b0].layout === "stairs" ? 1 - e : BEATS[b1].layout === "stairs" ? e : 0;
+  coLevels.forEach((el, c) => {
+    const s = S.stairs[c];
+    place(el, (c - 1.5) * SPX, c * STEP + 0.75, -1.5 * SPZ - 0.1, stW, `<b>Level ${c + 1}</b> ${s.n ? `${s.k} of ${s.n}` : "running"}`);
+  });
+
+  liveT -= dt;
+  if (liveT <= 0) { writeLive(); liveT = 0.25; }
+  if (draw) renderer.render(scene, camera);
+}
+function loop(now) { update(now); requestAnimationFrame(loop); }
+requestAnimationFrame(loop);
+canvas.classList.add("on");
+addEventListener("load", measure);
+</script>  </body></html> 
