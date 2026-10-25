@@ -63,7 +63,7 @@ export interface SkillGroup {
 
 export const site = {
   name: "Lucas Burgett",
-  role: "Math + CS @ Stanford · Intern @ Parametric (F25)",
+  role: "Robot policy evaluation",
   location: "Stanford & San Diego, California",
   email: "lburgett@stanford.edu",
   resume: "/Lucas-Burgett-Resume-2026.pdf",
@@ -192,7 +192,7 @@ export const experience: readonly ExperienceItem[] = [
     org: "Parametric",
     role: "Software Engineering Intern",
     location: "San Francisco, CA · YC F25",
-    period: "Summer 2026 – present",
+    period: "Summer 2026",
     body:
       "Building and deploying reinforcement learning models for robotics, across the full ML lifecycle from training to production.",
     tags: ["Reinforcement Learning", "Robotics", "MLOps"],
