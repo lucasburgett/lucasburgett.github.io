@@ -1,8 +1,5 @@
 ---
-import "../styles/global.css";
 import { site } from "../data/content";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -10,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = `${site.name} · ${site.role}`,
-  description = "I'm studying math and computer science at Stanford and building physical AI systems — reinforcement learning, VLAs, and reliable policies in the real world. Interning at Parametric (YC F25).",
+  title = `${site.name}, ${site.role}`,
+  description = "I build evaluations for robot policies: the metrics and statistics that decide whether a policy is usable in the real world. Math and CS at Stanford; built the policy evaluation pipeline at Parametric (YC F25) in summer 2026.",
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://lucasburgett.com").href;
@@ -33,7 +30,7 @@ const siteUrl = new URL(Astro.site ?? "https://lucasburgett.com").href;
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="author" content={site.name} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#efeee9" />
     <meta name="google-site-verification" content="iASbm3BFs_axlTdM-GdW5dfidV79c303HGuwut_yxKk" />
 
     <!-- Open Graph / Twitter -->
@@ -46,7 +43,7 @@ const siteUrl = new URL(Astro.site ?? "https://lucasburgett.com").href;
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
+    <meta property="og:image:alt" content={`${site.name}, ${site.role}`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -83,14 +80,12 @@ const siteUrl = new URL(Astro.site ?? "https://lucasburgett.com").href;
             url: siteUrl,
             image: ogImage,
             email: site.email,
-            jobTitle: "Reinforcement Learning Researcher",
-            alumniOf: { "@type": "CollegeOrUniversity", name: "Stanford University" },
-            worksFor: { "@type": "Organization", name: "Parametric" },
+            affiliation: { "@type": "CollegeOrUniversity", name: "Stanford University" },
             knowsAbout: [
+              "Robot policy evaluation",
+              "Machine learning evaluation",
               "Reinforcement Learning",
               "Robotics",
-              "Vision-Language Models",
-              "Machine Learning",
             ],
             sameAs: [
               "https://github.com/lucasburgett",
@@ -101,46 +96,10 @@ const siteUrl = new URL(Astro.site ?? "https://lucasburgett.com").href;
         ],
       })}
     />
+    <slot name="head" />
   </head>
   <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <Nav />
-    <main id="main">
-      <slot />
-    </main>
-    <Footer />
-
-    <script>
-      const navEl = document.querySelector<HTMLElement>(".masthead");
-      const onScroll = () => navEl?.toggleAttribute("data-scrolled", window.scrollY > 8);
-      if (navEl) {
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-      }
-
-      // Active-section highlighting for wayfinding (progressive enhancement).
-      const navLinks = Array.from(
-        document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"),
-      );
-      const sections = navLinks
-        .map((link) => document.querySelector<HTMLElement>(link.hash))
-        .filter((el): el is HTMLElement => el !== null);
-      if ("IntersectionObserver" in window && sections.length) {
-        const spy = new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach((link) =>
-                  link.toggleAttribute("data-active", link.hash === `#${id}`),
-                );
-              }
-            }
-          },
-          { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
-        );
-        sections.forEach((section) => spy.observe(section));
-      }
-    </script>
+    <a href="#top" class="skip-link">Skip to content</a>
+    <slot />
   </body>
 </html>
